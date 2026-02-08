@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://ai-automate-lab.com/sitemap-index.xml
+Disallow: /og-images/
+Disallow: /pagefind/
+Disallow: /_astro/
+Crawl-delay: 1

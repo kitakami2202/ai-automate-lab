@@ -1,0 +1,128 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import { generateJsonLd } from '../utils/jsonld';
+import { generateTitle } from '../utils/seo';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  article: CollectionEntry<'articles'>;
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { article, headings } = Astro.props;
+const { title, description, category, tags, publishedAt, updatedAt, layer, difficulty, timeToRead, faq } = article.data;
+
+const articleUrl = `https://ai-automate-lab.com/articles/${article.slug}/`;
+const jsonLdArray = generateJsonLd(article, articleUrl, headings);
+
+const categoryLabels: Record<string, string> = {
+  gas: 'GAS自動化',
+  'discord-bot': 'Discord Bot',
+  'ai-api': 'AI API連携',
+  'no-code': 'ノーコード',
+  frameworks: '導入フレームワーク',
+  reviews: 'レビュー・比較',
+};
+
+const categoryColors: Record<string, string> = {
+  gas: 'bg-green-50 text-green-700',
+  'discord-bot': 'bg-purple-50 text-purple-700',
+  'ai-api': 'bg-orange-50 text-orange-700',
+  'no-code': 'bg-violet-50 text-violet-700',
+  frameworks: 'bg-blue-50 text-blue-700',
+  reviews: 'bg-red-50 text-red-700',
+};
+
+const difficultyLabels: Record<string, string> = {
+  beginner: '初級',
+  intermediate: '中級',
+  advanced: '上級',
+};
+
+// Get related articles
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const relatedArticles = allArticles
+  .filter((a) => a.slug !== article.slug)
+  .filter((a) => article.data.relatedArticles?.includes(a.slug.split('/').pop() || ''))
+  .slice(0, 3);
+
+// Fallback: if not enough related articles found by slug, fill with same category
+if (relatedArticles.length < 3) {
+  const sameCategoryArticles = allArticles
+    .filter((a) => a.data.category === category && a.slug !== article.slug)
+    .filter((a) => !relatedArticles.find((r) => r.slug === a.slug))
+    .slice(0, 3 - relatedArticles.length);
+  relatedArticles.push(...sameCategoryArticles);
+}
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  title={generateTitle(title)}
+  description={description}
+  type="article"
+  publishedTime={publishedAt.toISOString()}
+  modifiedTime={updatedAt.toISOString()}
+  jsonLd={jsonLdArray}
+>
+  <article class="container py-10" data-pagefind-body>
+    <Breadcrumb
+      items={[
+        { name: categoryLabels[category] || category, url: `/category/${category}/` },
+        { name: title, url: `/articles/${article.slug}/` },
+      ]}
+    />
+
+    <header class="mb-8">
+      <div class="flex items-center gap-2 mb-3">
+        <span class:list={['inline-block text-sm font-medium px-3 py-1 rounded-full', categoryColors[category] || 'bg-blue-50 text-blue-700']}>
+          {categoryLabels[category] || category}
+        </span>
+        <span class="inline-block text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded">
+          {difficultyLabels[difficulty] || difficulty}
+        </span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">{title}</h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+        <span>著者: れん</span>
+        <time datetime={publishedAt.toISOString()}>
+          {formatDate(publishedAt)}
+        </time>
+        {updatedAt && updatedAt.getTime() !== publishedAt.getTime() && (
+          <span>
+            (更新: <time datetime={updatedAt.toISOString()}>{formatDate(updatedAt)}</time>)
+          </span>
+        )}
+        <span>約{timeToRead}分で読了</span>
+      </div>
+      {tags && tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-3">
+          {tags.map((tag: string) => (
+            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <TableOfContents headings={headings} />
+
+    <div class="article-content">
+      <slot />
+    </div>
+
+    {faq && faq.length > 0 && (
+      <FAQ items={faq} />
+    )}
+
+    <RelatedArticles articles={relatedArticles} />
+  </article>
+</BaseLayout>

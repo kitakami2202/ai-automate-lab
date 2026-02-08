@@ -1,0 +1,49 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-gray-300 mt-20">
+  <div class="container py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Categories -->
+      <div>
+        <h3 class="text-white text-lg mb-4">カテゴリ</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/category/gas/" class="text-gray-300 hover:text-white no-underline">GAS自動化</a></li>
+          <li><a href="/category/discord-bot/" class="text-gray-300 hover:text-white no-underline">Discord Bot</a></li>
+          <li><a href="/category/ai-api/" class="text-gray-300 hover:text-white no-underline">AI API連携</a></li>
+          <li><a href="/category/no-code/" class="text-gray-300 hover:text-white no-underline">ノーコード・ローコード</a></li>
+          <li><a href="/category/frameworks/" class="text-gray-300 hover:text-white no-underline">導入フレームワーク</a></li>
+          <li><a href="/category/reviews/" class="text-gray-300 hover:text-white no-underline">レビュー・比較</a></li>
+        </ul>
+      </div>
+
+      <!-- Site Links -->
+      <div>
+        <h3 class="text-white text-lg mb-4">サイト</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/about/" class="text-gray-300 hover:text-white no-underline">About</a></li>
+          <li><a href="/glossary/" class="text-gray-300 hover:text-white no-underline">用語集</a></li>
+          <li><a href="/privacy/" class="text-gray-300 hover:text-white no-underline">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+
+      <!-- About -->
+      <div>
+        <h3 class="text-white text-lg mb-4">AI Automate Lab</h3>
+        <p class="text-sm leading-relaxed mb-4">
+          中小企業のAI業務自動化を、フレームワークで再現可能にするナレッジベースです。
+          実務経験に基づく一次情報を体系化してお届けします。
+        </p>
+        <p class="text-xs text-gray-500">
+          コード例はMITライセンスで提供しています。<br />
+          記事内のコード例による損害について、当サイトは責任を負いません。
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+      <p>&copy; {year} AI Automate Lab. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

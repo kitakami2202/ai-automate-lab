@@ -1,0 +1,40 @@
+---
+import SEOHead from '../components/SEOHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  jsonLd?: string | string[];
+}
+
+const { title, description, ogImage, type, publishedTime, modifiedTime, jsonLd } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <SEOHead
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      type={type}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

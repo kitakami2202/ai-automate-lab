@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-800 bg-white leading-relaxed;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold text-gray-900;
+  }
+
+  a {
+    @apply text-brand hover:underline transition-colors;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-5xl mx-auto px-4;
+  }
+
+  .article-content h2 {
+    @apply text-2xl mt-10 mb-4 pb-2 border-b border-gray-200;
+  }
+
+  .article-content h3 {
+    @apply text-xl mt-8 mb-3;
+  }
+
+  .article-content p {
+    @apply mb-4 leading-7;
+  }
+
+  .article-content ul, .article-content ol {
+    @apply mb-4 pl-6;
+  }
+
+  .article-content li {
+    @apply mb-2;
+  }
+
+  .article-content pre {
+    @apply rounded-lg p-4 mb-4 overflow-x-auto font-mono;
+    background-color: #1F2937;
+  }
+
+  .article-content code {
+    @apply font-mono;
+  }
+
+  .article-content code:not(pre code) {
+    @apply bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm;
+  }
+
+  .article-content blockquote {
+    @apply border-l-4 border-brand pl-4 my-4 text-gray-600 italic;
+  }
+
+  .article-content table {
+    @apply w-full border-collapse mb-4;
+  }
+
+  .article-content th, .article-content td {
+    @apply border border-gray-300 px-4 py-2 text-left;
+  }
+
+  .article-content th {
+    @apply bg-gray-50 font-semibold;
+  }
+
+  .article-content img {
+    @apply rounded-lg my-4;
+  }
+}

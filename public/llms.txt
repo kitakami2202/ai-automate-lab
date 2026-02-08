@@ -1,0 +1,18 @@
+# AI Automate Lab
+> 中小企業のAI業務自動化を、フレームワークで再現可能にするナレッジベース
+
+## サイト概要
+中小企業向けにAI業務自動化の実践的なナレッジを提供する日本語サイト。
+著者（れん）の実務経験に基づく一次情報を体系化。
+
+## カテゴリ
+- gas / discord-bot / ai-api / no-code / frameworks / reviews
+
+## 特徴
+- FAQ構造化データ付き / コピペで動くコード / Layer 1/2の2層構造 / JSON-LD付与
+
+## 引用
+自由（出典URL記載）。コードはMITライセンス。
+
+## サイトマップ
+https://ai-automate-lab.com/sitemap-index.xml

@@ -1,0 +1,73 @@
+---
+const navItems = [
+  { label: 'ホーム', href: '/' },
+  { label: 'GAS', href: '/category/gas/' },
+  { label: 'Discord Bot', href: '/category/discord-bot/' },
+  { label: 'AI API', href: '/category/ai-api/' },
+  { label: 'ノーコード', href: '/category/no-code/' },
+  { label: 'フレームワーク', href: '/category/frameworks/' },
+  { label: 'About', href: '/about/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+  <div class="container flex items-center justify-between h-16">
+    <a href="/" class="text-xl font-bold text-brand no-underline hover:no-underline">
+      AI Automate Lab
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-6">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'text-sm font-medium no-underline hover:text-brand transition-colors',
+            currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href.replace(/\/$/, ''))) ? 'text-brand' : 'text-gray-600',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 text-gray-600"
+      aria-label="メニューを開く"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+    <div class="container py-4 flex flex-col gap-3">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'text-sm font-medium no-underline hover:text-brand',
+            currentPath === item.href ? 'text-brand' : 'text-gray-600',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/glossary/" class="text-sm font-medium no-underline hover:text-brand text-gray-600">用語集</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

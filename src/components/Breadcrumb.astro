@@ -1,0 +1,37 @@
+---
+import { generateBreadcrumbJsonLd } from '../utils/jsonld';
+
+export interface Props {
+  items: { name: string; url: string }[];
+}
+
+const { items } = Astro.props;
+
+const breadcrumbItems = [
+  { name: 'ホーム', url: '/' },
+  ...items,
+];
+
+const jsonLd = generateBreadcrumbJsonLd(breadcrumbItems);
+---
+
+<nav aria-label="パンくずリスト" class="mb-6">
+  <ol class="flex flex-wrap items-center gap-1 text-sm text-gray-500">
+    {breadcrumbItems.map((item, index) => (
+      <>
+        {index > 0 && <li class="mx-1">/</li>}
+        <li>
+          {index < breadcrumbItems.length - 1 ? (
+            <a href={item.url} class="hover:text-brand no-underline hover:underline">
+              {item.name}
+            </a>
+          ) : (
+            <span class="text-gray-800 font-medium">{item.name}</span>
+          )}
+        </li>
+      </>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={jsonLd} />

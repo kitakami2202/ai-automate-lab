@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<BaseLayout
+  title="About | AI Automate Lab"
+  description="AI Automate Labについて。中小企業のAI業務自動化を、フレームワークで再現可能にするナレッジベースです。"
+>
+  <div class="container py-10">
+    <Breadcrumb items={[{ name: 'About', url: '/about/' }]} />
+
+    <h1 class="text-3xl font-bold mb-8">AI Automate Labについて</h1>
+
+    <div class="prose max-w-none">
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">サイトの目的</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          AI Automate Labは、中小企業のAI業務自動化を「フレームワークで再現可能にする」ナレッジベースです。
+          著者（れん）の実務経験に基づく一次情報を体系化し、非エンジニアの経営者・事務担当者から
+          エンジニア初学者まで、具体的なアクションが取れる情報を提供しています。
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">コンテンツの軸</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          <strong>「AI × 業務自動化 × 中小企業 × 実務一次情報」</strong>
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          すべての記事は、以下の3つの基準を満たすものだけを公開しています。
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>中小企業の業務に関係するか</li>
+          <li>著者の実務経験、または実際に動くコードが含まれるか</li>
+          <li>読んだ人が具体的なアクションを起こせるか</li>
+        </ul>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">対象読者</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li><strong>Layer 1（入口）</strong>: 非エンジニアの経営者・事務担当者 - 「何ができるか」「費用対効果」を知りたい方</li>
+          <li><strong>Layer 2（実行）</strong>: エンジニア初学者・やる気のある事務担当 - 「具体的な作り方」「コード」が欲しい方</li>
+        </ul>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">取り扱いトピック</h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li><strong>GAS自動化</strong>: Google Apps Scriptでスプレッドシート自動化、LINE Bot、Slack連携</li>
+          <li><strong>Discord Bot</strong>: GAS連携によるBotの構築と業務活用</li>
+          <li><strong>AI API連携</strong>: Claude、OpenAI、Geminiを業務に組み込む方法</li>
+          <li><strong>ノーコード・ローコード</strong>: Zapier、Make、n8nの比較と導入ガイド</li>
+          <li><strong>導入フレームワーク</strong>: 自動化戦略、ROI計算テンプレート、AI導入ロードマップ</li>
+          <li><strong>レビュー・比較</strong>: ツールの客観的な比較と選定ガイド</li>
+        </ul>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">著者について</h2>
+        <p class="text-gray-700 leading-relaxed">
+          れん - 中小企業のAI業務自動化を実践・支援。GAS、Discord Bot、AI APIを活用した自動化の実務経験に基づき、
+          再現可能なナレッジを発信しています。
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

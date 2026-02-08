@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="ページが見つかりません | AI Automate Lab"
+  description="お探しのページは見つかりませんでした。"
+>
+  <div class="container py-20 text-center">
+    <h1 class="text-6xl font-bold text-gray-300 mb-4">404</h1>
+    <p class="text-xl text-gray-600 mb-8">お探しのページは見つかりませんでした</p>
+    <p class="text-gray-500 mb-8">
+      URLが間違っているか、ページが移動・削除された可能性があります。
+    </p>
+    <div class="flex justify-center gap-4">
+      <a
+        href="/"
+        class="inline-block bg-brand text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-hover transition-colors no-underline"
+      >
+        トップページへ
+      </a>
+      <a
+        href="/glossary/"
+        class="inline-block border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:border-brand hover:text-brand transition-colors no-underline"
+      >
+        用語集を見る
+      </a>
+    </div>
+  </div>
+</BaseLayout>

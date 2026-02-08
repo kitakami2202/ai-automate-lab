@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+  const categories = [...new Set(allArticles.map((a) => a.data.category))];
+
+  return categories.map((category) => ({
+    params: { category },
+    props: {
+      articles: allArticles
+        .filter((a) => a.data.category === category)
+        .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()),
+    },
+  }));
+}
+
+const { category } = Astro.params;
+const { articles } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  gas: 'GAS自動化',
+  'discord-bot': 'Discord Bot',
+  'ai-api': 'AI API連携',
+  'no-code': 'ノーコード',
+  frameworks: '導入フレームワーク',
+  reviews: 'レビュー・比較',
+};
+
+const categoryDescriptions: Record<string, string> = {
+  gas: 'Google Apps Scriptを使った業務自動化テクニックの記事一覧です。スプレッドシート連携からメール自動送信まで。',
+  'discord-bot': 'Discord Botの構築と運用に関する記事一覧です。コミュニティ運営の自動化に。',
+  'ai-api': 'Claude、OpenAI、GeminiなどAI APIの活用記事一覧です。業務へのAI組み込み方法を解説。',
+  'no-code': 'Zapier、Make、n8nなどノーコード・ローコードツールの記事一覧です。コーディング不要の自動化。',
+  frameworks: '自動化戦略・ROI計算・AI導入フレームワークの記事一覧です。導入前の計画づくりに。',
+  reviews: 'ツール比較・レビュー記事の一覧です。最適なツール選びの参考に。',
+};
+
+const categoryColors: Record<string, string> = {
+  gas: 'border-category-gas',
+  'discord-bot': 'border-category-discord',
+  'ai-api': 'border-category-ai-api',
+  'no-code': 'border-category-no-code',
+  frameworks: 'border-category-frameworks',
+  reviews: 'border-category-reviews',
+};
+
+const difficultyLabels: Record<string, string> = {
+  beginner: '初級',
+  intermediate: '中級',
+  advanced: '上級',
+};
+
+const difficultyColors: Record<string, string> = {
+  beginner: 'bg-green-100 text-green-700',
+  intermediate: 'bg-yellow-100 text-yellow-700',
+  advanced: 'bg-red-100 text-red-700',
+};
+
+const label = categoryLabels[category!] || category;
+const description = categoryDescriptions[category!] || `${label}に関する記事一覧`;
+const borderColor = categoryColors[category!] || 'border-brand';
+
+const pillarArticles = articles.filter((a: any) => a.data.articleType === 'pillar');
+const otherArticles = articles.filter((a: any) => a.data.articleType !== 'pillar');
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  title={`${label} | AI Automate Lab`}
+  description={description}
+>
+  <div class="container py-10">
+    <Breadcrumb items={[{ name: label, url: `/category/${category}/` }]} />
+
+    <h1 class="text-3xl font-bold mb-4">{label}</h1>
+    <p class="text-gray-600 mb-8">{description}</p>
+
+    {pillarArticles.length > 0 && (
+      <div class="mb-10">
+        <h2 class="text-lg font-bold text-gray-700 mb-4">まず読むべき記事</h2>
+        <div class="space-y-4">
+          {pillarArticles.map((article: any) => (
+            <a
+              href={`/articles/${article.slug}/`}
+              class={`block p-6 border-l-4 ${borderColor} bg-gray-50 rounded-lg hover:shadow-md transition-all no-underline`}
+            >
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs font-bold bg-brand text-white px-2 py-0.5 rounded">ピラー記事</span>
+                {article.data.difficulty && (
+                  <span class={`text-xs px-2 py-0.5 rounded ${difficultyColors[article.data.difficulty] || ''}`}>
+                    {difficultyLabels[article.data.difficulty] || article.data.difficulty}
+                  </span>
+                )}
+                {article.data.timeToRead && (
+                  <span class="text-xs text-gray-500">{article.data.timeToRead}分で読める</span>
+                )}
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">{article.data.title}</h3>
+              <p class="text-sm text-gray-600">{article.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="space-y-4">
+      {otherArticles.map((article: any) => (
+        <a
+          href={`/articles/${article.slug}/`}
+          class={`block p-6 border border-gray-200 rounded-lg hover:${borderColor} hover:shadow-sm transition-all no-underline`}
+        >
+          <div class="flex items-center gap-2 mb-2">
+            {article.data.difficulty && (
+              <span class={`text-xs px-2 py-0.5 rounded ${difficultyColors[article.data.difficulty] || ''}`}>
+                {difficultyLabels[article.data.difficulty] || article.data.difficulty}
+              </span>
+            )}
+            {article.data.timeToRead && (
+              <span class="text-xs text-gray-500">{article.data.timeToRead}分で読める</span>
+            )}
+          </div>
+          <h2 class="text-lg font-bold text-gray-800 mb-2">{article.data.title}</h2>
+          <p class="text-sm text-gray-600 mb-3">{article.data.description}</p>
+          <div class="flex items-center gap-3">
+            <time class="text-xs text-gray-400" datetime={article.data.publishedAt.toISOString()}>
+              {formatDate(article.data.publishedAt)}
+            </time>
+            {article.data.tags && (
+              <div class="flex gap-1">
+                {article.data.tags.slice(0, 3).map((tag: string) => (
+                  <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
