@@ -1,18 +1,18 @@
 slug,primary_kw,secondary_kw,layer,article_type,cluster,priority,status,notes
-gas-basics,GAS できること,"Google Apps Script 入門,GAS 業務自動化",entry,pillar,gas,S,published,GASクラスターのピラー
+gas-basics,GAS できること,"Google Apps Script 入門,GAS 業務自動化",entry,pillar,gas,S,reviewed,GASクラスターのピラー
 gas-spreadsheet-automation,GAS スプレッドシート 自動化,"GAS 日報 自動化,GAS 集計",execution,howto,gas,S,reviewed,gas-basicsのクラスター（リライト構成案作成済み）
 gas-line-bot,GAS LINE Bot 作り方,"GAS LINE 通知,LINE Bot 自動化",execution,howto,gas,S,reviewed,gas-basicsのクラスター（リライト構成案作成済み）
-gas-slack-notification,GAS Slack 通知,"Slack 自動通知,スプレッドシート Slack",execution,howto,gas,S,published,gas-basicsのクラスター
-discord-bot-gas,Discord Bot GAS 連携,"Discord 通知 自動化,Discord スプレッドシート",execution,howto,discord-bot,S,published,discord-botクラスター
-discord-slash-commands,Discord スラッシュコマンド,"Discord Bot コマンド,Discord インタラクション",execution,howto,discord-bot,A,published,discord-botクラスター
-discord-spreadsheet-db,Discord スプレッドシートDB,"Discord データ管理,Discord Bot データベース",execution,howto,discord-bot,A,published,discord-botクラスター
-openai-api-intro,OpenAI API 入門,"ChatGPT API,GPT API 使い方",execution,howto,ai-api,A,published,ai-apiクラスター
-claude-api-intro,Claude API 入門,"Claude API 使い方,Anthropic API",execution,howto,ai-api,A,published,ai-apiクラスター
-gemini-api-intro,Gemini API 入門,"Gemini API 使い方,Google AI API",execution,howto,ai-api,A,published,ai-apiクラスター
-zapier-vs-make,Zapier vs Make 比較,"Zapier Make 違い,自動化ツール 比較",entry,comparison,no-code,A,published,no-codeクラスター
-n8n-self-hosting,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",execution,howto,no-code,B,published,no-codeクラスター
-ai-introduction-5steps,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",entry,framework,frameworks,S,published,frameworksクラスター
-automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",entry,framework,frameworks,S,published,frameworksクラスター
-where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,published,frameworksクラスター
-ai-dev-tools-comparison,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",entry,comparison,reviews,A,published,reviewsクラスター
-automation-tools-matrix,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",entry,comparison,reviews,A,published,reviewsクラスター
+gas-slack-notification,GAS Slack 通知,"Slack 自動通知,スプレッドシート Slack",execution,howto,gas,S,reviewed,gas-basicsのクラスター
+discord-bot-gas,Discord Bot GAS 連携,"Discord 通知 自動化,Discord スプレッドシート",execution,howto,discord-bot,S,reviewed,discord-botクラスター
+discord-slash-commands,Discord スラッシュコマンド,"Discord Bot コマンド,Discord インタラクション",execution,howto,discord-bot,A,reviewed,discord-botクラスター
+discord-spreadsheet-db,Discord スプレッドシートDB,"Discord データ管理,Discord Bot データベース",execution,howto,discord-bot,A,reviewed,discord-botクラスター
+openai-api-intro,OpenAI API 入門,"ChatGPT API,GPT API 使い方",execution,howto,ai-api,A,reviewed,ai-apiクラスター
+claude-api-intro,Claude API 入門,"Claude API 使い方,Anthropic API",execution,howto,ai-api,A,reviewed,ai-apiクラスター
+gemini-api-intro,Gemini API 入門,"Gemini API 使い方,Google AI API",execution,howto,ai-api,A,reviewed,ai-apiクラスター
+zapier-vs-make,Zapier vs Make 比較,"Zapier Make 違い,自動化ツール 比較",entry,comparison,no-code,A,reviewed,no-codeクラスター
+n8n-self-hosting,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",execution,howto,no-code,B,reviewed,no-codeクラスター
+ai-introduction-5steps,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",entry,framework,frameworks,S,reviewed,frameworksクラスター（リライト済み）
+automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",entry,framework,frameworks,S,reviewed,frameworksクラスター（リライト済み）
+where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,reviewed,frameworksクラスター（リライト済み）
+ai-dev-tools-comparison,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",entry,comparison,reviews,A,reviewed,reviewsクラスター
+automation-tools-matrix,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",entry,comparison,reviews,A,reviewed,reviewsクラスター

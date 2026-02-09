@@ -1,71 +1,199 @@
 ---
-title: "Google Apps Script入門 - 基礎から始める業務自動化"
-description: "Google Apps Script（GAS）の基本的な使い方を初心者向けに解説。スプレッドシートやGmailの自動化を実現する第一歩を踏み出しましょう。"
+title: "GASでできること完全ガイド｜業務自動化入門"
+description: "Google Apps Script（GAS）でできることを初心者向けに徹底解説。スプレッドシート自動化・メール送信・LINE/Slack通知など中小企業の業務自動化に役立つ活用シーン一覧と、始め方・制限事項まで網羅。GAS業務自動化の第一歩を踏み出せます。"
 category: "gas"
-tags: ["GAS", "Google Apps Script", "入門", "自動化"]
+tags: ["GAS", "Google Apps Script", "業務自動化", "入門", "スプレッドシート"]
 publishedAt: 2025-01-15
-updatedAt: 2025-01-15
+updatedAt: 2026-02-09
 author: "れん"
 difficulty: "beginner"
 timeToRead: 15
 layer: "entry"
 articleType: "pillar"
 schema:
-  type: "HowTo"
-  totalTime: "PT30M"
-  estimatedCost: "0"
-relatedArticles: ["gas/gas-spreadsheet-automation", "gas/gas-line-bot", "gas/gas-slack-notification"]
-draft: false
+  type: "Article"
 faq:
-  - question: "Google Apps Scriptとは何ですか？"
-    answer: "Google Apps Script（GAS）は、Googleが提供する無料のスクリプト環境です。スプレッドシート、Gmail、カレンダーなどのGoogleサービスをJavaScriptベースのコードで自動化できます。"
   - question: "GASを使うのにプログラミング経験は必要ですか？"
-    answer: "基本的なプログラミング知識があると有利ですが、初心者でも始められます。JavaScriptの基本構文を学びながら、簡単なスクリプトから始めることをおすすめします。"
-  - question: "GASの実行制限はありますか？"
-    answer: "はい。無料のGoogleアカウントでは1回の実行時間が6分、1日のトリガー実行回数が90分までなどの制限があります。Google Workspaceアカウントではこれらの制限が緩和されます。"
+    answer: "基本的な操作は非エンジニアでも始められます。JavaScriptの基礎知識があると有利ですが、スプレッドシートのマクロ記録機能を使えばコードを書かずに自動化を体験できます。ChatGPTにやりたいことを伝えてコードを生成してもらう方法も有効です。"
+  - question: "GASは無料で使えますか？"
+    answer: "はい、Googleアカウントがあれば完全無料で利用できます。Google Workspace（有料）ユーザーは実行時間やトリガー上限が緩和されますが、中小企業の一般的な業務自動化であれば無料アカウントで十分対応可能です。"
+  - question: "GASの実行時間の上限はどのくらいですか？"
+    answer: "無料アカウントでは1回の実行が6分まで、トリガーの合計実行時間が1日90分までに制限されています。Google Workspaceユーザーは実行時間が30分に延長されます。6分を超える処理は複数の関数に分割してトリガーで連携させることで対応できます。"
+  - question: "GASとExcel VBAの違いは何ですか？"
+    answer: "最大の違いはクラウドかローカルかです。GASはブラウザ上で動作しGoogleサービスと直接連携できます。VBAはデスクトップのExcel上で動作しMicrosoft製品と連携します。中小企業でGoogleアカウントを使っている場合はGASの方が導入が手軽です。"
+  - question: "GASでChatGPTなどのAIと連携できますか？"
+    answer: "可能です。GASのUrlFetchAppを使ってOpenAI APIやGemini APIを呼び出すことで、AI機能を業務自動化に組み込めます。問い合わせの自動分類やメール文面の自動生成など、AIとGASの組み合わせで実現できる業務は幅広いです。"
+relatedArticles: ["gas/gas-spreadsheet-automation", "gas/gas-slack-notification", "frameworks/automation-roi-template"]
+draft: false
 ---
 
-## Google Apps Scriptとは
+| 項目 | 内容 |
+|------|------|
+| 対象読者 | 中小企業の経営者・事務担当者・エンジニア初学者 |
+| 前提知識 | 不要（Googleアカウントがあれば始められます） |
+| この記事でわかること | GASでできること一覧 / 始め方 / 制限事項と対策 |
+| 所要時間（読了） | 約15分 |
 
-Google Apps Script（GAS）は、Googleが提供するクラウドベースのスクリプトプラットフォームです。JavaScriptをベースとしており、Googleの各種サービスを自動化・連携させることができます。
+Google Apps Script（GAS）は、Googleが提供する**無料のクラウドスクリプト環境**です。
+中小企業の経営者・事務担当者にとって、スプレッドシートの集計やメール送信、チャット通知など**日常業務の自動化を無料で実現できる**点で注目されています。
+この記事はGoogle Apps Script入門として、GASでできることの全体像を一覧表で整理し、始め方から制限事項まで解説します。
 
-## GASでできること
+## GASとは？基本と全体像
 
-GASを使うと、以下のような自動化が実現できます：
+GASとは、Googleが提供するJavaScript（Webサイトやアプリの開発に使われるプログラミング言語）ベースのスクリプト環境です。ブラウザだけで開発・実行でき、Googleの各種サービスを自動化・連携させることができます。
 
-- **スプレッドシートの自動処理**: データの集計、整形、レポート生成
-- **メールの自動送信**: 定期的な通知やレポートの配信
-- **カレンダー管理**: 予定の自動登録や通知
-- **フォーム連携**: 回答データの自動処理
+### GASの5つの特徴
 
-## 最初のスクリプトを書いてみよう
+| 特徴 | 内容 |
+|------|------|
+| 完全無料 | Googleアカウントがあれば追加費用なしで利用可能 |
+| ブラウザ完結 | インストール不要。ブラウザ上のエディタでコードを書いて即実行 |
+| JavaScriptベース | Web業界で最も使われる言語がベースのため、学習リソースが豊富 |
+| Googleサービス直結 | スプレッドシート・Gmail・カレンダー・ドライブなどとワンクリックで連携 |
+| トリガー自動実行 | 「毎朝9時に実行」「フォーム送信時に実行」など条件指定で完全自動化 |
 
-### ステップ1: スクリプトエディタを開く
+### スタンドアロン型とコンテナバインド型
 
-Googleスプレッドシートを開き、「拡張機能」→「Apps Script」を選択します。
+GASのプロジェクトには2つの作成方法があります。
 
-### ステップ2: Hello Worldを実行
+| 種類 | 作成方法 | 特徴 | 向いている用途 |
+|------|---------|------|-------------|
+| コンテナバインド型 | スプレッドシート等の「拡張機能」→「Apps Script」 | 特定のファイルに紐づく。`getActiveSpreadsheet()`で直接操作可能 | スプレッドシートの集計・メール送信 |
+| スタンドアロン型 | Google Drive →「新規」→「Google Apps Script」 | 独立したプロジェクト。複数サービスをまたぐ処理に向く | API連携・Webhook受信・複数ファイル操作 |
+
+スプレッドシートを操作する処理はコンテナバインド型が適しています。外部サービスとの連携はスタンドアロン型を選びましょう。
+
+## GASでできること一覧
+
+GASでできることとは、Googleサービスの操作・外部サービスとの連携・Webアプリの構築など多岐にわたる自動化機能の総称です。以下にカテゴリ別で整理します。
+
+### Googleサービス連携
+
+| できること | 具体例 | 業務での活用 |
+|-----------|--------|------------|
+| スプレッドシート操作 | データ集計・行追加・フォーマット変更 | 売上日報の自動集計、在庫管理 |
+| Gmail送信・管理 | メール自動送信・ラベル付け・検索 | 日次レポート配信、未読アラート |
+| カレンダー操作 | 予定の自動登録・取得・通知 | 会議室予約、タスク期日管理 |
+| フォーム連携 | 回答データの自動処理・通知 | 問い合わせ受付→スプレッドシート記録→メール通知 |
+| ドライブ操作 | ファイルの作成・コピー・移動 | 月次フォルダの自動作成、テンプレートコピー |
+
+### 外部サービス連携
+
+| できること | 具体例 | 業務での活用 |
+|-----------|--------|------------|
+| Slack通知 | Incoming Webhookでメッセージ送信 | 在庫アラート、売上レポート配信 |
+| LINE Bot | Messaging APIで自動応答Bot構築 | 顧客問い合わせ自動応答、勤怠連絡Bot |
+| Discord通知 | WebhookでDiscordサーバーに通知 | チーム内アラート、タスク完了通知 |
+| 外部API呼び出し | UrlFetchAppでREST APIを実行 | 天気情報取得、AI API連携、決済サービス連携 |
+
+### 中小企業向け活用シナリオ
+
+GAS業務自動化は、以下のような中小企業の日常業務で特に効果を発揮します。
+
+| シナリオ | 自動化の流れ | 削減効果の目安 | 詳細記事 |
+|---------|------------|-------------|---------|
+| 売上日報の自動集計 | スプレッドシートのデータ → 集計 → メール送信 | 毎日15分 → 0分 | [GAS×スプレッドシート自動化](/articles/gas/gas-spreadsheet-automation) |
+| チーム通知の自動化 | スプレッドシートの値を検知 → Slack/LINE通知 | 確認作業を大幅削減 | [GAS×Slack通知](/articles/gas/gas-slack-notification) |
+| 顧客対応の自動化 | LINE Bot自動応答 → スプレッドシートに記録 | 問い合わせ対応 → 即時自動応答 | [GAS×LINE Bot](/articles/gas/gas-line-bot) |
+| フォーム回答の処理 | Googleフォーム送信 → スプレッドシート記録 → メール通知 | 手動転記の完全自動化 | — |
+
+どの業務から自動化すべきか迷ったら、[業務自動化 何から始める？](/articles/frameworks/where-to-automate-first)で優先順位の付け方を解説しています。
+
+## GASの始め方
+
+GASの始め方とは、スクリプトエディタを開いてコードを実行するまでの手順です。3ステップで最初のスクリプトを動かせます。
+
+### ステップ1 — スクリプトエディタを開く
+
+Googleスプレッドシートを開き、上部メニューの「拡張機能」→「Apps Script」を選択します。ブラウザの新しいタブにGASエディタが表示されます。
+
+### ステップ2 — Hello Worldを実行する
+
+エディタに表示されている既存のコードを削除し、以下を貼り付けます。
 
 ```javascript
 function myFirstScript() {
-  Logger.log('Hello, GAS!');
-  SpreadsheetApp.getUi().alert('Hello, GAS!');
+  // アクティブなスプレッドシートのA1セルに書き込む
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  sheet.getRange('A1').setValue('Hello, GAS!');
+
+  // ログに出力（デバッグ用）
+  Logger.log('スクリプトが正常に実行されました');
 }
 ```
 
-### ステップ3: トリガーを設定する
+**このコードのポイント:**
+- `SpreadsheetApp.getActiveSpreadsheet()`で現在のスプレッドシートを取得しています
+- `getRange('A1').setValue()`でセルに値を書き込みます
+- `Logger.log()`で実行ログを確認できます（「実行数」タブで閲覧）
 
-時間ベースのトリガーを使えば、スクリプトを定期的に自動実行できます。
+上部の「実行」ボタンをクリックすると、初回はGoogleから権限の承認を求められます。「詳細」→「〇〇（安全ではないページ）に移動」→「許可」で承認してください。自分が作成したスクリプトであれば安全に承認して問題ありません。
+
+### ステップ3 — トリガーで自動実行する
+
+トリガー（指定した条件でスクリプトを自動実行する機能）を使えば、手動実行なしで定期的にスクリプトを動かせます。
 
 ```javascript
-function createTrigger() {
+function createMyTrigger() {
   ScriptApp.newTrigger('myFirstScript')
     .timeBased()
     .everyHours(1)
     .create();
+
+  Logger.log('トリガーを設定しました: 1時間ごとに実行');
 }
 ```
 
-## まとめ
+**このコードのポイント:**
+- `createMyTrigger()`を1回手動実行すると、以降は1時間ごとに`myFirstScript`が自動実行されます
+- GUIで設定する場合は、GASエディタ左メニューの「トリガー」（時計アイコン）からも設定可能です
 
-GASは無料で始められる強力な自動化ツールです。まずは簡単なスクリプトから始めて、徐々に複雑な自動化に挑戦していきましょう。
+ここまでの基本が理解できたら、次は実際の業務自動化に挑戦しましょう。スプレッドシートのデータ集計・メール送信を自動化する手順は[GAS×スプレッドシート自動化](/articles/gas/gas-spreadsheet-automation)で詳しく解説しています。
+
+## 注意点・制限事項
+
+GASの注意点とは、無料で手軽に使える一方で把握しておくべき実行制限やセキュリティ上の留意事項です。
+
+### GASの制限事項
+
+| 制限事項 | 無料アカウント | Google Workspace |
+|---------|-------------|-----------------|
+| スクリプト実行時間 | 6分/回 | 30分/回 |
+| トリガー合計実行時間 | 90分/日 | 6時間/日 |
+| メール送信数 | 100通/日 | 1,500通/日 |
+| UrlFetch回数 | 20,000回/日 | 100,000回/日 |
+| スクリプトプロジェクト数 | 無制限 | 無制限 |
+
+Google Workspace の料金詳細は[Google公式サイト](https://workspace.google.com/pricing)をご確認ください（2026年2月時点）。
+
+### GASの「できないこと」と代替手段
+
+GASは万能ではありません。以下のケースでは他のツールが適しています。
+
+| やりたいこと | GASの可否 | 代替手段 |
+|------------|----------|---------|
+| 6分を超える重い処理 | 分割で対応可能だが複雑 | n8n / Power Automate |
+| Microsoft製品（Excel/Outlook）の直接操作 | 不可 | Excel VBA / Power Automate |
+| リアルタイム性が必要な処理 | トリガーの最短間隔が1分 | 専用サーバー / Cloud Functions |
+| 複雑なUI/ダッシュボード | 簡易的なHTML Serviceのみ | Webアプリ / Looker Studio |
+| 大量データ処理（数十万行以上） | メモリ・時間制限に抵触 | BigQuery / Python |
+
+自動化ツール全般の比較は[自動化ツール比較表](/articles/reviews/automation-tools-matrix)をご覧ください。
+
+### セキュリティの注意点
+
+- **APIキー・トークンはスクリプトプロパティに保管**: コードにハードコードすると漏洩リスクがあります。`PropertiesService.getScriptProperties()`を使いましょう
+- **スプレッドシートの共有設定に注意**: スクリプトが紐づいたスプレッドシートを共有すると、コードも閲覧される可能性があります
+- **定期的なトークン再発行**: 外部サービスのトークンは定期的に更新することを推奨します
+
+## まとめ：次のステップ
+
+GASは、Googleアカウントさえあれば無料で始められるクラウドスクリプト環境です。スプレッドシートの自動集計、メール送信、Slack/LINE通知など、中小企業の日常業務を幅広く自動化できます。
+
+GASの基本が理解できたら、以下の実装記事で具体的な自動化に挑戦してください。
+
+- [GAS×スプレッドシート自動化](/articles/gas/gas-spreadsheet-automation) — 約45分で売上集計・日報メール送信を自動化
+- [GAS×Slack通知](/articles/gas/gas-slack-notification) — 約30分で在庫アラートやレポートをSlackに自動配信
+- [GAS×LINE Bot](/articles/gas/gas-line-bot) — 約60分で自動応答LINE Botを無料構築
+
+自動化の費用対効果を事前に試算したい方は[自動化ROI計算テンプレート](/articles/frameworks/automation-roi-template)をご活用ください。
