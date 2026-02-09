@@ -1,6 +1,6 @@
 slug,primary_kw,secondary_kw,layer,article_type,cluster,priority,status,notes
 gas-basics,GAS できること,"Google Apps Script 入門,GAS 業務自動化",entry,pillar,gas,S,published,GASクラスターのピラー
-gas-spreadsheet-automation,GAS スプレッドシート 自動化,"GAS 日報 自動化,GAS 集計",execution,howto,gas,S,published,gas-basicsのクラスター
+gas-spreadsheet-automation,GAS スプレッドシート 自動化,"GAS 日報 自動化,GAS 集計",execution,howto,gas,S,reviewed,gas-basicsのクラスター（リライト構成案作成済み）
 gas-line-bot,GAS LINE Bot 作り方,"GAS LINE 通知,LINE Bot 自動化",execution,howto,gas,S,reviewed,gas-basicsのクラスター（リライト構成案作成済み）
 gas-slack-notification,GAS Slack 通知,"Slack 自動通知,スプレッドシート Slack",execution,howto,gas,S,published,gas-basicsのクラスター
 discord-bot-gas,Discord Bot GAS 連携,"Discord 通知 自動化,Discord スプレッドシート",execution,howto,discord-bot,S,published,discord-botクラスター
