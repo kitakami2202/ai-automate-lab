@@ -9,7 +9,11 @@
       "WebSearch",
       "WebFetch(domain:gurishunin.com)",
       "WebFetch(domain:prtn-life.com)",
-      "Bash(claude:*)"
+      "Bash(claude:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nrewrite: gas-line-bot\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)"
     ],
     "additionalDirectories": [
       "c:\\Users\\kitak\\ai-automate-lab"
