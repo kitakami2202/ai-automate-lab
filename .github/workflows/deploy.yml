@@ -37,12 +37,11 @@ jobs:
           echo "${{ secrets.CONOHA_SSH_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -p ${{ secrets.CONOHA_PORT }} ${{ secrets.CONOHA_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
-      - name: Debug SSH connection
+      - name: Deploy via rsync
         run: |
-          echo "=== Testing with rsa-sha2-512 ==="
-          ssh -vvv -i ~/.ssh/deploy_key -p ${{ secrets.CONOHA_PORT }} -o StrictHostKeyChecking=no -o PubkeyAcceptedKeyTypes=+ssh-rsa ${{ secrets.CONOHA_USERNAME }}@${{ secrets.CONOHA_HOST }} "echo connected" 2>&1 || true
-          echo "=== Testing with ssh-rsa only ==="
-          ssh -vvv -i ~/.ssh/deploy_key -p ${{ secrets.CONOHA_PORT }} -o StrictHostKeyChecking=no -o PubkeyAcceptedKeyTypes=ssh-rsa ${{ secrets.CONOHA_USERNAME }}@${{ secrets.CONOHA_HOST }} "echo connected" 2>&1 || true
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.CONOHA_PORT }} -o StrictHostKeyChecking=no" \
+            ./dist/ ${{ secrets.CONOHA_USERNAME }}@${{ secrets.CONOHA_HOST }}:${{ secrets.CONOHA_REMOTE_PATH }}
       - name: Cleanup
         if: always()
         run: rm -f ~/.ssh/deploy_key
