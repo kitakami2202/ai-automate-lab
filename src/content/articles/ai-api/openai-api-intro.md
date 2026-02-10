@@ -26,9 +26,9 @@ faq:
   - question: "OpenAI APIをGoogle Apps Script（GAS）から使えますか？"
     answer: "はい、GASのUrlFetchApp関数でHTTPリクエストを送信すれば利用可能です。APIキーはPropertiesService.getScriptProperties()で安全に管理します。スプレッドシートとの連携で問い合わせメールの一括分類なども実現できます。具体的な手順はGASでできること完全ガイドもあわせてご覧ください。"
 relatedArticles:
+  - "ai-api/ai-api-overview"
   - "ai-api/claude-api-intro"
   - "ai-api/gemini-api-intro"
-  - "reviews/ai-dev-tools-comparison"
 draft: false
 ---
 

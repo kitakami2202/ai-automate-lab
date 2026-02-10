@@ -16,3 +16,7 @@ automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テ�
 where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,reviewed,frameworksクラスター（リライト済み）
 ai-dev-tools-comparison,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",entry,comparison,reviews,A,reviewed,reviewsクラスター
 automation-tools-matrix,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",entry,comparison,reviews,A,reviewed,reviewsクラスター
+automation-roadmap,中小企業 AI 業務自動化,"業務効率化 AI,自動化 ロードマップ,DX 中小企業",entry,pillar,frameworks,S,reviewed,frameworksクラスターのピラー（全体ハブ）
+discord-bot-overview,Discord Bot 業務活用,"Discord Bot 作り方,Discord 自動化,Discord 業務",entry,pillar,discord-bot,S,reviewed,discord-botクラスターのピラー
+no-code-overview,ノーコード 自動化ツール 比較,"ノーコード おすすめ,ローコード 比較,iPaaS 比較",entry,pillar,no-code,S,reviewed,no-codeクラスターのピラー
+ai-api-overview,AI API 業務活用,"AI API 入門,AI API 組み込み,LLM API 比較",entry,pillar,ai-api,S,reviewed,ai-apiクラスターのピラー

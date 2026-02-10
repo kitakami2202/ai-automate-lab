@@ -26,9 +26,9 @@ faq:
   - question: "ローカルPCでもn8nをセルフホストできますか？"
     answer: "Docker環境があればWindows・Mac・Linuxいずれのローカル環境でも構築可能です。ただし、Webhookトリガーなど常時稼働が必要なワークフローにはVPSを推奨します。ローカル環境はワークフローの開発・検証用途に適しています。"
 relatedArticles:
+  - "no-code/no-code-overview"
   - "no-code/zapier-vs-make"
   - "reviews/automation-tools-matrix"
-  - "frameworks/automation-roi-template"
 draft: false
 ---
 

@@ -25,9 +25,9 @@ faq:
   - question: "APIキーの安全な管理方法は？"
     answer: "環境変数（ANTHROPIC_API_KEY）で管理するのが基本です。.envファイルにAPIキーを記載し、python-dotenvで読み込みます。.gitignoreに.envを追加してGitリポジトリにコミットされないようにしてください。Anthropic公式SDKは環境変数を自動認識するため、コード内にAPIキーを直接書く必要はありません。"
 relatedArticles:
+  - "ai-api/ai-api-overview"
   - "ai-api/openai-api-intro"
   - "ai-api/gemini-api-intro"
-  - "reviews/ai-dev-tools-comparison"
 draft: false
 ---
 

@@ -25,7 +25,7 @@ faq:
     answer: "主な原因は4つあります。Webhook URLの設定ミス、Webhookが削除されている、ペイロードのJSON形式エラー、GASのUrlFetch日次制限（20,000回）の到達です。本記事のトラブルシューティング表で詳しく確認できます。"
   - question: "GASからDiscordにファイルや画像を送信できますか？"
     answer: "Webhookでは直接ファイル送信はできません。画像はEmbed内のimage URLフィールドで表示可能です。ファイル送信にはBot TokenとmultipartリクエストによるDiscord APIの呼び出しが必要です。"
-relatedArticles: ["discord-bot/discord-slash-commands", "discord-bot/discord-spreadsheet-db", "gas/gas-basics"]
+relatedArticles: ["discord-bot/discord-bot-overview", "discord-bot/discord-slash-commands", "discord-bot/discord-spreadsheet-db"]
 draft: false
 ---
 

@@ -26,9 +26,9 @@ faq:
   - question: "GeminiとChatGPT（OpenAI）、Claude（Anthropic）のAPIはどう使い分けますか？"
     answer: "Geminiの強みは無料枠の大きさとGASとの相性です。OpenAI APIはエコシステムの広さとツール連携、Claude APIは長文処理と指示追従性が優れています。中小企業でまず試すなら、無料で始められるGemini APIが導入しやすいです。詳しくは当サイトのAI開発ツール比較記事を参照してください。"
 relatedArticles:
+  - "ai-api/ai-api-overview"
   - "ai-api/openai-api-intro"
   - "ai-api/claude-api-intro"
-  - "gas/gas-basics"
 draft: false
 ---
 

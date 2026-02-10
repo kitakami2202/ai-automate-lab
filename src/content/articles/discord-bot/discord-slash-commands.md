@@ -25,7 +25,7 @@ faq:
     answer: "GASもDiscord Botの作成・運用も完全無料です。Discord Developer Portalでのアプリ作成に費用はかかりません。サーバー費用ゼロで、スラッシュコマンドに応答するBotを運用できます。"
   - question: "スラッシュコマンドで画像やファイルを送信できますか？"
     answer: "テキストメッセージやEmbed内の画像URLであれば送信可能です。ファイルの直接添付にはmultipart/form-dataリクエストが必要ですが、GASのUrlFetchAppでも対応できます。テキスト応答が最もシンプルなため、まずテキストで基本を押さえてからEmbed形式に拡張するのが効率的です。"
-relatedArticles: ["discord-bot/discord-bot-gas", "discord-bot/discord-spreadsheet-db", "gas/gas-basics"]
+relatedArticles: ["discord-bot/discord-bot-overview", "discord-bot/discord-bot-gas", "discord-bot/discord-spreadsheet-db"]
 draft: false
 ---
 

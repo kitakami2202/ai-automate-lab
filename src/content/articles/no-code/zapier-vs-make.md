@@ -23,7 +23,7 @@ faq:
     answer: "オープンソースのn8nはセルフホスティングすれば月額コストを大幅に抑えられます。Microsoft環境が中心の場合はPower Automateも候補になります。n8nの詳細は「n8nセルフホスティングガイド」をご覧ください。"
   - question: "中小企業が自動化ツールを選ぶ際の最も重要な判断基準は？"
     answer: "判断基準は3つあります。自動化したい業務の複雑さ、月間処理件数（コストに直結）、運用する担当者のスキルレベルです。ツール料金だけでなく、教育や保守にかかる隠れコストも考慮して選びましょう。"
-relatedArticles: ["no-code/n8n-self-hosting", "reviews/automation-tools-matrix", "frameworks/where-to-automate-first"]
+relatedArticles: ["no-code/no-code-overview", "no-code/n8n-self-hosting", "reviews/automation-tools-matrix"]
 draft: false
 ---
 

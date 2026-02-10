@@ -25,7 +25,7 @@ faq:
     answer: "数百〜数千行のデータで、アクセス頻度が低〜中程度であればスプレッドシートDBで十分です。リアルタイム同期・大量データ・高頻度アクセスが必要な場合はCloud FirestoreやSupabaseなどの本格DBが適しています。この記事の制限事項表で判断基準を確認できます。"
   - question: "スプレッドシートDBのバックアップはどうしますか？"
     answer: "Googleドライブのバージョン履歴で過去のデータを復元できます。スプレッドシートの「ファイル」→「版の管理」から過去30日分の変更履歴を確認可能です。重要なデータは定期的にスプレッドシートをコピーしてバックアップすることも有効です。"
-relatedArticles: ["discord-bot/discord-bot-gas", "discord-bot/discord-slash-commands", "gas/gas-spreadsheet-automation"]
+relatedArticles: ["discord-bot/discord-bot-overview", "discord-bot/discord-bot-gas", "discord-bot/discord-slash-commands"]
 draft: false
 ---
 
