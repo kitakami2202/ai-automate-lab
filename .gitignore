@@ -28,6 +28,3 @@ pnpm-debug.log*
 # Generated OGP images (regenerated at build time)
 public/og-images/
 
-# Font files (large binary)
-src/assets/fonts/*.ttf
-src/assets/fonts/*.otf
