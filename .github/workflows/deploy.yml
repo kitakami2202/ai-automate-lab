@@ -39,12 +39,10 @@ jobs:
           ssh-keyscan -p ${{ secrets.CONOHA_PORT }} ${{ secrets.CONOHA_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
       - name: Debug SSH connection
         run: |
-          echo "=== Key file info ==="
-          wc -l ~/.ssh/deploy_key
-          head -1 ~/.ssh/deploy_key
-          tail -1 ~/.ssh/deploy_key
-          echo "=== Testing SSH connection (verbose) ==="
-          ssh -vvv -i ~/.ssh/deploy_key -p ${{ secrets.CONOHA_PORT }} -o StrictHostKeyChecking=no ${{ secrets.CONOHA_USERNAME }}@${{ secrets.CONOHA_HOST }} "echo connected" 2>&1 || true
+          echo "=== Testing with rsa-sha2-512 ==="
+          ssh -vvv -i ~/.ssh/deploy_key -p ${{ secrets.CONOHA_PORT }} -o StrictHostKeyChecking=no -o PubkeyAcceptedKeyTypes=+ssh-rsa ${{ secrets.CONOHA_USERNAME }}@${{ secrets.CONOHA_HOST }} "echo connected" 2>&1 || true
+          echo "=== Testing with ssh-rsa only ==="
+          ssh -vvv -i ~/.ssh/deploy_key -p ${{ secrets.CONOHA_PORT }} -o StrictHostKeyChecking=no -o PubkeyAcceptedKeyTypes=ssh-rsa ${{ secrets.CONOHA_USERNAME }}@${{ secrets.CONOHA_HOST }} "echo connected" 2>&1 || true
       - name: Cleanup
         if: always()
         run: rm -f ~/.ssh/deploy_key
