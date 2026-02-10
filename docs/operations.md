@@ -21,7 +21,7 @@
 ```
 User-agent: *
 Allow: /
-Sitemap: https://ai-automate-lab.com/sitemap-index.xml
+Sitemap: https://ai-automate-lab.tech/sitemap-index.xml
 Disallow: /og-images/
 Disallow: /pagefind/
 Disallow: /_astro/
@@ -47,7 +47,7 @@ Crawl-delay: 1
 自由（出典URL記載）。コードはMITライセンス。
 
 ## サイトマップ
-https://ai-automate-lab.com/sitemap-index.xml
+https://ai-automate-lab.tech/sitemap-index.xml
 ```
 
 ---
@@ -73,7 +73,7 @@ BaseLayout.astro:
 
 ## 4. Search Console
 
-1. URL: `https://ai-automate-lab.com`
+1. URL: `https://ai-automate-lab.tech`
 2. サイトマップ送信
 3. 記事公開後 → URL検査 → インデックス登録（1日最大10URL）
 

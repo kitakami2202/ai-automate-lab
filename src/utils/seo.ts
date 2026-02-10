@@ -10,7 +10,7 @@ export interface SEOMeta {
 }
 
 const SITE_NAME = 'AI Automate Lab';
-const SITE_URL = 'https://ai-automate-lab.com';
+const SITE_URL = 'https://ai-automate-lab.tech';
 
 export function generateTitle(pageTitle: string): string {
   return `${pageTitle} | ${SITE_NAME}`;

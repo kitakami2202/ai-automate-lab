@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://ai-automate-lab.com',
+  site: 'https://ai-automate-lab.tech',
   integrations: [
     tailwind(),
     sitemap({
@@ -18,7 +18,7 @@ export default defineConfig({
             item.url.includes('/ai-api/overview')) {
           item.priority = 0.9;
         }
-        if (item.url === 'https://ai-automate-lab.com/') {
+        if (item.url === 'https://ai-automate-lab.tech/') {
           item.priority = 1.0;
           item.changefreq = 'daily';
         }

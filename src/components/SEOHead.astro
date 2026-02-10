@@ -21,7 +21,7 @@ const {
   jsonLd,
 } = Astro.props;
 
-const siteUrl = 'https://ai-automate-lab.com';
+const siteUrl = 'https://ai-automate-lab.tech';
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 const canonical = canonicalUrl || Astro.url.href;
 const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];

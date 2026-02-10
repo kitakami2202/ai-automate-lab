@@ -7,7 +7,7 @@ interface SitemapEntry {
   priority?: number;
 }
 
-const SITE_URL = 'https://ai-automate-lab.com';
+const SITE_URL = 'https://ai-automate-lab.tech';
 
 export function generateArticleSitemapEntries(
   articles: CollectionEntry<'articles'>[]

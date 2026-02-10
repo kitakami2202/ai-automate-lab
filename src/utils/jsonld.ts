@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 
-const SITE_URL = 'https://ai-automate-lab.com';
+const SITE_URL = 'https://ai-automate-lab.tech';
 const SITE_NAME = 'AI Automate Lab';
 
 const authorSchema = {

@@ -5,7 +5,7 @@
 - 著者: れん
 - ターゲット: 中小企業の経営者・事務担当者 + エンジニア初学者
 - テーマ: AI × 業務自動化のナレッジベース
-- URL: https://ai-automate-lab.com（仮）
+- URL: https://ai-automate-lab.tech
 
 ## 詳細ドキュメント（必要に応じて参照）
 

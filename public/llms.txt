@@ -15,4 +15,4 @@
 自由（出典URL記載）。コードはMITライセンス。
 
 ## サイトマップ
-https://ai-automate-lab.com/sitemap-index.xml
+https://ai-automate-lab.tech/sitemap-index.xml

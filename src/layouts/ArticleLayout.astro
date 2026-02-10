@@ -17,7 +17,7 @@ export interface Props {
 const { article, headings } = Astro.props;
 const { title, description, category, tags, publishedAt, updatedAt, layer, difficulty, timeToRead, faq } = article.data;
 
-const articleUrl = `https://ai-automate-lab.com/articles/${article.slug}/`;
+const articleUrl = `https://ai-automate-lab.tech/articles/${article.slug}/`;
 const jsonLdArray = generateJsonLd(article, articleUrl, headings);
 
 const categoryLabels: Record<string, string> = {
