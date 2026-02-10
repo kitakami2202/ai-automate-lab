@@ -31,16 +31,29 @@ jobs:
           test -f dist/sitemap-index.xml || (echo "ERROR: sitemap not found" && exit 1)
           test -f dist/robots.txt || (echo "ERROR: robots.txt not found" && exit 1)
           echo "Build verification passed"
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.CONOHA_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ secrets.CONOHA_PORT }} ${{ secrets.CONOHA_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
       - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: ${{ secrets.CONOHA_HOST }}
-          username: ${{ secrets.CONOHA_USERNAME }}
-          ssh_private_key: ${{ secrets.CONOHA_SSH_KEY }}
-          port: ${{ secrets.CONOHA_PORT }}
-          local_path: './dist/*'
-          remote_path: ${{ secrets.CONOHA_REMOTE_PATH }}
-          sftp_only: true
-      - name: Deploy status
-        if: failure()
-        run: echo "::error::Deploy failed. Check SFTP credentials in repository secrets."
+        run: |
+          cd dist
+          find . -type f | while read file; do
+            dir=$(dirname "$file")
+            echo "put \"$file\" \"${{ secrets.CONOHA_REMOTE_PATH }}${file#.}\""
+          done > /tmp/sftp_commands.txt
+
+          # Create directories first
+          find . -type d | sort | while read dir; do
+            echo "mkdir \"${{ secrets.CONOHA_REMOTE_PATH }}${dir#.}\""
+          done > /tmp/sftp_dirs.txt
+
+          echo "Uploading files via SFTP..."
+          sftp -i ~/.ssh/deploy_key -P ${{ secrets.CONOHA_PORT }} -b /tmp/sftp_dirs.txt ${{ secrets.CONOHA_USERNAME }}@${{ secrets.CONOHA_HOST }} || true
+          sftp -i ~/.ssh/deploy_key -P ${{ secrets.CONOHA_PORT }} -b /tmp/sftp_commands.txt ${{ secrets.CONOHA_USERNAME }}@${{ secrets.CONOHA_HOST }}
+          echo "Deploy complete!"
+      - name: Cleanup
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
