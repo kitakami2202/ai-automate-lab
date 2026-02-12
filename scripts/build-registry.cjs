@@ -155,7 +155,7 @@ const initialArticles = ["gas-basics", "gas-spreadsheet-automation", "gas-line-b
   "gas-basics", "automation-roadmap"];
 
 for (const slug of [...new Set(initialArticles)]) {
-  changelogRows.push(`2026-02-09,${slug},create,T1-T3,,-,drafted,-,v1.0,初回作成,1fe68b5`);
+  changelogRows.push(`2026-02-09,${slug},create,T1-T3,,drafted,-,v1.0,初回作成,1fe68b5`);
 }
 
 // Rewrite: 2026-02-09
