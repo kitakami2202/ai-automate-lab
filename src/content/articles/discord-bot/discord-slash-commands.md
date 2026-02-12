@@ -1,10 +1,10 @@
 ---
 title: "Discordスラッシュコマンド×GAS実装ガイド"
-description: "GASでDiscordスラッシュコマンドを実装する手順を解説。コマンド登録・インタラクション処理・スプレッドシート連携まで、コピペで動く完全コードとトラブルシューティング表付き。約60分で無料のDiscord Botコマンド機能を構築できます。"
+description: "GASでDiscordスラッシュコマンドを実装する手順を解説。コマンド登録からインタラクション処理・スプレッドシート売上照会まで、コピペで動く完全コード付き。エラー対策表とカスタマイズ例も掲載。約60分・無料でDiscord Botコマンド機能を構築できます。"
 category: "discord-bot"
 tags: ["Discord", "スラッシュコマンド", "GAS", "Bot", "インタラクション"]
 publishedAt: 2025-02-10
-updatedAt: 2026-02-09
+updatedAt: 2026-02-12
 author: "れん"
 difficulty: "intermediate"
 timeToRead: 15
@@ -13,7 +13,7 @@ articleType: "howto"
 schema:
   type: "HowTo"
   totalTime: "PT60M"
-  estimatedCost: "0"
+  estimatedCost: "0円"
 faq:
   - question: "スラッシュコマンドとWebhookの違いは何ですか？"
     answer: "Webhookは一方向のメッセージ送信専用で、GASからDiscordにテキストやEmbedを送る場合に使います。スラッシュコマンドはユーザーがDiscord上で「/」を入力してBotに指示を出し、Botが応答する双方向の仕組みです。Webhook方式は送信専用なのでGAS側で受信処理が不要ですが、スラッシュコマンドはdoPostでインタラクションを受信する必要があります。"
@@ -25,17 +25,17 @@ faq:
     answer: "GASもDiscord Botの作成・運用も完全無料です。Discord Developer Portalでのアプリ作成に費用はかかりません。サーバー費用ゼロで、スラッシュコマンドに応答するBotを運用できます。"
   - question: "スラッシュコマンドで画像やファイルを送信できますか？"
     answer: "テキストメッセージやEmbed内の画像URLであれば送信可能です。ファイルの直接添付にはmultipart/form-dataリクエストが必要ですが、GASのUrlFetchAppでも対応できます。テキスト応答が最もシンプルなため、まずテキストで基本を押さえてからEmbed形式に拡張するのが効率的です。"
-relatedArticles: ["discord-bot/discord-bot-overview", "discord-bot/discord-bot-gas", "discord-bot/discord-spreadsheet-db"]
+relatedArticles: ["discord-bot/discord-bot-overview", "discord-bot/discord-bot-gas", "gas/gas-basics"]
 draft: false
 ---
 
-> この記事は[GASでできること完全ガイド](/articles/gas/gas-basics)の実装編です。
-> 「GASとは何か」から知りたい方は、先にそちらをご覧ください。
+> この記事は[Discord Bot業務活用ガイド](/articles/discord-bot/discord-bot-overview)のスラッシュコマンド実装編です。
+> GASの基礎知識は[GASでできること完全ガイド](/articles/gas/gas-basics)をご覧ください。
 
 この記事では、Google Apps Script（GAS）でDiscordスラッシュコマンドに応答するBotを約60分で構築する手順を解説します。
 GASの基本知識とDiscordサーバーの管理権限があれば、コードをコピペするだけで動くように全コードを掲載しています。
 
-### この記事の前提
+**この記事の前提**
 
 | 項目 | 内容 |
 |------|------|
@@ -47,7 +47,7 @@ GASの基本知識とDiscordサーバーの管理権限があれば、コード�
 
 ## この記事で作るもの
 
-Discordスラッシュコマンドとは、ユーザーがDiscord上で「/」を入力してBotに指示を出し、Botが応答する双方向のDiscordインタラクション機能です。今回は以下の処理を構築します。
+Discordスラッシュコマンドとは、ユーザーがDiscord上で「/」を入力してBotに指示を出す機能です。Botが応答を返す双方向のDiscordインタラクション（ユーザーの操作とBotの反応を組み合わせた対話機能）として動作します。今回は以下の処理を構築します。
 
 ```text
 ユーザーがDiscordで「/sales」と入力
@@ -268,6 +268,8 @@ function handleSalesCommand() {
 
 ### ステップ4 — WebアプリのデプロイとEndpoint URL登録
 
+Webアプリとしてデプロイとは、GASのコードをインターネット上に公開し、外部（Discord）からHTTPリクエストを受け取れる状態にすることです。
+
 1. GASエディタの右上「デプロイ」→「新しいデプロイ」をクリックします
 2. 「種類の選択」で「ウェブアプリ」を選びます
 3. 「アクセスできるユーザー」を「全員」に設定します
@@ -276,7 +278,7 @@ function handleSalesCommand() {
 
 Discordが保存時にPINGリクエストを送信し、doPostのPONG応答を確認します。保存に成功すれば設定完了です。
 
-## 動作確認・トラブルシューティング
+### ステップ5 — 動作確認とトラブルシューティング
 
 動作確認とは、登録したスラッシュコマンドが正しく動作するかテストする作業です。
 
@@ -284,7 +286,7 @@ Discordが保存時にPINGリクエストを送信し、doPostのPONG応答を�
 グローバルコマンドの反映には最大1時間かかるため、Discordで「/hello」が表示されるまで待ちます。
 コマンドが表示されたら実行し、Botから応答が返ることを確認してください。
 
-### よくあるエラーと解決策
+#### よくあるエラーと解決策
 
 | エラー・症状 | 原因 | 解決策 |
 |------------|------|--------|
@@ -297,7 +299,7 @@ Discordが保存時にPINGリクエストを送信し、doPostのPONG応答を�
 
 GASエディタの「実行数」タブ（左メニュー）で過去の実行履歴とエラー内容を確認できます。
 
-## 応用・カスタマイズ例
+## 応用・カスタマイズ
 
 応用・カスタマイズとは、基本のスラッシュコマンドをベースに業務シナリオを追加していくことです。
 

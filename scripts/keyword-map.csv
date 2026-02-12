@@ -1,22 +1,63 @@
 slug,primary_kw,secondary_kw,layer,article_type,cluster,priority,status,notes
-gas-basics,GAS できること,"Google Apps Script 入門,GAS 業務自動化",entry,pillar,gas,S,reviewed,GASクラスターのピラー
-gas-spreadsheet-automation,GAS スプレッドシート 自動化,"GAS 日報 自動化,GAS 集計",execution,howto,gas,S,reviewed,gas-basicsのクラスター（リライト構成案作成済み）
-gas-line-bot,GAS LINE Bot 作り方,"GAS LINE 通知,LINE Bot 自動化",execution,howto,gas,S,reviewed,gas-basicsのクラスター（リライト構成案作成済み）
-gas-slack-notification,GAS Slack 通知,"Slack 自動通知,スプレッドシート Slack",execution,howto,gas,S,reviewed,gas-basicsのクラスター
-discord-bot-gas,Discord Bot GAS 連携,"Discord 通知 自動化,Discord スプレッドシート",execution,howto,discord-bot,S,reviewed,discord-botクラスター
-discord-slash-commands,Discord スラッシュコマンド,"Discord Bot コマンド,Discord インタラクション",execution,howto,discord-bot,A,reviewed,discord-botクラスター
-discord-spreadsheet-db,Discord スプレッドシートDB,"Discord データ管理,Discord Bot データベース",execution,howto,discord-bot,A,reviewed,discord-botクラスター
-openai-api-intro,OpenAI API 入門,"ChatGPT API,GPT API 使い方",execution,howto,ai-api,A,reviewed,ai-apiクラスター
-claude-api-intro,Claude API 入門,"Claude API 使い方,Anthropic API",execution,howto,ai-api,A,reviewed,ai-apiクラスター
-gemini-api-intro,Gemini API 入門,"Gemini API 使い方,Google AI API",execution,howto,ai-api,A,reviewed,ai-apiクラスター
-zapier-vs-make,Zapier vs Make 比較,"Zapier Make 違い,自動化ツール 比較",entry,comparison,no-code,A,reviewed,no-codeクラスター
-n8n-self-hosting,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",execution,howto,no-code,B,reviewed,no-codeクラスター
-ai-introduction-5steps,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",entry,framework,frameworks,S,reviewed,frameworksクラスター（リライト済み）
-automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",entry,framework,frameworks,S,reviewed,frameworksクラスター（リライト済み）
-where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,reviewed,frameworksクラスター（リライト済み）
-ai-dev-tools-comparison,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",entry,comparison,reviews,A,reviewed,reviewsクラスター
-automation-tools-matrix,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",entry,comparison,reviews,A,reviewed,reviewsクラスター
-automation-roadmap,中小企業 AI 業務自動化,"業務効率化 AI,自動化 ロードマップ,DX 中小企業",entry,pillar,frameworks,S,reviewed,frameworksクラスターのピラー（全体ハブ）
-discord-bot-overview,Discord Bot 業務活用,"Discord Bot 作り方,Discord 自動化,Discord 業務",entry,pillar,discord-bot,S,reviewed,discord-botクラスターのピラー
-no-code-overview,ノーコード 自動化ツール 比較,"ノーコード おすすめ,ローコード 比較,iPaaS 比較",entry,pillar,no-code,S,reviewed,no-codeクラスターのピラー
-ai-api-overview,AI API 業務活用,"AI API 入門,AI API 組み込み,LLM API 比較",entry,pillar,ai-api,S,reviewed,ai-apiクラスターのピラー
+gas-basics,GAS できること,"Google Apps Script 入門,GAS 業務自動化",entry,pillar,gas,S,published,GASクラスターのピラー
+gas-spreadsheet-automation,GAS スプレッドシート 自動化,"GAS 日報 自動化,GAS 集計",execution,howto,gas,S,published,gas-basicsのクラスター（リライト構成案作成済み）
+gas-line-bot,GAS LINE Bot 作り方,"GAS LINE 通知,LINE Bot 自動化",execution,howto,gas,S,published,gas-basicsのクラスター（リライト構成案作成済み）
+gas-slack-notification,GAS Slack 通知,"Slack 自動通知,スプレッドシート Slack",execution,howto,gas,S,published,gas-basicsのクラスター
+discord-bot-gas,Discord Bot GAS 連携,"Discord 通知 自動化,Discord スプレッドシート",execution,howto,discord-bot,S,published,discord-botクラスター
+discord-slash-commands,Discord スラッシュコマンド,"Discord Bot コマンド,Discord インタラクション",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
+discord-spreadsheet-db,Discord スプレッドシートDB,"Discord データ管理,Discord Bot データベース",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
+openai-api-intro,OpenAI API 入門,"ChatGPT API,GPT API 使い方",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
+claude-api-intro,Claude API 入門,"Claude API 使い方,Anthropic API",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
+gemini-api-intro,Gemini API 入門,"Gemini API 使い方,Google AI API",execution,howto,ai-api,A,published,ai-apiクラスター
+zapier-vs-make,Zapier vs Make 比較,"Zapier Make 違い,自動化ツール 比較",entry,comparison,no-code,A,reviewed,T5/T6完了 パイプライン通過
+n8n-self-hosting,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",execution,howto,no-code,B,published,no-codeクラスター
+ai-introduction-5steps,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
+automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
+where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
+ai-dev-tools-comparison,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",entry,comparison,reviews,A,published,reviewsクラスター
+automation-tools-matrix,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",entry,comparison,reviews,A,published,reviewsクラスター
+automation-roadmap,中小企業 AI 業務自動化,"業務効率化 AI,自動化 ロードマップ,DX 中小企業",entry,pillar,frameworks,S,published,frameworksクラスターのピラー（全体ハブ）
+discord-bot-overview,Discord Bot 業務活用,"Discord Bot 作り方,Discord 自動化,Discord 業務",entry,pillar,discord-bot,S,published,discord-botクラスターのピラー
+no-code-overview,ノーコード 自動化ツール 比較,"ノーコード おすすめ,ローコード 比較,iPaaS 比較",entry,pillar,no-code,S,published,no-codeクラスターのピラー
+ai-api-overview,AI API 業務活用,"AI API 入門,AI API 組み込み,LLM API 比較",entry,pillar,ai-api,S,published,ai-apiクラスターのピラー
+claude-code-automation,Claude Code 業務自動化,"Claude Code 使い方,AI スクリプト 自動化",execution,howto,ai-api,S,reviewed,T5/T6完了 パイプライン通過
+ai-coding-tools-comparison,AIコーディングツール 比較,"Claude Code vs Copilot,Codex 比較,AI コード生成 比較",entry,comparison,reviews,S,published,Layer 1入口。表形式でAEO向き
+mcp-intro,MCP 入門,"Model Context Protocol,MCP AI連携,AI ツール連携",entry,howto,ai-api,S,published,2025-2026年最大トレンド。サイトの軸と完全一致
+gas-pdf-generation,GAS PDF 自動生成,"GAS 請求書 自動化,GAS テンプレート PDF",execution,howto,gas,S,published,中小企業の請求書業務に直結
+prompt-engineering-business,プロンプト設計 業務自動化,"プロンプトエンジニアリング 入門,AI プロンプト 書き方",entry,framework,frameworks,S,published,全AI系記事のハブ。サイト全体の内部リンク強化
+ai-coding-non-engineer,非エンジニア AIコーディング,"AI コード生成 初心者,プログラミング不要 自動化",execution,howto,ai-api,S,published,メインターゲット（事務担当）に直球
+gas-mail-automation,GAS メール 自動化,"GAS 一斉送信,GAS 自動返信,Gmail 自動化",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
+gas-form-automation,GAS Googleフォーム 連携,"GAS フォーム 自動処理,Googleフォーム 自動化",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
+gas-syntax-reference,GAS 基礎文法,"GAS リファレンス,Google Apps Script 文法",execution,reference,gas,A,reviewed,T5/T6完了 パイプライン通過
+discord-scheduler-bot,Discord 定時通知 Bot,"Discord Webhook GAS,Discord 自動通知",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
+discord-vs-line-bot,Discord Bot vs LINE Bot,"Discord LINE 比較,チャットBot 中小企業",entry,comparison,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
+gas-claude-api,GAS Claude API 連携,"GAS AI 自動分類,GAS Anthropic API",execution,howto,gas,A,published,ai-apiクラスターと横断リンク
+gas-chatgpt-api,GAS ChatGPT API 連携,"GAS OpenAI API,GAS 問い合わせ 自動回答",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
+gas-ai-coding,Claude Code GAS スクリプト,"AI GAS コード生成,Claude Code プロンプト実例",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
+discord-ai-bot,Discord AI Bot,"Discord ChatGPT Bot,社内AI 質問窓口",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
+ai-coding-cost-reduction,AIコーディング 開発コスト削減,"外注 内製 比較,AI開発 ROI",entry,framework,frameworks,A,reviewed,T5/T6完了 パイプライン通過
+api-key-management,APIキー 管理,"APIキー 漏洩防止,APIキー セキュリティ",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
+ai-coding-prompt-patterns,AI コード生成 プロンプト,"プロンプトパターン 業務自動化,AI コーディング 指示",execution,reference,ai-api,A,reviewed,T5/T6完了 パイプライン通過
+tool-selection-guide,自動化ツール 選定ガイド,"自動化ツール おすすめ,規模別 ツール選定",entry,framework,frameworks,B,published,topic-clusters既存計画
+automation-failure,自動化 失敗パターン,"自動化 失敗,業務自動化 注意点",entry,framework,frameworks,B,published,topic-clusters既存計画
+no-code-tool-matrix,ノーコードツール 選定マトリクス,"ノーコード 選び方,用途別 ノーコード",entry,framework,no-code,B,published,topic-clusters既存計画
+gas-calendar,GAS Googleカレンダー 連携,"GAS カレンダー 自動登録,GAS 予定 通知",execution,howto,gas,B,published,Google Workspace連携シリーズ
+n8n-ai-workflow,n8n AI連携,"n8n LLMノード,n8n 業務フロー 自動化",execution,howto,no-code,B,published,n8n記事からの自然な拡張
+make-ai-scenarios,Make AI連携 シナリオ集,"Make AI テンプレート,Make 自動化 実例",execution,howto,no-code,B,published,zapier-vs-make記事から誘導
+codex-intro,OpenAI Codex 入門,"Codex 使い方,クラウド コード生成",execution,howto,ai-api,B,published,R1比較記事のクラスター
+mcp-google-workspace,MCP Google Workspace 連携,"MCP 実践ガイド,AI Google連携",execution,howto,ai-api,B,published,S3 MCP入門のクラスター
+discord-attendance,Discord 勤怠管理Bot,"Discord 出退勤,勤怠 スプレッドシート",execution,howto,discord-bot,B,published,中小企業の勤怠管理に直結
+ai-api-cost-management,AI API 料金管理,"AI API コスト,API 予算管理 中小企業",entry,framework,ai-api,B,published,コスト懸念を持つ経営者向け
+dify-intro,Dify 入門,"Dify チャットボット,ノーコード AI Bot",execution,howto,no-code,B,published,ノーコード×AIの交差点
+cursor-business,Cursor 業務自動化,"Cursor AIエディタ,Cursor 活用術",execution,howto,ai-api,B,published,使い込んでから書く
+ai-business-overview,AI 自動化 業務一覧,"AI 中小企業 実例,AI 業務効率化",entry,pillar,frameworks,C,reviewed,T5/T6完了 パイプライン通過
+ai-invoice,AI 請求書 自動化,"AI OCR 請求書,請求書 仕分け 自動化",execution,howto,frameworks,C,reviewed,T5/T6完了 パイプライン通過
+ai-customer-support,AI カスタマーサポート 自動化,"AI チャットBot 構築,顧客対応 自動化",execution,howto,frameworks,C,reviewed,T5/T6完了 パイプライン通過
+ai-meeting-minutes,AI 議事録 自動化,"AI 議事録 要約,録音 文字起こし 自動化",execution,howto,frameworks,C,reviewed,T5/T6完了 パイプライン通過
+ai-data-report,AI レポート 自動生成,"AI スプレッドシート PDF,定型レポート 自動化",execution,howto,gas,C,reviewed,T5/T6完了 パイプライン通過
+ai-email-triage,AI メール 自動振り分け,"AI メール分類,メール 下書き 自動生成",execution,howto,gas,C,reviewed,T5/T6完了 パイプライン通過
+ai-recruitment-screening,AI 採用書類 スクリーニング,"AI 採用 自動化,書類選考 効率化",execution,howto,frameworks,C,reviewed,T5/T6完了 パイプライン通過
+ai-coding-overview,AIコーディング 業務自動化 内製,"AIコーディング ガイド,AI 内製化",entry,pillar,ai-api,C,reviewed,T5/T6完了 パイプライン通過
+github-copilot-business,GitHub Copilot Business 活用,"Copilot Business 使い方,Copilot チーム開発",execution,howto,reviews,C,reviewed,T5/T6完了 パイプライン通過
+windsurf-intro,Windsurf 入門,"Windsurf AI IDE,Windsurf 業務ツール開発",execution,howto,ai-api,C,reviewed,T5/T6完了 パイプライン通過
+ai-code-review,AI コードレビュー,"AI レビュー 自動化,コード品質 AI",execution,howto,ai-api,C,reviewed,T5/T6完了 パイプライン通過

@@ -4,7 +4,7 @@ description: "OpenAI APIの使い方を初心者向けに解説。Python環境�
 category: "ai-api"
 tags: ["OpenAI API", "ChatGPT API", "Python", "業務自動化", "GAS"]
 publishedAt: 2025-02-05
-updatedAt: 2026-02-09
+updatedAt: 2026-02-12
 author: "れん"
 difficulty: "beginner"
 timeToRead: 15
@@ -28,19 +28,17 @@ faq:
 relatedArticles:
   - "ai-api/ai-api-overview"
   - "ai-api/claude-api-intro"
-  - "ai-api/gemini-api-intro"
+  - "frameworks/ai-introduction-5steps"
 draft: false
 ---
 
-この記事では、OpenAI APIを使った問い合わせメール自動分類スクリプトを約60分で構築する手順を解説します。
-Pythonの基本文法がわかれば、コードをコピペするだけで動くように全コードを掲載しています。
-AIを業務に導入する全体像から知りたい方は、先に[中小企業向けAI導入5ステップ](/articles/frameworks/ai-introduction-5steps)をご覧ください。
+この記事では、OpenAI APIを使った問い合わせメール自動分類スクリプトを約60分で構築する手順を解説します。Pythonの基本文法がわかれば、コードをコピペするだけで動くように全コードを掲載しています。AI APIの活用方法全体を知りたい方は[AI APIを業務に組み込む方法](/articles/ai-api/ai-api-overview)をご覧ください。AIを業務に導入する全体像から知りたい方は[中小企業向けAI導入5ステップ](/articles/frameworks/ai-introduction-5steps)もあわせてご確認ください。
 
 ## この記事で作るもの（完成イメージ）
 
 OpenAI APIとは、OpenAIが提供するGPTシリーズのAIモデルをプログラムから呼び出すためのインターフェースです。ChatGPT API（OpenAI API）を使えば、チャットボットだけでなく、メール分類・文書要約・データ抽出といった業務処理をプログラムで自動化できます。
 
-この記事では、GPT APIの使い方を業務自動化の観点から解説し、「問い合わせメールの自動分類スクリプト」を完成させます。メール本文を入力すると、カテゴリ・要約・緊急度をJSON形式で返すPythonスクリプトです。
+この記事では、ChatGPT APIの使い方を業務自動化の観点から解説し、「問い合わせメールの自動分類スクリプト」を完成させます。メール本文を入力すると、カテゴリ・要約・緊急度をJSON形式で返すPythonスクリプトです。
 
 ### 前提条件
 
@@ -71,7 +69,7 @@ APIキーは発行時に一度だけ表示されます。必ずコピーして�
 ターミナルで以下のコマンドを実行し、必要なライブラリをインストールします。
 
 ```bash
-pip install openai python-dotenv
+pip install openai>=1.60 python-dotenv
 ```
 
 次に、プロジェクトフォルダに`.env`ファイルを作成し、APIキーを記述します。
@@ -80,7 +78,7 @@ pip install openai python-dotenv
 OPENAI_API_KEY=sk-proj-xxxxx（ここに自分のAPIキーを貼り付け）
 ```
 
-**セキュリティ上の注意**: `.env`ファイルをGitで管理しないように、`.gitignore`に必ず追加してください。APIキーをソースコードにハードコードすると、リポジトリの公開時に漏洩するリスクがあります。
+**セキュリティ上の注意**: `.env`ファイルをGitで管理しないように、`.gitignore`に必ず追加してください。APIキーをソースコードにハードコードすると、リポジトリ公開時に漏洩するリスクがあります。
 
 ```text
 # .gitignore に追加
@@ -108,7 +106,7 @@ client = OpenAI()  # OPENAI_API_KEY環境変数を自動認識
 | APIキー | ダッシュボード → API keys → Create new secret key | プロジェクト単位で発行推奨 |
 | クレジットカード | Settings → Billing | 使用量上限（月$5等）の設定を推奨 |
 | Python 3.9以上 | [python.org](https://python.org/) | 3.9〜3.12推奨 |
-| openaiライブラリ | `pip install openai` | バージョン1.0以上必須 |
+| openaiライブラリ | `pip install openai>=1.60` | バージョン1.60以上推奨（2026年2月時点） |
 | python-dotenv | `pip install python-dotenv` | 環境変数管理用 |
 
 ## 実装手順
@@ -153,11 +151,11 @@ print(response.choices[0].message.content)
 | o3 | 推論特化 | $2.00 | $8.00 | 複雑な分析・多段階の推論が必要な処理 |
 | o4-mini | 推論（軽量） | $1.10 | $4.40 | 推論が必要だがコストを抑えたい場合 |
 
-中小企業の定型業務（メール分類・要約など）にはgpt-4o-miniが最もコストパフォーマンスに優れています。入力500トークン・出力200トークンの処理を月1,000件実行しても約$0.10（約15円）で済みます。
+中小企業の定型業務（メール分類・要約など）にはgpt-4o-miniが最もコストパフォーマンスに優れています。入力500トークン・出力200トークンの処理を月1,000件実行しても約0.10ドル（約15円）です。
 
 ### ステップ2: 業務自動化の実践コード（問い合わせメール分類）
 
-実際の業務で使える「問い合わせメール自動分類スクリプト」を実装します。systemプロンプトで分類AIの役割を定義し、`response_format`でJSON出力を強制します。
+実際の業務で使える「問い合わせメール自動分類スクリプト」を実装します。systemプロンプトで分類AIの役割を定義し、`response_format`パラメータでJSON出力を強制します。
 
 ```python
 import os
@@ -262,11 +260,11 @@ response = client.responses.create(
 print(response.output_text)
 ```
 
-2026年2月時点では、既存の定型処理にはChat Completions APIが安定しています。新規プロジェクトやエージェント型のシステム構築にはResponses APIが適しています。
+2026年2月時点では、既存の定型処理にはChat Completions APIが安定しており情報も豊富です。新規プロジェクトやエージェント型のシステム構築にはResponses APIが適しています。
 
 ### ステップ4: GAS（Google Apps Script）からOpenAI APIを呼ぶ
 
-Pythonを使わない場合でも、GAS（Google Apps Script）からOpenAI APIを呼び出せます。スプレッドシートの問い合わせ一覧を一括分類するなど、Googleサービスとの連携に適しています。
+Pythonを使わない場合でも、GAS（Google Apps Script）からOpenAI APIを呼び出せます。スプレッドシートの問い合わせ一覧を一括分類するなど、Google Workspaceとの連携に適しています。
 
 ```javascript
 // GAS（Google Apps Script）からOpenAI APIを呼ぶ例
@@ -308,7 +306,7 @@ GASの基本から学びたい方は、[GASでできること完全ガイド](/a
 
 ## 動作確認・トラブルシューティング
 
-トラブルシューティングとは、APIの実行中に発生するエラーの原因を特定し、解決する手順です。ここではテスト方法とよくあるエラーへの対処法を整理します。
+トラブルシューティングとは、API実行中に発生するエラーの原因を特定し解決する手順です。ここではテスト方法とよくあるエラーへの対処法を整理します。
 
 ### テスト手順
 
@@ -341,7 +339,7 @@ JSON形式の分類結果が表示されれば成功です。エラーが出た�
 | 議事録要約（長文） | gpt-4o-mini | 100件 | 約$0.50（約75円） |
 | 複雑な文書分析 | gpt-4o | 100件 | 約$5.00（約750円） |
 
-1件あたり入力500トークン・出力200トークンで試算しています。使用量の上限はダッシュボードの「Settings」→「Limits」から設定できるため、想定外の課金を防げます。
+1件あたり入力500トークン・出力200トークンで試算しています。使用量の上限はダッシュボードの「Settings」→「Limits」から設定できます。想定外の課金を防ぐためにも上限設定を推奨します。
 
 ## 応用・カスタマイズ例
 
@@ -403,4 +401,4 @@ OpenAI API以外にも、業務自動化に使えるAI APIがあります。用�
 
 各APIの料金体系・機能・性能をより詳しく比較したい方は、[AI開発ツール比較](/articles/reviews/ai-dev-tools-comparison)をご覧ください。
 
-この記事では、OpenAI APIを使って問い合わせメールの自動分類スクリプトを構築する手順を解説しました。gpt-4o-miniを使えば月1,000件のメール分類が約15円で実現でき、中小企業の業務自動化の第一歩として導入しやすいコスト感です。まずは本記事のコードを動かし、自社の業務に合わせてsystemプロンプトをカスタマイズしてみてください。
+この記事では、OpenAI APIを使って問い合わせメールの自動分類スクリプトを構築する手順を解説しました。gpt-4o-miniを使えば月1,000件のメール分類が約15円で実現でき、中小企業の業務自動化の第一歩として導入しやすいコスト感です。まずは本記事のコードを動かしてみてください。そのうえで自社の業務に合わせてsystemプロンプトをカスタマイズすることで、より実用的なツールになります。

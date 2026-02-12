@@ -90,44 +90,46 @@ Phase 5-6: 品質保証（T5 + T6）※既存を再利用
 
 ## 3. エージェント実行コマンド
 
+各エージェントは `--append-system-prompt-file` で指示書を読み込んで実行します。
+
 ```bash
 # T1: 市場調査・KW選定
-claude --prompt-file scripts/agents/research-agent.md \
+claude --append-system-prompt-file scripts/agents/research-agent.md \
   "カテゴリ: gas で新規記事のKW候補を5つ提案して"
 
 # T2: 企画・構成案
-claude --prompt-file scripts/agents/outline-agent.md \
+claude --append-system-prompt-file scripts/agents/outline-agent.md \
   "keyword-map.csv の slug: gas-line-bot の構成案を作成して"
 
 # T3: 記事生成
-claude --prompt-file scripts/agents/writer-agent.md \
+claude --append-system-prompt-file scripts/agents/writer-agent.md \
   "scripts/outlines/gas-line-bot.md のブリーフに基づいて記事を生成して"
 
 # T4: 編集・校閲
-claude --prompt-file scripts/agents/editor-agent.md \
+claude --append-system-prompt-file scripts/agents/editor-agent.md \
   "src/content/articles/gas/gas-line-bot.md を編集・校閲して"
 
 # T5: 品質チェック（機械チェック + AIチェック）
 ./scripts/check-article.sh src/content/articles/gas/gas-line-bot.md
-claude --prompt-file scripts/agents/quality-agent.md \
+claude --append-system-prompt-file scripts/agents/quality-agent.md \
   "src/content/articles/gas/gas-line-bot.md をチェックして"
 
 # T6: セキュリティチェック
-claude --prompt-file scripts/agents/security-agent.md \
+claude --append-system-prompt-file scripts/agents/security-agent.md \
   "src/content/articles/gas/gas-line-bot.md をチェックして"
 
 # T7: 分析（月次）
-claude --prompt-file scripts/agents/analytics-agent.md \
+claude --append-system-prompt-file scripts/agents/analytics-agent.md \
   "scripts/data/gsc-export.csv と scripts/data/ga4-export.csv を分析して"
 
 # --- リファインメント ---
 
 # TR1: 監査（リファインメントブリーフ生成）
-claude --prompt-file scripts/agents/refine-audit-agent.md \
+claude --append-system-prompt-file scripts/agents/refine-audit-agent.md \
   "src/content/articles/gas/gas-line-bot.md を監査してリファインメントブリーフを生成して"
 
 # TR2: 改善ライティング
-claude --prompt-file scripts/agents/refine-writer-agent.md \
+claude --append-system-prompt-file scripts/agents/refine-writer-agent.md \
   "src/content/articles/gas/gas-line-bot.md を scripts/refine-briefs/gas-line-bot.md に基づいてリファインして"
 
 # その後 T4（editor-agent）→ T5/T6（quality/security-agent）を再利用
@@ -137,57 +139,37 @@ claude --prompt-file scripts/agents/refine-writer-agent.md \
 
 ## 4. 一括実行オーケストレーター（scripts/pipeline.sh）
 
-```bash
-#!/bin/bash
-# 使い方:
-#   新規記事:   ./scripts/pipeline.sh new gas gas-calendar
-#   リファイン: ./scripts/pipeline.sh refine gas gas-calendar
-#   リライト:   ./scripts/pipeline.sh rewrite gas gas-calendar
-#   分析のみ:   ./scripts/pipeline.sh analyze
+4つのモードに対応したガイド付きオーケストレーターです。
+各フェーズで実行すべきコマンドを表示し、完了確認後に次のフェーズへ進みます。
 
-MODE=${1:-new}
-CATEGORY=$2
-SLUG=$3
-FILE="src/content/articles/$CATEGORY/$SLUG.md"
-OUTLINE="scripts/outlines/$SLUG.md"
+### モード一覧
 
-echo "========================================="
-echo "  パイプライン（$MODE）: $CATEGORY/$SLUG"
-echo "========================================="
+| モード | コマンド | 前提条件 | フロー |
+|--------|---------|---------|--------|
+| `new` | `pipeline.sh new <cat> <slug>` | status: approved | T2→T3→T4→T5/T6 |
+| `refine` | `pipeline.sh refine <cat> <slug>` | status: published | TR1→人間確認→TR2→T4→T5/T6 |
+| `rewrite` | `pipeline.sh rewrite <cat> <slug>` | 記事が存在 | T2→T3→T4→T5/T6（全面再構築） |
+| `analyze` | `pipeline.sh analyze` | scripts/data/ にデータ | T7 |
 
-case $MODE in
-  new)
-    STATUS=$(grep "$SLUG" scripts/keyword-map.csv | cut -d',' -f8)
-    [ "$STATUS" != "approved" ] && echo "❌ KWが未承認です" && exit 1
+### 使い分け基準
 
-    echo "📋 Phase 2: 構成案作成..."
-    echo "  claude --prompt-file scripts/agents/outline-agent.md \"$SLUG の構成案を作成して\""
-    read -p "構成案作成完了後、Enterを押してください..."
-    [ ! -f "$OUTLINE" ] && echo "❌ $OUTLINE が存在しません" && exit 1
+| 状況 | モード | 理由 |
+|------|--------|------|
+| 新しいKWで記事を作る | `new` | ゼロから全工程 |
+| 公開済み記事の一部が弱い | `refine` | 良い部分は保持、弱い部分だけ改善 |
+| 公開済み記事が根本的に合わない | `rewrite` | outlineから全面作り直し |
+| 月次の振り返り | `analyze` | GA4/GSCデータからrefine/rewrite候補を洗い出し |
 
-    echo "✍️ Phase 3: 記事生成..."
-    echo "  claude --prompt-file scripts/agents/writer-agent.md \"$OUTLINE のブリーフに基づいて記事を生成して\""
-    read -p "記事生成完了後、Enterを押してください..."
-    [ ! -f "$FILE" ] && echo "❌ $FILE が存在しません" && exit 1
+### refine の判定フロー
 
-    echo "📝 Phase 4: 編集・校閲..."
-    echo "  claude --prompt-file scripts/agents/editor-agent.md \"$FILE を編集・校閲して\""
-    read -p "編集完了後、Enterを押してください..."
-
-    echo "🔍 Phase 5-6: 品質チェック + セキュリティチェック..."
-    ./scripts/check-article.sh "$FILE" || exit 1
-    echo "T5/T6を別ターミナルで並列実行後: git add && git commit && git push"
-    ;;
-  rewrite)
-    [ ! -f "$FILE" ] && echo "❌ $FILE が存在しません" && exit 1
-    echo "🔄 リライトモード: Phase 2（企画）から開始"
-    ;;
-  analyze)
-    echo "📈 Phase 7: パフォーマンス分析..."
-    echo "  claude --prompt-file scripts/agents/analytics-agent.md \"scripts/data/ 内のデータを分析して\""
-    ;;
-esac
 ```
+TR1（監査）→ 5軸×20点 = 100点満点で採点
+  85-100点 → SKIP（改善不要。中断）
+  60-84点  → REFINE（続行して部分改善）
+  59点以下 → REBUILD（中断し rewrite モードへ切替）
+```
+
+実際のスクリプトは `scripts/pipeline.sh` を参照してください。
 
 ---
 
