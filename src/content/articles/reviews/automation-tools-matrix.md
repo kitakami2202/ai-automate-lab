@@ -4,7 +4,7 @@ description: "自動化ツール比較表をスキルレベル・予算・業務
 category: "reviews"
 tags: ["自動化ツール", "比較表", "RPA 比較", "ツール選定", "中小企業"]
 publishedAt: 2025-04-01
-updatedAt: 2026-02-09
+updatedAt: 2026-02-13
 author: "れん"
 difficulty: "beginner"
 timeToRead: 12
@@ -25,7 +25,7 @@ faq:
     answer: "ノーコードツール（Zapier/Make）なら数時間〜1日で最初の自動化が動きます。GASは1〜3日、n8nのセルフホスト構築は半日〜1日が目安です。小さな業務から始めて段階的に拡大する「スモールスタート」が成功の鍵です。"
 relatedArticles:
   - "reviews/ai-dev-tools-comparison"
-  - "no-code/zapier-vs-make"
+  - "reviews/ai-coding-tools-comparison"
   - "frameworks/where-to-automate-first"
 draft: false
 ---
@@ -34,7 +34,7 @@ draft: false
 RPAだけが選択肢ではなく、無料〜月額数千円で始められるツールが5カテゴリあります。
 この記事では、スキルレベル・予算・業務タイプの3軸でツールが選べる比較表を提供します。
 
-### スキルレベル別 自動化ツール選定マトリクス
+以下のスキルレベル別マトリクスで、自社の担当者に合ったツールをすぐに確認できます。
 
 | スキルレベル | ツール名 | カテゴリ | 月額目安 | 得意な業務 | 選定根拠 |
 |---|---|---|---|---|---|
@@ -64,7 +64,7 @@ RPAだけが選択肢ではなく、無料〜月額数千円で始められる�
 |---|---|---|---|---|
 | RPA | UiPath, WinActor | 数万円〜 | 中 | △（コスト面で厳しい） |
 | iPaaS（ノーコード） | Zapier, Make | 無料〜$30 | 低 | ◎ |
-| iPaaS（OSS） | n8n | VPS月500円〜 | 中 | ◎ |
+| iPaaS（OSS: オープンソースソフトウェア） | n8n | VPS月500円〜 | 中 | ◎ |
 | ローコード | GAS | 無料 | 中 | ◎ |
 | コーディング | Python, Node.js | VPS月500円〜 | 高 | ○（エンジニアがいれば） |
 
@@ -145,7 +145,7 @@ GASで業務データを処理し、Discord Botでチームへリアルタイム
 
 ## まとめ：ツール選定の3ステップ
 
-ツール選定で失敗しないためのポイントは、以下の3ステップで進めることです。いきなりツールを選ぶのではなく、業務の特定とROI試算を先に行うことで、導入後の「思ったより使えなかった」を防げます。
+ツール選定の3ステップとは、「業務特定→ROI試算→ツール選択」の順で進めることで導入失敗を防ぐフレームワークです。いきなりツールを選ぶのではなく、業務の特定とROI試算を先に行うことで、導入後の「思ったより使えなかった」を防げます。
 
 **ステップ1: 自動化する業務を特定する**
 
@@ -159,16 +159,13 @@ GASで業務データを処理し、Discord Botでチームへリアルタイム
 
 業務とROIが決まったら、下記のガイドから具体的な構築に進んでください。
 
-```text
-ツール別の詳細ガイド
-├─ GASで始める       → GASでできること完全ガイド
-│   ├─ GAS×スプレッドシート自動化
-│   ├─ GAS×LINE Bot作り方
-│   └─ GAS×Slack通知
-├─ Zapier/Makeで始める → Zapier vs Make比較
-├─ n8nで始める        → n8nセルフホスティングガイド
-├─ Discord Botで始める → Discord Bot×GAS連携
-└─ AI APIを組み込む    → Claude API入門
-```
+- **GASで始める** → [GASでできること完全ガイド](/articles/gas/gas-basics)
+  - [GAS×スプレッドシート自動化](/articles/gas/gas-spreadsheet-automation)
+  - [GAS×LINE Bot作り方](/articles/gas/gas-line-bot)
+  - [GAS×Slack通知](/articles/gas/gas-slack-notification)
+- **Zapier/Makeで始める** → [Zapier vs Make比較](/articles/no-code/zapier-vs-make)
+- **n8nで始める** → [n8nセルフホスティングガイド](/articles/no-code/n8n-self-hosting)
+- **Discord Botで始める** → [Discord Bot×GAS連携](/articles/discord-bot/discord-bot-gas)
+- **AI APIを組み込む** → [Claude API入門](/articles/ai-api/claude-api-intro)
 
 各ツールの詳しい使い方や料金の最新情報は、[AI開発ツール比較](/articles/reviews/ai-dev-tools-comparison)でもまとめています。自社の業務とスキルレベルに合ったツールを選び、まずは1つの業務から自動化を始めてみてください。

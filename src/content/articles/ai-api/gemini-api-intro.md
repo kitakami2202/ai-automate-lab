@@ -4,7 +4,7 @@ description: "Gemini APIの使い方をPythonとGAS（Google Apps Script）の2�
 category: "ai-api"
 tags: ["Gemini API", "Google AI", "Python", "GAS", "マルチモーダル"]
 publishedAt: 2025-03-10
-updatedAt: 2026-02-09
+updatedAt: 2026-02-13
 author: "れん"
 difficulty: "beginner"
 timeToRead: 15
@@ -28,17 +28,17 @@ faq:
 relatedArticles:
   - "ai-api/ai-api-overview"
   - "ai-api/openai-api-intro"
-  - "ai-api/claude-api-intro"
+  - "gas/gas-basics"
 draft: false
 ---
 
 この記事では、Gemini APIを使ったテキスト生成と画像分析のスクリプトを約60分で構築する手順を解説します。PythonとGAS（Google Apps Script）の2パターンでコードを掲載しており、コピペで動くようになっています。
 
-AIを業務に導入する全体像から知りたい方は、先に[中小企業向けAI導入5ステップ](/articles/frameworks/ai-introduction-5steps)をご覧ください。
+AI APIの全体像を知りたい方は[AI APIを業務に組み込む方法](/articles/ai-api/ai-api-overview)を、AIを業務に導入する全体像から知りたい方は[中小企業向けAI導入5ステップ](/articles/frameworks/ai-introduction-5steps)をご覧ください。
 
 ## この記事で作るもの（完成イメージ）
 
-Gemini APIとは、Googleが提供するAI API（Google AI API）です。テキストだけでなく画像・PDF・音声・動画も入力できるマルチモーダル対応が特徴です。Google AI Studioから無料で始められます。
+Gemini APIとは、Googleが提供するAI API（Google AI API、プログラムからAIの機能を呼び出すための仕組み）です。テキストだけでなく画像・PDF・音声・動画も入力できるマルチモーダル対応が特徴です。Google AI Studioから無料で始められます。
 
 この記事では、Gemini APIの使い方をPythonとGASの2パターンで解説し、テキスト生成と画像分析ができるスクリプトを構築します。
 
@@ -50,7 +50,7 @@ Gemini APIが他のAI APIと比べて中小企業に向いている理由は次�
 
 読者のスキルに応じて2つのルートを用意しました。
 
-- **ルートA: Python + google-genai SDK** --- ローカルPCまたはGoogle Colabで実行。本格的な業務自動化向け
+- **ルートA: Python + google-genai SDK（SDK: Software Development Kit、開発ツールキット）** --- ローカルPCまたはGoogle Colabで実行。本格的な業務自動化向け
 - **ルートB: GAS + UrlFetchApp** --- Googleアカウントだけで完結。スプレッドシート連携などすぐ試したい方向け
 
 | 項目 | 内容 |
@@ -75,6 +75,8 @@ Gemini APIを使うには、Google AI StudioでAPIキーを発行します。
 4. 発行されたAPIキーを安全な場所に控えておきます
 
 **APIキーの設定方法（Pythonルート）:**
+
+環境変数（OS上でプログラムに値を渡す仕組み）にAPIキーを設定します。
 
 ```bash
 # Windows（PowerShell）
@@ -121,7 +123,7 @@ client = genai.Client()
 
 ### 利用可能なモデルと料金
 
-Gemini APIで利用できる主要モデルの比較表です（2026年2月時点。最新情報は[公式料金ページ](https://ai.google.dev/gemini-api/docs/pricing)を確認してください）。
+Google AI APIであるGemini APIで利用できる主要モデルの比較表です（2026年2月時点。最新情報は[公式料金ページ](https://ai.google.dev/gemini-api/docs/pricing)を確認してください）。
 
 | モデル | 特徴 | 無料枠 | 有料入力単価（/100万トークン） | 推奨用途 |
 |--------|------|--------|------|------|
@@ -211,7 +213,7 @@ print(response.text)
 
 ### ステップ3: GASからREST APIを呼ぶ
 
-GAS（Google Apps Script）からはREST APIを直接呼び出します。SDKのインストールは不要で、Googleアカウントだけで始められるのが強みです。GASの基本については[GASでできること完全ガイド](/articles/gas/gas-basics)で詳しく解説しています。
+GAS（Google Apps Script）からはREST API（HTTPリクエストでデータを送受信する仕組み）を直接呼び出します。SDKのインストールは不要で、Googleアカウントだけで始められるのが強みです。GASの基本については[GASでできること完全ガイド](/articles/gas/gas-basics)で詳しく解説しています。
 
 ```javascript
 function callGeminiAPI(prompt) {
@@ -317,13 +319,13 @@ function testGemini() {
 
 ### 中小企業での活用シナリオ
 
-| 業務シナリオ | 使用機能 | 実装方法 | 期待される効果 |
+| 業務シナリオ | 使用機能 | 実装方法 | 想定される効果 |
 |-------------|---------|---------|------|
-| 請求書PDF読み取り → スプレッドシート転記 | マルチモーダル（PDF） | GAS + Gemini API | 手入力を80%削減 |
-| 商品画像から説明文を自動生成 | マルチモーダル（画像） | Python / GAS | EC出品作業を効率化 |
-| 問い合わせメールの自動分類 | テキスト分類 | GAS + Gmail | 振り分け作業を自動化 |
-| 会議議事録の要約 | テキスト要約 | Python | 議事録作成時間を短縮 |
-| 社内文書の検索・QA | テキスト生成 | Python | ナレッジ検索を効率化 |
+| 請求書PDF読み取り → スプレッドシート転記 | マルチモーダル（PDF） | GAS + Gemini API | 手入力の大幅削減 |
+| 商品画像から説明文を自動生成 | マルチモーダル（画像） | Python / GAS | 1商品あたりの出品作業時間を短縮 |
+| 問い合わせメールの自動分類 | テキスト分類 | GAS + Gmail | 手動振り分け作業の自動化 |
+| 会議議事録の要約 | テキスト要約 | Python | 要約文の下書き自動生成 |
+| 社内文書の検索・QA | テキスト生成 | Python | 社内ナレッジへのアクセス迅速化 |
 
 業務のどこから自動化すべきか迷ったら、[どこから自動化すべきか判断マトリクス](/articles/frameworks/where-to-automate-first)を参考にしてください。
 
@@ -331,9 +333,9 @@ function testGemini() {
 
 Gemini API以外にも、業務自動化に使える主要なAI APIがあります。それぞれ得意分野が異なるため、用途に応じて使い分けるのが効果的です。
 
-- **OpenAI API** --- エコシステムが広く、Function Callingによるツール連携が強みです。詳しくは[OpenAI API入門](/articles/ai-api/openai-api-intro)で解説しています
+- **OpenAI API** --- エコシステムが広く、Function Calling（AIに外部ツールや関数を実行させる機能）によるツール連携が強みです。詳しくは[OpenAI API入門](/articles/ai-api/openai-api-intro)で解説しています
 - **Claude API** --- 長文処理と指示追従性に優れ、複雑な文書の分析に向いています。詳しくは[Claude API入門](/articles/ai-api/claude-api-intro)で解説しています
-- **Gemini API** --- 無料枠の大きさとGAS連携が強み。Googleサービスとの組み合わせで中小企業の業務自動化に適しています
+- **Gemini API（Google AI API）** --- 無料枠の大きさとGAS連携が強み。Googleサービスとの組み合わせで中小企業の業務自動化に適しています
 
 各AI APIの詳しい比較は[AI開発ツール比較](/articles/reviews/ai-dev-tools-comparison)をご覧ください。
 

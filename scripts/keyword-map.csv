@@ -8,14 +8,14 @@ discord-slash-commands,Discord スラッシュコマンド,"Discord Bot コマ�
 discord-spreadsheet-db,Discord スプレッドシートDB,"Discord データ管理,Discord Bot データベース",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
 openai-api-intro,OpenAI API 入門,"ChatGPT API,GPT API 使い方",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
 claude-api-intro,Claude API 入門,"Claude API 使い方,Anthropic API",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
-gemini-api-intro,Gemini API 入門,"Gemini API 使い方,Google AI API",execution,howto,ai-api,A,published,ai-apiクラスター
+gemini-api-intro,Gemini API 入門,"Gemini API 使い方,Google AI API",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
 zapier-vs-make,Zapier vs Make 比較,"Zapier Make 違い,自動化ツール 比較",entry,comparison,no-code,A,reviewed,T5/T6完了 パイプライン通過
 n8n-self-hosting,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",execution,howto,no-code,B,reviewed,T5/T6完了 パイプライン通過
 ai-introduction-5steps,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
 automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
 where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
-ai-dev-tools-comparison,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",entry,comparison,reviews,A,published,reviewsクラスター
-automation-tools-matrix,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",entry,comparison,reviews,A,published,reviewsクラスター
+ai-dev-tools-comparison,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",entry,comparison,reviews,A,reviewed,T5/T6完了 パイプライン通過
+automation-tools-matrix,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",entry,comparison,reviews,A,reviewed,T5/T6完了 パイプライン通過
 automation-roadmap,中小企業 AI 業務自動化,"業務効率化 AI,自動化 ロードマップ,DX 中小企業",entry,pillar,frameworks,S,published,frameworksクラスターのピラー（全体ハブ）
 discord-bot-overview,Discord Bot 業務活用,"Discord Bot 作り方,Discord 自動化,Discord 業務",entry,pillar,discord-bot,S,published,discord-botクラスターのピラー
 no-code-overview,ノーコード 自動化ツール 比較,"ノーコード おすすめ,ローコード 比較,iPaaS 比較",entry,pillar,no-code,S,published,no-codeクラスターのピラー
@@ -31,7 +31,7 @@ gas-form-automation,GAS Googleフォーム 連携,"GAS フォーム 自動処理
 gas-syntax-reference,GAS 基礎文法,"GAS リファレンス,Google Apps Script 文法",execution,reference,gas,A,reviewed,T5/T6完了 パイプライン通過
 discord-scheduler-bot,Discord 定時通知 Bot,"Discord Webhook GAS,Discord 自動通知",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
 discord-vs-line-bot,Discord Bot vs LINE Bot,"Discord LINE 比較,チャットBot 中小企業",entry,comparison,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
-gas-claude-api,GAS Claude API 連携,"GAS AI 自動分類,GAS Anthropic API",execution,howto,gas,A,published,ai-apiクラスターと横断リンク
+gas-claude-api,GAS Claude API 連携,"GAS AI 自動分類,GAS Anthropic API",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
 gas-chatgpt-api,GAS ChatGPT API 連携,"GAS OpenAI API,GAS 問い合わせ 自動回答",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
 gas-ai-coding,Claude Code GAS スクリプト,"AI GAS コード生成,Claude Code プロンプト実例",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
 discord-ai-bot,Discord AI Bot,"Discord ChatGPT Bot,社内AI 質問窓口",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過

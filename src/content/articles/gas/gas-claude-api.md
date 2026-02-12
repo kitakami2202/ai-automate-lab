@@ -4,7 +4,7 @@ description: "GAS（Google Apps Script）からClaude APIを呼び出し、ス�
 category: "gas"
 tags: ["GAS", "Claude API", "AI連携", "自動分類", "スプレッドシート"]
 publishedAt: 2026-02-12
-updatedAt: 2026-02-12
+updatedAt: 2026-02-13
 author: "れん"
 difficulty: "beginner"
 timeToRead: 12
@@ -48,7 +48,7 @@ draft: false
 
 ## この記事で作るもの
 
-GAS × Claude API連携とは、Google Apps ScriptのUrlFetchAppを使ってClaude API（Anthropic API）にHTTPリクエストを送り、AIの分析結果をスプレッドシートに書き戻す仕組みです。
+GAS × Claude API連携とは、Google Apps ScriptのUrlFetchAppを使ってClaude API（Anthropic API）にHTTPリクエスト（Webサーバーへの通信要求）を送り、AIの分析結果をスプレッドシートに書き戻す仕組みです。
 
 | 機能 | 内容 | 業務活用例 |
 |------|------|---------|
@@ -74,6 +74,8 @@ GAS × Claude API連携とは、Google Apps ScriptのUrlFetchAppを使ってClau
 **重要:** APIキーはコードにハードコードせず、必ずスクリプトプロパティに保管してください。APIキーの管理方法の詳細は[APIキー管理ガイド](/articles/ai-api/api-key-management)をご覧ください。
 
 ## 実装手順
+
+実装手順とは、GASからAnthropic APIを実際に呼び出してデータ分類を行うコードを構築する一連の流れです。基本の呼び出し関数、スプレッドシート連携、定期実行の3ステップで進めます。
 
 ### ステップ1: Claude APIの基本呼び出し
 
@@ -129,7 +131,7 @@ function callClaudeApi(systemPrompt, userMessage) {
 
 ### ステップ2: スプレッドシートデータの自動分類
 
-スプレッドシートの問い合わせデータを1行ずつClaude APIで分類し、結果を書き戻すスクリプトです。
+スプレッドシートの問い合わせデータを1行ずつClaude APIで分類し、結果をJSON（データ交換用のテキスト形式）で受け取ってスプレッドシートに書き戻すスクリプトです。
 
 ```javascript
 /**
@@ -195,6 +197,8 @@ function classifyInquiries() {
 
 ## 動作確認・トラブルシューティング
 
+動作確認とは、構築したGAS × Anthropic API連携スクリプトが正しく動作するかテストし、問題があれば原因を特定して解決する工程です。
+
 | エラー | 原因 | 解決策 |
 |--------|------|--------|
 | `Claude API Error: invalid x-api-key` | APIキーの設定ミス | スクリプトプロパティの値を確認 |
@@ -213,6 +217,8 @@ function classifyInquiries() {
 ※2026年2月時点の概算です。最新料金は[Anthropic公式料金ページ](https://www.anthropic.com/pricing)をご確認ください。
 
 ## 応用・カスタマイズ例
+
+応用・カスタマイズ例とは、基本の分類処理を習得した後に取り組める、GAS × Claude APIの発展的な活用パターンです。
 
 - **フォーム連携** — [Googleフォーム連携](/articles/gas/gas-form-automation)と組み合わせ、回答受信→AI分類→担当者通知を一気通貫で実現
 - **Slack通知** — 緊急度「高」の問い合わせだけ[Slack通知](/articles/gas/gas-slack-notification)で即時アラート

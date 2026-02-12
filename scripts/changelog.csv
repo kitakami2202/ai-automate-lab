@@ -114,3 +114,7 @@ date,slug,action,phase,before_status,after_status,before_version,after_version,s
 2026-02-12,dify-intro,refine,TR1→TR2→T4→T5/T6,published,reviewed,v1.0,v1.1,リファインパイプライン通過（B優先度）,365eb14
 2026-02-12,cursor-business,refine,TR1→TR2→T4→T5/T6,published,reviewed,v1.0,v1.1,リファインパイプライン通過（B優先度）,365eb14
 2026-02-12,discord-scheduler-bot,fix,-,reviewed,reviewed,v1.1,v1.1,relatedArticlesカテゴリプレフィックス修正,365eb14
+2026-02-13,gemini-api-intro,refine,TR1→TR2→T4→T5/T6,published,reviewed,v1.0,v1.1,リファインパイプライン通過（A優先度）,fe1e0d3
+2026-02-13,gas-claude-api,refine,TR1→TR2→T4→T5/T6,published,reviewed,v1.0,v1.1,リファインパイプライン通過（A優先度）,fe1e0d3
+2026-02-13,ai-dev-tools-comparison,refine,TR1→TR2→T4→T5/T6,published,reviewed,v1.0,v1.1,リファインパイプライン通過（A優先度）,fe1e0d3
+2026-02-13,automation-tools-matrix,refine,TR1→TR2→T4→T5/T6,published,reviewed,v1.0,v1.1,リファインパイプライン通過（A優先度）,fe1e0d3

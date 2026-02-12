@@ -3,7 +3,7 @@
 > このファイルは未リファイン記事の管理用。
 > 指示: 「バックログのリファインを実行して」で対応開始。
 
-## 未リファイン記事（21本） — 2026-02-12時点
+## 未リファイン記事（17本） — 2026-02-13時点
 
 status=published のまま TR1→TR2→T4→T5/T6 未通過の記事。
 
@@ -34,14 +34,14 @@ status=published のまま TR1→TR2→T4→T5/T6 未通過の記事。
 | no-code-overview | no-code | ピラー v1.0 |
 | ai-coding-tools-comparison | reviews | 新規作成 v1.0 |
 
-### A優先度（4本）— リファインパイプライン未通過
+### ~~A優先度（4本）— リファインパイプライン完了 2026-02-13~~
 
 | slug | category | 備考 |
 |------|----------|------|
-| gemini-api-intro | ai-api | 初版 v1.0 |
-| gas-claude-api | gas | 新規作成 v1.0 |
-| ai-dev-tools-comparison | reviews | 初版 v1.0 |
-| automation-tools-matrix | reviews | 初版 v1.0 |
+| ~~gemini-api-intro~~ | ai-api | ✅ TR1:89点SKIP→任意改善適用 v1.1 |
+| ~~gas-claude-api~~ | gas | ✅ TR1:85点REFINE→TR2完了 v1.1 |
+| ~~ai-dev-tools-comparison~~ | reviews | ✅ TR1:78点REFINE→TR2完了 v1.1 |
+| ~~automation-tools-matrix~~ | reviews | ✅ TR1:80点REFINE→TR2完了 v1.1 |
 
 ## 実行手順
 
@@ -59,4 +59,4 @@ status=published のまま TR1→TR2→T4→T5/T6 未通過の記事。
 
 ## 完了記録
 
-（リファイン完了時にここに記録）
+- 2026-02-13: A優先度4本（gemini-api-intro, gas-claude-api, ai-dev-tools-comparison, automation-tools-matrix）リファイン完了
