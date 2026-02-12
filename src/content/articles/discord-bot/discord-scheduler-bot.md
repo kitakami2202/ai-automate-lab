@@ -24,9 +24,9 @@ faq:
   - question: "通知内容にスプレッドシートのデータを含められますか？"
     answer: "もちろん可能です。本記事のメインスクリプトがまさにその実装です。スプレッドシートの売上データやタスク情報を取得し、Embed形式で整形してDiscordに送信します。"
 relatedArticles:
-  - "discord-bot-overview"
-  - "discord-bot-gas"
-  - "gas-spreadsheet-automation"
+  - "discord-bot/discord-bot-overview"
+  - "discord-bot/discord-bot-gas"
+  - "gas/gas-spreadsheet-automation"
 draft: false
 ---
 

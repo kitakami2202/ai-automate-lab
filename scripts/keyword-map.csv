@@ -10,7 +10,7 @@ openai-api-intro,OpenAI API 入門,"ChatGPT API,GPT API 使い方",execution,how
 claude-api-intro,Claude API 入門,"Claude API 使い方,Anthropic API",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
 gemini-api-intro,Gemini API 入門,"Gemini API 使い方,Google AI API",execution,howto,ai-api,A,published,ai-apiクラスター
 zapier-vs-make,Zapier vs Make 比較,"Zapier Make 違い,自動化ツール 比較",entry,comparison,no-code,A,reviewed,T5/T6完了 パイプライン通過
-n8n-self-hosting,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",execution,howto,no-code,B,published,no-codeクラスター
+n8n-self-hosting,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",execution,howto,no-code,B,reviewed,T5/T6完了 パイプライン通過
 ai-introduction-5steps,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
 automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
 where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
@@ -38,18 +38,18 @@ discord-ai-bot,Discord AI Bot,"Discord ChatGPT Bot,社内AI 質問窓口",execut
 ai-coding-cost-reduction,AIコーディング 開発コスト削減,"外注 内製 比較,AI開発 ROI",entry,framework,frameworks,A,reviewed,T5/T6完了 パイプライン通過
 api-key-management,APIキー 管理,"APIキー 漏洩防止,APIキー セキュリティ",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
 ai-coding-prompt-patterns,AI コード生成 プロンプト,"プロンプトパターン 業務自動化,AI コーディング 指示",execution,reference,ai-api,A,reviewed,T5/T6完了 パイプライン通過
-tool-selection-guide,自動化ツール 選定ガイド,"自動化ツール おすすめ,規模別 ツール選定",entry,framework,frameworks,B,published,topic-clusters既存計画
-automation-failure,自動化 失敗パターン,"自動化 失敗,業務自動化 注意点",entry,framework,frameworks,B,published,topic-clusters既存計画
-no-code-tool-matrix,ノーコードツール 選定マトリクス,"ノーコード 選び方,用途別 ノーコード",entry,framework,no-code,B,published,topic-clusters既存計画
-gas-calendar,GAS Googleカレンダー 連携,"GAS カレンダー 自動登録,GAS 予定 通知",execution,howto,gas,B,published,Google Workspace連携シリーズ
-n8n-ai-workflow,n8n AI連携,"n8n LLMノード,n8n 業務フロー 自動化",execution,howto,no-code,B,published,n8n記事からの自然な拡張
-make-ai-scenarios,Make AI連携 シナリオ集,"Make AI テンプレート,Make 自動化 実例",execution,howto,no-code,B,published,zapier-vs-make記事から誘導
-codex-intro,OpenAI Codex 入門,"Codex 使い方,クラウド コード生成",execution,howto,ai-api,B,published,R1比較記事のクラスター
-mcp-google-workspace,MCP Google Workspace 連携,"MCP 実践ガイド,AI Google連携",execution,howto,ai-api,B,published,S3 MCP入門のクラスター
-discord-attendance,Discord 勤怠管理Bot,"Discord 出退勤,勤怠 スプレッドシート",execution,howto,discord-bot,B,published,中小企業の勤怠管理に直結
-ai-api-cost-management,AI API 料金管理,"AI API コスト,API 予算管理 中小企業",entry,framework,ai-api,B,published,コスト懸念を持つ経営者向け
-dify-intro,Dify 入門,"Dify チャットボット,ノーコード AI Bot",execution,howto,no-code,B,published,ノーコード×AIの交差点
-cursor-business,Cursor 業務自動化,"Cursor AIエディタ,Cursor 活用術",execution,howto,ai-api,B,published,使い込んでから書く
+tool-selection-guide,自動化ツール 選定ガイド,"自動化ツール おすすめ,規模別 ツール選定",entry,framework,frameworks,B,reviewed,T5/T6完了 パイプライン通過
+automation-failure,自動化 失敗パターン,"自動化 失敗,業務自動化 注意点",entry,framework,frameworks,B,reviewed,T5/T6完了 パイプライン通過
+no-code-tool-matrix,ノーコードツール 選定マトリクス,"ノーコード 選び方,用途別 ノーコード",entry,framework,no-code,B,reviewed,T5/T6完了 パイプライン通過
+gas-calendar,GAS Googleカレンダー 連携,"GAS カレンダー 自動登録,GAS 予定 通知",execution,howto,gas,B,reviewed,T5/T6完了 パイプライン通過
+n8n-ai-workflow,n8n AI連携,"n8n LLMノード,n8n 業務フロー 自動化",execution,howto,no-code,B,reviewed,T5/T6完了 パイプライン通過
+make-ai-scenarios,Make AI連携 シナリオ集,"Make AI テンプレート,Make 自動化 実例",execution,howto,no-code,B,reviewed,T5/T6完了 パイプライン通過
+codex-intro,OpenAI Codex 入門,"Codex 使い方,クラウド コード生成",execution,howto,ai-api,B,reviewed,T5/T6完了 パイプライン通過
+mcp-google-workspace,MCP Google Workspace 連携,"MCP 実践ガイド,AI Google連携",execution,howto,ai-api,B,reviewed,T5/T6完了 パイプライン通過
+discord-attendance,Discord 勤怠管理Bot,"Discord 出退勤,勤怠 スプレッドシート",execution,howto,discord-bot,B,reviewed,T5/T6完了 パイプライン通過
+ai-api-cost-management,AI API 料金管理,"AI API コスト,API 予算管理 中小企業",entry,framework,ai-api,B,reviewed,T5/T6完了 パイプライン通過
+dify-intro,Dify 入門,"Dify チャットボット,ノーコード AI Bot",execution,howto,no-code,B,reviewed,T5/T6完了 パイプライン通過
+cursor-business,Cursor 業務自動化,"Cursor AIエディタ,Cursor 活用術",execution,howto,ai-api,B,reviewed,T5/T6完了 パイプライン通過
 ai-business-overview,AI 自動化 業務一覧,"AI 中小企業 実例,AI 業務効率化",entry,pillar,frameworks,C,reviewed,T5/T6完了 パイプライン通過
 ai-invoice,AI 請求書 自動化,"AI OCR 請求書,請求書 仕分け 自動化",execution,howto,frameworks,C,reviewed,T5/T6完了 パイプライン通過
 ai-customer-support,AI カスタマーサポート 自動化,"AI チャットBot 構築,顧客対応 自動化",execution,howto,frameworks,C,reviewed,T5/T6完了 パイプライン通過

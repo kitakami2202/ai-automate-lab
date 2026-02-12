@@ -1,10 +1,10 @@
 ---
 title: "n8nセルフホスティング完全ガイド - Docker Composeで構築"
-description: "n8nをDocker Composeでセルフホスティングする手順を解説。PostgreSQL・HTTPS対応の本番構成をコピペで構築できます。Zapier/Makeとのコスト比較表も掲載。中小企業のサーバー代を月額500円〜に抑えて自動化を始めましょう。"
+description: "n8nをDocker Composeでセルフホスティングする構築手順を解説。PostgreSQL・Caddy（HTTPS）対応の本番構成をコピペで構築できます。Zapier・Makeとのコスト比較表やVPS選定ガイドも掲載。中小企業のサーバー代を月額500円〜に抑えて自動化基盤を整えましょう。"
 category: "no-code"
 tags: ["n8n", "セルフホスティング", "Docker Compose", "自動化", "ノーコード"]
 publishedAt: 2025-03-15
-updatedAt: 2026-02-09
+updatedAt: 2026-02-12
 author: "れん"
 difficulty: "intermediate"
 timeToRead: 20
@@ -20,7 +20,7 @@ faq:
   - question: "n8nの旧BASIC_AUTH認証はまだ使えますか？"
     answer: "n8n v1.0以降、N8N_BASIC_AUTH_ACTIVE・N8N_BASIC_AUTH_USER・N8N_BASIC_AUTH_PASSWORDの環境変数は廃止されました。現在はビルトインユーザー管理に移行しており、初回アクセス時にオーナーアカウントを作成する方式です。旧環境変数を設定しても無視されるため、本記事の手順に従って移行してください。"
   - question: "n8nセルフホストとZapier/Makeのコスト差はどのくらいですか？"
-    answer: "2026年2月時点で、Zapier Professionalは月額$29.99（750タスク）、Make Coreは月額$9（10,000オペレーション）です。n8nセルフホストはVPS月額500〜1,500円で実行回数が無制限になります。年間で数万円〜十数万円の差額が生まれるため、ワークフローを頻繁に実行する中小企業ほどコスト削減効果が大きくなります。"
+    answer: "2026年2月時点で、Zapier Professionalは月額$29.99（750タスク）、Make Coreは月額$10.59（10,000オペレーション）です。n8nセルフホストはVPS月額500〜1,500円で実行回数が無制限になります。年間で数万円〜十数万円の差額が生まれるため、ワークフローを頻繁に実行する中小企業ほどコスト削減効果が大きくなります。"
   - question: "n8nのデータバックアップはどうすればいいですか？"
     answer: "PostgreSQLの定期ダンプ（pg_dump）とN8N_ENCRYPTION_KEYの安全な保管が必須です。ENCRYPTION_KEYを紛失すると、保存済みのAPI認証情報が復号できなくなります。キーは.envファイルとは別に、パスワードマネージャーや暗号化されたクラウドストレージに保管することを強く推奨します。"
   - question: "ローカルPCでもn8nをセルフホストできますか？"
@@ -34,7 +34,7 @@ draft: false
 
 この記事では、Docker Composeでn8nをセルフホスティングする環境を約30分で構築します。
 Docker環境があれば、コピペだけで動く設定ファイルを全文掲載しています。
-この記事は[Zapier vs Make 徹底比較](/articles/no-code/zapier-vs-make)の実装編です。ノーコードツールの全体像から知りたい方は先にそちらをご覧ください。
+この記事は[ノーコード自動化ツール比較](/articles/no-code/no-code-overview)の実装編です。ツール選定の基準は[Zapier vs Make 徹底比較](/articles/no-code/zapier-vs-make)をご覧ください。
 
 ### この記事の前提
 
@@ -57,7 +57,7 @@ Docker環境があれば、コピペだけで動く設定ファイルを全文�
 ```
 
 **このコードのポイント:**
-- Caddy（自動でHTTPS証明書を取得・更新するWebサーバー）がHTTPSを処理します
+- Caddy（外部からのアクセスを内部サービスに中継するリバースプロキシ兼Webサーバー）がHTTPSを処理します。HTTPS証明書の取得・更新も自動でおこないます
 - n8nがワークフローの実行を担当します
 - PostgreSQL（高信頼性のリレーショナルデータベース）がデータを永続化します
 
@@ -68,7 +68,7 @@ Docker環境があれば、コピペだけで動く設定ファイルを全文�
 | サービス | 月額料金（2026年2月時点） | 実行回数制限 | データ管理 |
 |---------|------------------------|------------|-----------|
 | [Zapier Professional](https://zapier.com/pricing) | $29.99〜（約4,500円〜） | 750タスク/月 | Zapierのクラウド |
-| [Make Core](https://www.make.com/en/pricing) | $9〜（約1,350円〜） | 10,000オペレーション/月 | Makeのクラウド |
+| [Make Core](https://www.make.com/en/pricing) | $10.59〜（約1,600円〜） | 10,000オペレーション/月 | Makeのクラウド |
 | [n8n Cloud Starter](https://n8n.io/pricing/) | EUR 24〜（約3,900円〜） | 2,500実行/月 | n8nのクラウド |
 | **n8n セルフホスト** | **VPS 500〜1,500円** | **無制限** | **自社サーバー** |
 
@@ -80,7 +80,7 @@ n8n v1.0以降、認証方式はビルトインユーザー管理に移行して
 
 ## 準備・環境構築
 
-環境構築とは、n8nを動かすために必要なサーバー・ソフトウェア・設定ファイルを整えるプロセスです。
+環境構築とは、n8nを動かすために必要なサーバー・ソフトウェア・設定ファイルを整えるプロセスです。n8nの構築にはDocker環境とVPS（またはローカルPC）が必要です。
 
 ### VPSの選定
 
@@ -88,7 +88,7 @@ n8n v1.0以降、認証方式はビルトインユーザー管理に移行して
 
 | VPS | 月額（2026年2月時点） | CPU | RAM | ストレージ |
 |-----|---------------------|-----|-----|-----------|
-| [ConoHa VPS](https://www.conoha.jp/vps/pricing/) | 751円〜 | 1コア | 1GB | 100GB SSD |
+| [ConoHa VPS](https://vps.conoha.jp/pricing/) | 751円〜 | 1コア | 1GB | 100GB SSD |
 | [Xserver VPS](https://vps.xserver.ne.jp/) | 830円〜 | 3コア | 2GB | 50GB NVMe |
 | [さくらVPS](https://vps.sakura.ad.jp/) | 590円〜 | 2コア | 512MB | 25GB SSD |
 
@@ -120,7 +120,7 @@ mkdir -p ~/n8n-selfhost && cd ~/n8n-selfhost
 
 ## 実装手順
 
-実装手順とは、設定ファイルの作成からコンテナ起動までの一連の作業ステップです。
+実装手順では、Docker Composeの設定ファイル作成・環境変数の設定・コンテナ起動・初期セットアップの4ステップでn8n環境を構築します。
 
 ### ステップ1: docker-compose.ymlを作成する
 
@@ -169,6 +169,8 @@ services:
   caddy:
     image: caddy:2-alpine
     restart: unless-stopped
+    environment:
+      - N8N_HOST=${N8N_HOST}
     ports:
       - "80:80"
       - "443:443"
@@ -189,6 +191,8 @@ volumes:
 - n8nはPostgreSQLの起動完了を`healthcheck`で待ってから起動します
 - すべてのパスワード・キーは環境変数（`${...}`）で参照し、ハードコードしません
 - `WEBHOOK_URL`を設定することで、外部サービスからのWebhookを正しく受信できます
+- 本番環境では`n8nio/n8n:1.76.1`のようにバージョンを固定すると、予期しない破壊的変更を防げます。最新バージョンは[Docker Hubのn8nページ](https://hub.docker.com/r/n8nio/n8n/tags)で確認してください
+- caddyサービスの`environment`で`N8N_HOST`をコンテナに渡しています。Caddyfileの`{$N8N_HOST}`はコンテナ内の環境変数を参照するため、この設定が必要です
 
 続いて、Caddyfile（リバースプロキシの設定ファイル）を`~/n8n-selfhost/Caddyfile`として作成します。
 
@@ -336,7 +340,7 @@ docker compose exec postgres pg_dump -U n8n n8n > backup_$(date +%Y%m%d).sql
 **このコードのポイント:**
 - バックアップファイルは外部ストレージ（S3やGoogle Cloud Storageなど）にも保管してください
 - `N8N_ENCRYPTION_KEY`はデータベースのバックアップとは別に安全に保管する必要があります
-- cronなどで日次バックアップを自動化するのがおすすめです
+- cronなどで日次バックアップを自動化しておくと、障害発生時の復旧が迅速になります
 
 ## 応用・カスタマイズ例
 
@@ -348,7 +352,8 @@ docker compose exec postgres pg_dump -U n8n n8n > backup_$(date +%Y%m%d).sql
 
 ### LDAP/SAML連携
 
-社内にActive DirectoryやGoogle Workspaceなどの認証基盤がある場合、LDAP（ディレクトリサービスのプロトコル）やSAML（シングルサインオンの規格）で連携できます。従業員のアカウント管理を一元化し、退職時のアクセス権削除も自動化できます。
+社内にActive DirectoryやGoogle Workspaceなどの認証基盤がある場合、LDAP（ディレクトリサービスのプロトコル）やSAML（シングルサインオンの規格）で連携できます。
+従業員のアカウント管理を一元化し、退職時のアクセス権削除も自動化できます。
 
 ### 中小企業向けワークフロー例
 
@@ -358,4 +363,4 @@ n8nの構築が完了したら、たとえば以下のような業務自動化�
 - **日報集約**: 各担当者がフォームで入力した日報を自動で1つのシートにまとめる
 - **請求書リマインド**: 支払期限が近づいた請求書を自動でメール通知
 
-自動化の費用対効果を試算したい方は[自動化ROI計算テンプレート](/articles/frameworks/automation-roi-template)をご活用ください。どの業務から自動化すべきか迷っている方は[Zapier vs Make 徹底比較](/articles/no-code/zapier-vs-make)でツールの選定基準も確認できます。
+自動化の費用対効果を試算したい方は[自動化ROI計算テンプレート](/articles/frameworks/automation-roi-template)をご活用ください。n8nの構築が完了したら、[n8n × AI連携ワークフロー](/articles/no-code/n8n-ai-workflow)でAIを組み込んだ業務自動化にも挑戦してみてください。
