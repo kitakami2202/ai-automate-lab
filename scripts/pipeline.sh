@@ -34,6 +34,13 @@ require_category_slug() {
   fi
 }
 
+update_registry() {
+  echo ""
+  echo "📊 レジストリ更新..."
+  node scripts/build-registry.cjs
+  echo "✅ article-registry.csv / changelog.csv を再生成しました"
+}
+
 run_quality_checks() {
   local file=$1
   echo ""
@@ -44,7 +51,10 @@ run_quality_checks() {
   echo "  T5: claude --append-system-prompt-file scripts/agents/quality-agent.md \"$file をチェックして\""
   echo "  T6: claude --append-system-prompt-file scripts/agents/security-agent.md \"$file をチェックして\""
   echo ""
-  echo "全チェック PASS 後: git add && git commit && git push"
+  read -p "全チェック PASS 後、Enterを押してください..."
+  update_registry
+  echo ""
+  echo "git add && git commit && git push でデプロイしてください"
 }
 
 # --- 入力バリデーション ---
