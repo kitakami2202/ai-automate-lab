@@ -1,9 +1,9 @@
 slug,primary_kw,secondary_kw,layer,article_type,cluster,priority,status,notes
-gas-basics,GAS できること,"Google Apps Script 入門,GAS 業務自動化",entry,pillar,gas,S,published,GASクラスターのピラー
-gas-spreadsheet-automation,GAS スプレッドシート 自動化,"GAS 日報 自動化,GAS 集計",execution,howto,gas,S,published,gas-basicsのクラスター（リライト構成案作成済み）
-gas-line-bot,GAS LINE Bot 作り方,"GAS LINE 通知,LINE Bot 自動化",execution,howto,gas,S,published,gas-basicsのクラスター（リライト構成案作成済み）
-gas-slack-notification,GAS Slack 通知,"Slack 自動通知,スプレッドシート Slack",execution,howto,gas,S,published,gas-basicsのクラスター
-discord-bot-gas,Discord Bot GAS 連携,"Discord 通知 自動化,Discord スプレッドシート",execution,howto,discord-bot,S,published,discord-botクラスター
+gas-basics,GAS できること,"Google Apps Script 入門,GAS 業務自動化",entry,pillar,gas,S,reviewed,TR1:SKIP（92点） リファインパイプライン通過
+gas-spreadsheet-automation,GAS スプレッドシート 自動化,"GAS 日報 自動化,GAS 集計",execution,howto,gas,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+gas-line-bot,GAS LINE Bot 作り方,"GAS LINE 通知,LINE Bot 自動化",execution,howto,gas,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+gas-slack-notification,GAS Slack 通知,"Slack 自動通知,スプレッドシート Slack",execution,howto,gas,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+discord-bot-gas,Discord Bot GAS 連携,"Discord 通知 自動化,Discord スプレッドシート",execution,howto,discord-bot,S,reviewed,TR1:SKIP（93点） relatedArticles修正 リファインパイプライン通過
 discord-slash-commands,Discord スラッシュコマンド,"Discord Bot コマンド,Discord インタラクション",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
 discord-spreadsheet-db,Discord スプレッドシートDB,"Discord データ管理,Discord Bot データベース",execution,howto,discord-bot,A,reviewed,T5/T6完了 パイプライン通過
 openai-api-intro,OpenAI API 入門,"ChatGPT API,GPT API 使い方",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
@@ -11,21 +11,21 @@ claude-api-intro,Claude API 入門,"Claude API 使い方,Anthropic API",executio
 gemini-api-intro,Gemini API 入門,"Gemini API 使い方,Google AI API",execution,howto,ai-api,A,reviewed,T5/T6完了 パイプライン通過
 zapier-vs-make,Zapier vs Make 比較,"Zapier Make 違い,自動化ツール 比較",entry,comparison,no-code,A,reviewed,T5/T6完了 パイプライン通過
 n8n-self-hosting,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",execution,howto,no-code,B,reviewed,T5/T6完了 パイプライン通過
-ai-introduction-5steps,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
-automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
-where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,published,frameworksクラスター（リライト済み）
+ai-introduction-5steps,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",entry,framework,frameworks,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+automation-roi-template,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",entry,framework,frameworks,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+where-to-automate-first,業務自動化 何から,"自動化 優先順位,どこから 自動化",entry,framework,frameworks,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
 ai-dev-tools-comparison,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",entry,comparison,reviews,A,reviewed,T5/T6完了 パイプライン通過
 automation-tools-matrix,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",entry,comparison,reviews,A,reviewed,T5/T6完了 パイプライン通過
-automation-roadmap,中小企業 AI 業務自動化,"業務効率化 AI,自動化 ロードマップ,DX 中小企業",entry,pillar,frameworks,S,published,frameworksクラスターのピラー（全体ハブ）
-discord-bot-overview,Discord Bot 業務活用,"Discord Bot 作り方,Discord 自動化,Discord 業務",entry,pillar,discord-bot,S,published,discord-botクラスターのピラー
-no-code-overview,ノーコード 自動化ツール 比較,"ノーコード おすすめ,ローコード 比較,iPaaS 比較",entry,pillar,no-code,S,published,no-codeクラスターのピラー
-ai-api-overview,AI API 業務活用,"AI API 入門,AI API 組み込み,LLM API 比較",entry,pillar,ai-api,S,published,ai-apiクラスターのピラー
+automation-roadmap,中小企業 AI 業務自動化,"業務効率化 AI,自動化 ロードマップ,DX 中小企業",entry,pillar,frameworks,S,reviewed,TR1:SKIP（92点） リファインパイプライン通過
+discord-bot-overview,Discord Bot 業務活用,"Discord Bot 作り方,Discord 自動化,Discord 業務",entry,pillar,discord-bot,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+no-code-overview,ノーコード 自動化ツール 比較,"ノーコード おすすめ,ローコード 比較,iPaaS 比較",entry,pillar,no-code,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+ai-api-overview,AI API 業務活用,"AI API 入門,AI API 組み込み,LLM API 比較",entry,pillar,ai-api,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
 claude-code-automation,Claude Code 業務自動化,"Claude Code 使い方,AI スクリプト 自動化",execution,howto,ai-api,S,reviewed,T5/T6完了 パイプライン通過
-ai-coding-tools-comparison,AIコーディングツール 比較,"Claude Code vs Copilot,Codex 比較,AI コード生成 比較",entry,comparison,reviews,S,published,Layer 1入口。表形式でAEO向き
-mcp-intro,MCP 入門,"Model Context Protocol,MCP AI連携,AI ツール連携",entry,howto,ai-api,S,published,2025-2026年最大トレンド。サイトの軸と完全一致
-gas-pdf-generation,GAS PDF 自動生成,"GAS 請求書 自動化,GAS テンプレート PDF",execution,howto,gas,S,published,中小企業の請求書業務に直結
-prompt-engineering-business,プロンプト設計 業務自動化,"プロンプトエンジニアリング 入門,AI プロンプト 書き方",entry,framework,frameworks,S,published,全AI系記事のハブ。サイト全体の内部リンク強化
-ai-coding-non-engineer,非エンジニア AIコーディング,"AI コード生成 初心者,プログラミング不要 自動化",execution,howto,ai-api,S,published,メインターゲット（事務担当）に直球
+ai-coding-tools-comparison,AIコーディングツール 比較,"Claude Code vs Copilot,Codex 比較,AI コード生成 比較",entry,comparison,reviews,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+mcp-intro,MCP 入門,"Model Context Protocol,MCP AI連携,AI ツール連携",entry,howto,ai-api,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+gas-pdf-generation,GAS PDF 自動生成,"GAS 請求書 自動化,GAS テンプレート PDF",execution,howto,gas,S,reviewed,TR1:SKIP（86点） リファインパイプライン通過
+prompt-engineering-business,プロンプト設計 業務自動化,"プロンプトエンジニアリング 入門,AI プロンプト 書き方",entry,framework,frameworks,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
+ai-coding-non-engineer,非エンジニア AIコーディング,"AI コード生成 初心者,プログラミング不要 自動化",execution,howto,ai-api,S,reviewed,TR1:SKIP（88点） リファインパイプライン通過
 gas-mail-automation,GAS メール 自動化,"GAS 一斉送信,GAS 自動返信,Gmail 自動化",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
 gas-form-automation,GAS Googleフォーム 連携,"GAS フォーム 自動処理,Googleフォーム 自動化",execution,howto,gas,A,reviewed,T5/T6完了 パイプライン通過
 gas-syntax-reference,GAS 基礎文法,"GAS リファレンス,Google Apps Script 文法",execution,reference,gas,A,reviewed,T5/T6完了 パイプライン通過
