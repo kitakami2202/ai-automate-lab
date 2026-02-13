@@ -1,0 +1,388 @@
+# AI Automate Lab - 全記事一覧
+> 中小企業のAI業務自動化を、フレームワークで再現可能にするナレッジベース
+> URL: https://ai-automate-lab.tech
+
+## GAS自動化
+
+### AI × 定型レポート自動生成｜スプシ→PDF
+- URL: https://ai-automate-lab.tech/articles/gas/ai-data-report/
+- GASとClaude APIで定型レポート自動化を実現する方法を解説。売上データの月次集計→AI傾向分析コメント生成→PDF出力→メール送信を一気通貫で自動化するスクリプトをコード付きで紹介。毎月数時間の手作業を削減できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### AI × メール自動振り分け・下書き生成
+- URL: https://ai-automate-lab.tech/articles/gas/ai-email-triage/
+- GASとClaude APIでGmailの受信メールをAIで自動振り分けし、返信下書きを生成する方法をコード付きで解説。問い合わせメールのAI分類→ラベル付与→緊急通知→返信ドラフト自動生成までを一気通貫で自動化。1日30分のメール振り分け作業を削減でき、初心者でも約40分で導入できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Claude Codeで書くGASスクリプト｜プロンプト実例集
+- URL: https://ai-automate-lab.tech/articles/gas/gas-ai-coding/
+- Claude CodeでGAS（Google Apps Script）を効率的に書くためのプロンプト実例集。スプレッドシート集計・メール送信・API連携のプロンプトをそのまま使えるテンプレート形式で掲載。非エンジニアでもAIにコードを書かせて業務自動化を実現できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GASでできること完全ガイド｜業務自動化入門
+- URL: https://ai-automate-lab.tech/articles/gas/gas-basics/
+- Google Apps Script（GAS）でできることを初心者向けに徹底解説。スプレッドシート自動化・メール送信・LINE/Slack通知など中小企業の業務自動化に役立つ活用シーン一覧と、始め方・制限事項まで網羅。GAS業務自動化の第一歩を踏み出せます。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: pillar
+
+### GAS × Googleカレンダー連携｜予定の自動登録・通知
+- URL: https://ai-automate-lab.tech/articles/gas/gas-calendar/
+- GAS（Google Apps Script）でGoogleカレンダーの予定を自動登録・通知する方法をステップバイステップで解説。スプレッドシートからカレンダーへの一括登録、翌日の予定をSlack・Discordに自動通知するスクリプトをコピペで動くコード付きで紹介します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GAS × ChatGPT API連携｜問い合わせ自動回答
+- URL: https://ai-automate-lab.tech/articles/gas/gas-chatgpt-api/
+- GAS（Google Apps Script）でChatGPT API（OpenAI API）を呼び出し、問い合わせへの回答ドラフトを自動生成する仕組みを構築する方法を解説。スプレッドシート連携・FAQ知識ベース活用まで、コピペで動くコード付きで約40分で完成します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GAS × Claude API連携｜AIで入力データを自動分類
+- URL: https://ai-automate-lab.tech/articles/gas/gas-claude-api/
+- GAS（Google Apps Script）からClaude APIを呼び出し、スプレッドシートの入力データをAIで自動分類する方法を解説。問い合わせ内容の振り分け・議事録要約・感情分析まで、コピペで動くコード付きで約40分で構築できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GAS × Googleフォーム連携｜回答を自動処理する方法
+- URL: https://ai-automate-lab.tech/articles/gas/gas-form-automation/
+- GAS（Google Apps Script）でGoogleフォームの回答を自動処理する方法を解説。フォーム送信時のメール通知・Slack通知・回答データの自動集計・条件分岐による振り分けまで、コピペで動くコード付き。問い合わせ対応や申込受付の自動化を約30分で構築できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GASでLINE Botの作り方｜60分で無料構築
+- URL: https://ai-automate-lab.tech/articles/gas/gas-line-bot/
+- GASを使ったLINE Botの作り方を初心者向けにステップバイステップで解説。コピペで動く完全コード・スクリプトプロパティによるトークン安全管理・スプレッドシートへのログ記録まで網羅。約60分で無料のLINE Bot自動化を実現できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GASでメール自動化｜一斉送信・自動返信の実装手順【コピペで動くコード付き】
+- URL: https://ai-automate-lab.tech/articles/gas/gas-mail-automation/
+- GAS（Google Apps Script）でGmailのメール一斉送信・自動返信を実装する方法を解説。スプレッドシートの顧客リストから個別メールを一括送信し、受信メールに自動返信するスクリプトをコピペで動くコード付きで紹介。毎月のメール業務を数分に短縮できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GAS × PDF自動生成｜請求書テンプレートから一括作成・送付
+- URL: https://ai-automate-lab.tech/articles/gas/gas-pdf-generation/
+- GAS（Google Apps Script）でスプレッドシートのデータからPDF請求書を自動生成する方法を解説。テンプレートへのデータ差し込み・PDF変換・Google Driveへの保存・メール送信まで、コピペで動く完全コード付き。毎月の請求書作成業務を手作業から数分に短縮できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GASでSlack通知を自動化｜Webhook連携ガイド
+- URL: https://ai-automate-lab.tech/articles/gas/gas-slack-notification/
+- GASからSlackへ自動通知を送る方法をステップバイステップで解説。Incoming Webhookの設定からスプレッドシート連携・Block Kitによるリッチメッセージまで、コピペで動く完全コードとトラブルシューティング表付き。約30分で無料のSlack自動通知を構築できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GASでスプレッドシート自動化｜集計・日報・メール送信
+- URL: https://ai-automate-lab.tech/articles/gas/gas-spreadsheet-automation/
+- GASを使ったスプレッドシート自動化の実践テクニックを初心者向けにステップバイステップで解説。売上データの自動集計・日次レポートのメール送信・トリガーによる定期実行まで、コピペで動く完全コードとトラブルシューティング表付きで約45分で構築できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### GAS基礎文法まとめ｜コピペで使えるリファレンス
+- URL: https://ai-automate-lab.tech/articles/gas/gas-syntax-reference/
+- Google Apps Script（GAS）の基礎文法をコピペで使えるリファレンス形式でまとめました。変数・関数・条件分岐・ループ・スプレッドシート操作・日付処理・外部API呼び出しまで、業務自動化で頻出するコードパターンを逆引きで参照できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: reference
+
+## Discord Bot
+
+### Discord × AI Bot構築｜社内AI質問窓口の作り方
+- URL: https://ai-automate-lab.tech/articles/discord-bot/discord-ai-bot/
+- DiscordとChatGPT/Claude APIを連携し、社内AI質問窓口Botを構築する方法を解説。GAS × Webhookで通知型、Node.jsで対話型の2パターンをコピペで動くコード付きで紹介。社内マニュアルを参照した回答生成も実装できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Discord × 勤怠管理Bot｜スプレッドシート記録
+- URL: https://ai-automate-lab.tech/articles/discord-bot/discord-attendance/
+- DiscordとGASで勤怠管理Botを構築する方法を解説。出勤・退勤の打刻をDiscordからおこないスプレッドシートに自動記録します。月次の勤務時間集計まで、コピペで動くコード付きで中小企業のリモートワーク勤怠管理を約60分で実現できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Discord Bot×GAS連携｜Webhook通知を自動化
+- URL: https://ai-automate-lab.tech/articles/discord-bot/discord-bot-gas/
+- GASとDiscord Webhookを使ったBot連携の手順をステップバイステップで解説。スプレッドシート連携・Embedメッセージ・トリガーによる定期通知まで、コピペで動く完全コードとトラブルシューティング表付き。約45分で無料のDiscord通知自動化を構築できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Discord Bot業務活用ガイド｜中小企業向け
+- URL: https://ai-automate-lab.tech/articles/discord-bot/discord-bot-overview/
+- Discord Botを中小企業の業務で活用する方法を非エンジニア向けに解説。通知自動化・スラッシュコマンド・データ管理など業務活用シーンをGASによる無料構築方法とあわせて紹介。LINE Botとの比較表やセキュリティの注意点も網羅しています。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: pillar
+
+### Discord定時通知Botの作り方｜GAS×Webhook連携
+- URL: https://ai-automate-lab.tech/articles/discord-bot/discord-scheduler-bot/
+- GASとDiscord Webhookで朝会リマインダーや日次売上レポートの定時通知Botを約30分で構築する手順を解説。固定メッセージ通知からスプレッドシート連動の日次レポートまで、コピペで動くコード付きでトリガー設定・土日除外ロジックも紹介します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Discordスラッシュコマンド×GAS実装ガイド
+- URL: https://ai-automate-lab.tech/articles/discord-bot/discord-slash-commands/
+- GASでDiscordスラッシュコマンドを実装する手順を解説。コマンド登録からインタラクション処理・スプレッドシート売上照会まで、コピペで動く完全コード付き。エラー対策表とカスタマイズ例も掲載。約60分・無料でDiscord Botコマンド機能を構築できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### DiscordスプレッドシートDB×GAS実装ガイド
+- URL: https://ai-automate-lab.tech/articles/discord-bot/discord-spreadsheet-db/
+- GASでスプレッドシートをデータベースとして使うDiscord Botの構築手順を解説。データの登録・照会・排他制御まで、コピペで動く完全コードとトラブルシューティング表付き。約60分で無料のDiscordデータ管理Bot（スプレッドシートDB）を構築できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Discord Bot vs LINE Bot比較｜中小企業はどっち？
+- URL: https://ai-automate-lab.tech/articles/discord-bot/discord-vs-line-bot/
+- Discord BotとLINE Botを料金・機能・業務シーンで徹底比較。中小企業が社内連絡にはDiscord、顧客対応にはLINEを選ぶべき理由を、月間メッセージ数別のコスト試算・判断フローチャート付きで解説。チャットBot導入の最適な選び方がわかります。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: comparison
+
+## AI API連携
+
+### AI API利用料金の管理方法｜中小企業の予算管理
+- URL: https://ai-automate-lab.tech/articles/ai-api/ai-api-cost-management/
+- 中小企業がAI API（OpenAI・Claude・Gemini）の利用料金を管理する方法を解説。料金体系の仕組み・月額予算の設定・コスト最適化の3ステップで、予算オーバーを防ぎながらAIを業務活用できます。モデル別コスト比較表・Pythonコスト監視コード付き。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+### AI APIを業務に組み込む方法【中小企業向け入門】
+- URL: https://ai-automate-lab.tech/articles/ai-api/ai-api-overview/
+- 中小企業がAI APIを業務自動化に組み込む方法を初心者向けに解説。OpenAI・Claude・Geminiの3大APIの料金比較と特徴、業務シーン別の選び方、セキュリティの注意点まで網羅。月数百円からテキスト分類・要約・生成を自動化できます。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: pillar
+
+### AIコードレビューで品質と速度を両立する方法
+- URL: https://ai-automate-lab.tech/articles/ai-api/ai-code-review/
+- AIを活用したコードレビュー手法を中小企業の業務自動化の観点で解説。Claude Code・GitHub Copilot・Cursorでのレビュー手順と、GASスクリプトのバグ・セキュリティ・パフォーマンスを自動チェックするプロンプトテンプレート付きで紹介します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### 非エンジニアのAI自動化入門｜コード知識ゼロから始める手順
+- URL: https://ai-automate-lab.tech/articles/ai-api/ai-coding-non-engineer/
+- プログラミング経験ゼロの事務担当者がAIコーディングツールで業務自動化を始める手順を解説。Claude Codeを使い、日本語の指示だけでCSV集計・メール下書き・ファイル名変更を自動化する方法をステップバイステップで紹介。最初の自動化体験を1時間で実現できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### AIコーディングツールで業務自動化を内製する方法
+- URL: https://ai-automate-lab.tech/articles/ai-api/ai-coding-overview/
+- AIコーディングツール（Claude Code・Codex・Copilot・Cursor）を活用して中小企業が業務自動化を内製する全体像を解説。ツール選定からプロンプト開発・運用までの流れと、非エンジニアでも始められるステップを紹介します。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: pillar
+
+### AIにコードを書かせるプロンプトパターン集
+- URL: https://ai-automate-lab.tech/articles/ai-api/ai-coding-prompt-patterns/
+- AIコーディングツールに業務自動化スクリプトを書かせるためのプロンプトパターン集。GAS・Python・Botの3カテゴリ計9パターンを、そのままコピペで使えるテンプレート形式で掲載。プロンプトの構造と使い分けの判断基準も解説。そのままコピペで使えます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: reference
+
+### APIキーの管理と安全な運用｜漏洩防止チェック
+- URL: https://ai-automate-lab.tech/articles/ai-api/api-key-management/
+- AI APIキー（OpenAI・Claude・Gemini）のセキュリティ対策を解説。GASスクリプトプロパティ・環境変数・.gitignoreの設定から、漏洩時の緊急対応まで。中小企業がAPIキーを安全に運用するためのチェックリスト付き。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Claude API入門｜業務自動化を60分で実装する方法
+- URL: https://ai-automate-lab.tech/articles/ai-api/claude-api-intro/
+- Claude API（Anthropic API）の使い方を初心者向けに解説。APIキー取得から環境構築、問い合わせメール自動分類スクリプトの実装まで、コピペで動くPythonコード付きで約60分で完成します。月100円から始められる中小企業の業務自動化に最適な入門ガイドです。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Claude Codeで業務自動化スクリプトを作る方法【初心者30分】
+- URL: https://ai-automate-lab.tech/articles/ai-api/claude-code-automation/
+- Claude Code（Anthropic公式CLI）で業務自動化スクリプトを作る手順を初心者向けに解説。インストールからCSV自動集計・ファイル整理の実装まで、自然言語で指示するだけで完成。実際にこのサイト構築で使った一次情報をもとに効率的なプロンプトのコツも紹介します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### OpenAI Codex入門｜クラウドでコード生成・実行
+- URL: https://ai-automate-lab.tech/articles/ai-api/codex-intro/
+- OpenAI Codex（コーデックス）の使い方を中小企業の業務自動化の観点で解説。Codexの特徴・料金・Claude Codeとの違いを比較し、GASスクリプトやPythonの自動生成を実際に試す手順をコード例付きで紹介します。初心者でも30分で始められます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Cursor × 業務自動化開発｜AIエディタ活用術
+- URL: https://ai-automate-lab.tech/articles/ai-api/cursor-business/
+- AIエディタCursorのAI機能（Chat・Agent・Tab補完）を活用して業務自動化スクリプトを効率的に開発する方法を解説。GASでの月別売上集計やPythonでのCSV処理など、コピペで動く完成コードとプロンプト例付き。Cursorの料金プランやClaude Codeとの使い分けも紹介します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Gemini API入門|PythonとGASで始めるAI活用
+- URL: https://ai-automate-lab.tech/articles/ai-api/gemini-api-intro/
+- Gemini APIの使い方をPythonとGAS（Google Apps Script）の2パターンで解説。新SDK（google-genai）対応のコード例付きで、無料枠を活用した請求書読み取りや画像分析など中小企業の業務自動化を始める手順を紹介します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### MCP × Google Workspace連携｜実践ガイド
+- URL: https://ai-automate-lab.tech/articles/ai-api/mcp-google-workspace/
+- MCP（Model Context Protocol）でClaude DesktopとGoogle Workspace（スプレッドシート・Gmail・カレンダー）を連携する方法を解説。MCPサーバーの設定からスプレッドシートのAI分析・メール下書き生成まで、実務で使える構成例を紹介します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### MCP入門｜AIと業務ツールをつなぐModel Context Protocol
+- URL: https://ai-automate-lab.tech/articles/ai-api/mcp-intro/
+- MCP（Model Context Protocol）の基本概念と業務活用を初心者向けに解説。AIと業務ツール（Google Drive・Slack・DB等）を標準規格で接続する仕組みと導入手順を紹介。中小企業のAI業務自動化を加速する最新プロトコルの全体像がわかります。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: howto
+
+### OpenAI API入門 - 業務自動化を始める実践ガイド
+- URL: https://ai-automate-lab.tech/articles/ai-api/openai-api-intro/
+- OpenAI APIの使い方を初心者向けに解説。Python環境構築からChat Completions・Responses APIの実装、問い合わせメール自動分類の実践コードまで、コピペで動くサンプル付きで紹介します。中小企業の業務自動化を始めましょう。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Windsurf入門｜AI IDEで業務ツールを開発
+- URL: https://ai-automate-lab.tech/articles/ai-api/windsurf-intro/
+- Windsurf（ウィンドサーフ）の使い方を中小企業の業務自動化の観点で解説。CascadeフローとAIエージェント機能の特徴を整理し、GASスクリプト・Pythonの自動生成をプロンプト例付きで紹介。Claude CodeやCursorとの使い分けも解説します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+## ノーコード
+
+### Dify入門｜ノーコードでAIチャットボットを作る
+- URL: https://ai-automate-lab.tech/articles/no-code/dify-intro/
+- Dify（ディファイ）を使い、ノーコードでAIチャットボットを構築する方法をステップ形式で解説。社内FAQ Bot・問い合わせBot・ドキュメント検索Botの3パターンを設定手順・API連携コード付きで紹介します。プログラミング不要で約30分でAI Botを公開できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### Make × AI連携シナリオ集｜実務で使えるテンプレート5選
+- URL: https://ai-automate-lab.tech/articles/no-code/make-ai-scenarios/
+- Make（旧Integromat）とAI APIで業務自動化を実現するシナリオ5選を実例付きで解説。問い合わせ分類・レビュー分析・議事録要約・メール下書き・SNS投稿を、HTTPモジュールの設定例とプロンプトテンプレート付きで紹介。コードなしで導入できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### n8n × AI連携｜LLMノードで業務フローを自動化
+- URL: https://ai-automate-lab.tech/articles/no-code/n8n-ai-workflow/
+- n8nのAI機能（LLMノード・AI Agentノード）を使って業務フローにAIを組み込む方法を解説。問い合わせ自動分類・ドキュメント要約・チャットBot構築の3パターンを、プロンプト例とノード設定付きで紹介。ノーコードで約45分で構築できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### n8nセルフホスティング完全ガイド - Docker Composeで構築
+- URL: https://ai-automate-lab.tech/articles/no-code/n8n-self-hosting/
+- n8nをDocker Composeでセルフホスティングする構築手順を解説。PostgreSQL・Caddy（HTTPS）対応の本番構成をコピペで構築できます。Zapier・Makeとのコスト比較表やVPS選定ガイドも掲載。中小企業のサーバー代を月額500円〜に抑えて自動化基盤を整えましょう。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### ノーコード自動化ツール徹底比較【中小企業向け】
+- URL: https://ai-automate-lab.tech/articles/no-code/no-code-overview/
+- 中小企業向けノーコード自動化ツールを徹底比較。Zapier・Make・n8nの料金・機能・難易度を一覧表で整理し、業務シナリオ別のツール選定ガイドを提供します。プログラミング不要で始められる業務自動化の全体像と、GAS・RPAとの使い分けまで網羅しています。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: pillar
+
+### ノーコードツール選定マトリクス｜用途×規模で選ぶ
+- URL: https://ai-automate-lab.tech/articles/no-code/no-code-tool-matrix/
+- ノーコード自動化ツール（Zapier・Make・n8n・Power Automate）を用途×規模のマトリクスで比較。月間処理件数・連携サービス・社内スキルの3軸で最適なツールの選び方がわかるフレームワーク付き。無料プラン活用のコツも解説します。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+### Zapier vs Make 比較｜中小企業向け料金・機能の選び方
+- URL: https://ai-automate-lab.tech/articles/no-code/zapier-vs-make/
+- ZapierとMakeを料金・機能・運用コストで徹底比較。中小企業のシナリオ別コスト試算とn8nを含む三者比較表付き。課金単位の違いや隠れコストまで踏み込んで、自社に最適な自動化ツールの選び方を解説します。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: comparison
+
+## フレームワーク
+
+### AIで自動化できる業務一覧｜中小企業の実例集
+- URL: https://ai-automate-lab.tech/articles/frameworks/ai-business-overview/
+- 中小企業がAIで自動化できる業務を部門別に一覧で紹介。経理・営業・人事・カスタマーサポートの具体例を、導入難易度・コスト・削減時間の3軸で整理したマップ付きで解説します。月500円〜で始められる自社に合った自動化の優先順位と始め方がわかります。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: pillar
+
+### AIコーディングで自動化開発コストを下げる方法
+- URL: https://ai-automate-lab.tech/articles/frameworks/ai-coding-cost-reduction/
+- AIコーディングツールで中小企業の自動化開発コストを削減する方法を解説。外注・従来型内製・AI活用内製の3パターンでROI（投資対効果）を比較し、月5万円以下で業務自動化を実現する判断フレームワークとコストシミュレーションを紹介します。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+### AIカスタマーサポート自動化の始め方｜FAQ Bot・メール応答の構築手順
+- URL: https://ai-automate-lab.tech/articles/frameworks/ai-customer-support/
+- AIカスタマーサポート自動化を3パターンで解説。DifyでFAQ Bot構築、GAS＋Claude APIでメール自動応答、エスカレーション設計まで、中小企業が月0〜1,000円（2026年2月時点）で顧客対応を効率化する手順を紹介します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### AI導入5ステップ｜中小企業が失敗しない実践手順
+- URL: https://ai-automate-lab.tech/articles/frameworks/ai-introduction-5steps/
+- 中小企業がAI導入で失敗しないための5ステップを実践ロードマップ形式で解説します。課題特定・ツール選定・プロトタイプ検証・評価改善・本番運用の各段階を具体的なチェックリスト付きで紹介。無料ツールから小さく始めて段階的に拡大する方法がわかります。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+### AI × 請求書処理の自動化｜OCR+仕分けの実装
+- URL: https://ai-automate-lab.tech/articles/frameworks/ai-invoice/
+- AIによる請求書処理の自動化方法を解説。PDF請求書をOCRで読み取り、取引先名・金額・日付を自動抽出してスプレッドシートに記録するまで、GAS＋Claude APIのコピペで動くコード付き。中小企業の経理業務を月5〜10時間削減できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### AI × 議事録自動化｜録音→要約→共有まで
+- URL: https://ai-automate-lab.tech/articles/frameworks/ai-meeting-minutes/
+- AIで議事録作成を自動化する方法を解説。Whisper APIで録音を文字起こしし、Claude APIで要約・構造化してSlack/Discordに自動共有するフローを、GASのコード付きで紹介。中小企業が会議後の議事録作成に費やす月5〜10時間を削減できます。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### AI × 採用書類スクリーニング自動化
+- URL: https://ai-automate-lab.tech/articles/frameworks/ai-recruitment-screening/
+- AIを活用して採用書類（履歴書・職務経歴書）のスクリーニングを効率化する方法を解説。GAS+Claude APIで応募書類をAI要約し、求人要件とのスキルマッチ度を自動評価するスクリプトをコード付きで紹介。中小企業の採用担当者の書類確認時間を削減します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
+### 自動化が失敗する5つのパターンと対策
+- URL: https://ai-automate-lab.tech/articles/frameworks/automation-failure/
+- 中小企業の業務自動化で失敗する5つの典型パターンと具体的な対策を解説します。「いきなり大きく作る」「現場ニーズの無視」「属人化」など、よくある失敗を網羅。導入前チェックリスト付きで、失敗を回避し現場に定着する自動化を実現するための実践ガイドです。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+### 中小企業のAI業務自動化ロードマップ【完全ガイド】
+- URL: https://ai-automate-lab.tech/articles/frameworks/automation-roadmap/
+- 中小企業がAI業務自動化を始めるための完全ロードマップ。GAS・ノーコード・AI APIの3フェーズで段階的に進める方法を、ツール比較表とフェーズ別アクションプラン付きで解説します。予算0円から始められ、月10〜20時間の業務削減を目指せます。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: pillar
+
+### 自動化ROI計算テンプレート｜費用対効果を可視化
+- URL: https://ai-automate-lab.tech/articles/frameworks/automation-roi-template/
+- 業務自動化のROI（投資対効果）を正確に計算するための3ステップテンプレートを紹介します。現状コスト・自動化コストの算出方法からROI判断基準表まで、自動化の費用対効果を数値で可視化する方法を中小企業の実務目線で解説。経営層への説明資料としても活用できます。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+### 業務自動化プロンプト設計入門｜AIへの指示の書き方
+- URL: https://ai-automate-lab.tech/articles/frameworks/prompt-engineering-business/
+- 業務自動化でAIに的確な指示を出すためのプロンプト設計を4ステップのフレームワークで解説。役割定義・タスク指示・出力形式・制約条件の基本と、メール分類・レポート要約・データ整形など業務シーン別テンプレート付き。Claude Code・API活用の効果を最大化できます。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+### 自動化ツール選定ガイド｜規模別おすすめ
+- URL: https://ai-automate-lab.tech/articles/frameworks/tool-selection-guide/
+- 中小企業の規模・業務内容・予算に合った自動化ツールの選び方を、実務経験をもとに解説します。GAS・ノーコード・AI APIの3カテゴリを比較表で整理し、従業員数×業務タイプの選定マトリクスと判断フローチャートで自社に最適なツールが決まります。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+### 業務自動化は何から？優先順位の決め方ガイド
+- URL: https://ai-automate-lab.tech/articles/frameworks/where-to-automate-first/
+- 業務自動化をどこから始めるべきか迷っている中小企業の経営者・事務担当者向けに、自動化の優先順位を決めるフレームワークを解説します。効果×難易度の2軸マトリクスと5項目チェックリストを使い、最初に取り組むべきQuick Win業務を特定する具体的な手順がわかります。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: framework
+
+## レビュー・比較
+
+### AIコーディングツール比較【Claude Code vs Codex vs Copilot】
+- URL: https://ai-automate-lab.tech/articles/reviews/ai-coding-tools-comparison/
+- Claude Code・OpenAI Codex・GitHub Copilotの3大AIコーディングツールを料金・得意分野・業務自動化の相性で徹底比較。中小企業の業務シーン別おすすめとコスト試算付き。自然言語でコードを生成する時代に最適なツールの選び方を解説します。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: comparison
+
+### AI開発ツール比較｜Copilot・Cursor・Claude Code 選び方
+- URL: https://ai-automate-lab.tech/articles/reviews/ai-dev-tools-comparison/
+- GitHub Copilot・Cursor・Claude Codeなど主要5ツールを料金・機能・業務自動化の相性で徹底比較。中小企業向けのシナリオ別コスト試算と用途別おすすめを掲載。無料で始められるAIコーディングツールの選び方を解説します。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: comparison
+
+### 【2026年版】自動化ツール比較表｜スキル別の選び方
+- URL: https://ai-automate-lab.tech/articles/reviews/automation-tools-matrix/
+- 自動化ツール比較表をスキルレベル・予算・業務タイプの3軸で整理。RPA・iPaaS・ノーコード・GASなど5カテゴリの違いと、中小企業が無料〜低コストで始められるツール選定ガイドを提供。GAS+Zapierなど実務で使えるツール組み合わせパターンも紹介します。
+- レイヤー: Layer 1（入門）
+- 記事タイプ: comparison
+
+### GitHub Copilot Business活用ガイド
+- URL: https://ai-automate-lab.tech/articles/reviews/github-copilot-business/
+- GitHub Copilot（コパイロット）を業務自動化に活用する方法を解説。Free・Pro・Businessプランの違いと料金比較、GAS・Pythonの自動補完テクニック、Copilot Chatの使い方をコード例付きで紹介。チーム開発での導入手順も解説します。
+- レイヤー: Layer 2（実践）
+- 記事タイプ: howto
+
