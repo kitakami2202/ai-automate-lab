@@ -9,7 +9,7 @@ const authorSchema = {
   name: 'れん',
   url: `${SITE_URL}/about`,
   jobTitle: 'AI業務自動化コンサルタント',
-  description: 'ITコンサルタント出身。GAS業務自動化3年・40件以上の構築実績。AIデータ分析・解析調査を専門とし、中小企業のAI業務自動化を支援。',
+  description: 'ITコンサルタント出身。GAS業務自動化3年・40件以上の構築実績。ベンチャー外部顧問・大学LP制作の経験を持ち、AIデータ分析・解析調査を専門に中小企業のAI業務自動化を支援。',
   knowsAbout: [
     'Google Apps Script',
     'AI API連携',
