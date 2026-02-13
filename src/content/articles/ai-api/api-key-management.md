@@ -155,6 +155,7 @@ node --env-file=.env app.js
 
 `.gitignore` を設定する前に `.env` をコミットしてしまうと、Git履歴に残ります。
 必ずプロジェクト作成時に `.gitignore` を先に設定してください。
+`.gitignore`の実践的な設定方法は[AIコーディングで必要なGitHub操作](/articles/ai-api/github-for-ai-coding)でも解説しています。GASプロジェクトをGitHubで管理する方法は[GASスクリプト管理ガイド](/articles/gas/gas-github-management)をご覧ください。
 
 ## 漏洩防止セキュリティチェックリスト
 

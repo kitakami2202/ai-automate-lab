@@ -185,3 +185,4 @@ ROIの計算方法とテンプレートは[自動化ROI計算テンプレート]
 - **費用対効果を上司に説明したい** → [自動化ROI計算テンプレート](/articles/frameworks/automation-roi-template)
 - **AI導入を体系的に進めたい** → [AI導入5ステップ](/articles/frameworks/ai-introduction-5steps)
 - **ツールの違いを比較したい** → [自動化ツール比較表](/articles/reviews/automation-tools-matrix)
+- **スクリプトの管理方法を知りたい** → [中小企業のコード管理入門](/articles/frameworks/code-management-guide)

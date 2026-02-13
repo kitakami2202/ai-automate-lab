@@ -412,4 +412,6 @@ Claude APIの基本的な仕組みを理解すれば、より高度な自動化�
 
 また、AI導入の全体戦略を知りたい方は、[中小企業向けAI導入5ステップ](/articles/frameworks/ai-introduction-5steps)で計画的な導入方法を学べます。
 
+作成したスクリプトをGitHubで安全に管理する方法は[AIコーディングで必要なGitHub操作](/articles/ai-api/github-for-ai-coding)で解説しています。
+
 まずは本記事のCSV集計スクリプトをClaude Codeで作成し、日常業務の自動化を体験してください。

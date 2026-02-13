@@ -40,7 +40,7 @@ Freeプランの始め方から、GAS・Pythonの補完テクニック、Copilot
 
 | 項目 | 内容 |
 |------|------|
-| 必要なアカウント | GitHub |
+| 必要なアカウント | GitHub（[アカウント作成手順はこちら](/articles/ai-api/github-for-ai-coding)） |
 | 必要な知識 | VS Codeの基本操作 |
 | 所要時間 | 約30分 |
 | 費用 | 無料（Free）〜 月19ドル（Business） |

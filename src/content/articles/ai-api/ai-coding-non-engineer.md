@@ -277,6 +277,7 @@ AIへの効果的な指示の出し方について詳しくは[プロンプト�
     └─ 中小企業のAI業務自動化ロードマップ
 ```
 
+- **作ったスクリプトをGitHubで管理する** → [AIコーディングで必要なGitHub操作](/articles/ai-api/github-for-ai-coding)
 - **Claude Codeを深掘りする** → [Claude Codeで業務自動化スクリプトを爆速で作る方法](/articles/ai-api/claude-code-automation)
 - **コードなしで自動化する** → [ノーコード自動化ツール比較](/articles/no-code/no-code-overview)
 - **GASで無料から始める** → [GASでできること完全ガイド](/articles/gas/gas-basics)
