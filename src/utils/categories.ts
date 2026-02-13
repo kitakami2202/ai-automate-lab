@@ -16,6 +16,24 @@ export const categoryColors: Record<string, string> = {
   reviews: '#DC2626',
 };
 
+export const categoryBorderClass: Record<string, string> = {
+  gas: 'border-l-category-gas',
+  'discord-bot': 'border-l-category-discord',
+  'ai-api': 'border-l-category-ai-api',
+  'no-code': 'border-l-category-no-code',
+  frameworks: 'border-l-category-frameworks',
+  reviews: 'border-l-category-reviews',
+};
+
+export const categoryHoverBorderClass: Record<string, string> = {
+  gas: 'hover:border-l-category-gas',
+  'discord-bot': 'hover:border-l-category-discord',
+  'ai-api': 'hover:border-l-category-ai-api',
+  'no-code': 'hover:border-l-category-no-code',
+  frameworks: 'hover:border-l-category-frameworks',
+  reviews: 'hover:border-l-category-reviews',
+};
+
 export const categoryBadgeColors: Record<string, string> = {
   gas: 'bg-green-50 text-green-700',
   'discord-bot': 'bg-purple-50 text-purple-700',

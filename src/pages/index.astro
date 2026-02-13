@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchBar from '../components/SearchBar.astro';
 import { getCollection } from 'astro:content';
 import { generateWebSiteJsonLd } from '../utils/jsonld';
-import { categoryLabels, categoryColors } from '../utils/categories';
+import { categoryLabels, categoryBorderClass } from '../utils/categories';
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const sortedArticles = allArticles.sort(
@@ -15,7 +15,7 @@ const pillarArticles = allArticles.filter((a) => a.data.articleType === 'pillar'
 const categories = Object.entries(categoryLabels).map(([slug, label]) => ({
   slug,
   label,
-  border: `border-l-[${categoryColors[slug]}]`,
+  border: categoryBorderClass[slug] || '',
 }));
 
 const articleCounts: Record<string, number> = {};

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { categoryLabels, categoryColors, difficultyLabels, difficultyColors } from '../../utils/categories';
+import { categoryLabels, categoryBorderClass, categoryHoverBorderClass, difficultyLabels, difficultyColors } from '../../utils/categories';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -30,17 +30,10 @@ const categoryDescriptions: Record<string, string> = {
   reviews: 'ツール比較・レビュー記事の一覧です。最適なツール選びの参考に。',
 };
 
-const borderColorMap: Record<string, string> = Object.fromEntries(
-  Object.entries(categoryColors).map(([k, v]) => [k, `border-l-[${v}]`])
-);
-const hoverBorderMap: Record<string, string> = Object.fromEntries(
-  Object.entries(categoryColors).map(([k, v]) => [k, `hover:border-l-[${v}]`])
-);
-
 const label = categoryLabels[category!] || category;
 const description = categoryDescriptions[category!] || `${label}に関する記事一覧`;
-const borderColor = borderColorMap[category!] || 'border-l-[#2563EB]';
-const hoverBorder = hoverBorderMap[category!] || 'hover:border-l-[#2563EB]';
+const borderColor = categoryBorderClass[category!] || 'border-l-brand';
+const hoverBorder = categoryHoverBorderClass[category!] || 'hover:border-l-brand';
 
 const pillarArticles = articles.filter((a: any) => a.data.articleType === 'pillar');
 const otherArticles = articles.filter((a: any) => a.data.articleType !== 'pillar');
