@@ -32,6 +32,20 @@ async function main() {
     generated++;
   }
 
+  // デフォルトOG画像の生成
+  const defaultPath = 'public/og-images/default.png';
+  try {
+    await fs.access(defaultPath);
+  } catch {
+    const buffer = await generateOgImage(
+      '中小企業のAI業務自動化\nナレッジベース',
+      'frameworks'
+    );
+    await fs.writeFile(defaultPath, buffer);
+    console.log(`Generated: ${defaultPath}`);
+    generated++;
+  }
+
   console.log(`\nOGP画像生成完了: ${generated}件生成、${skipped}件スキップ`);
 }
 

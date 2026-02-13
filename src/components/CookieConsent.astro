@@ -1,0 +1,66 @@
+---
+
+---
+
+<div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 z-50 bg-gray-900 text-white border-t border-gray-700 shadow-lg">
+  <div class="container py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm leading-relaxed text-center sm:text-left">
+      当サイトではアクセス解析のためCookieを使用しています。詳しくは<a href="/privacy/" class="underline text-blue-300 hover:text-blue-200">プライバシーポリシー</a>をご覧ください。
+    </p>
+    <div class="flex items-center gap-3 shrink-0">
+      <button id="cookie-reject" class="text-sm px-4 py-2 rounded border border-gray-500 text-gray-300 hover:bg-gray-800 transition-colors">
+        拒否する
+      </button>
+      <button id="cookie-accept" class="text-sm px-4 py-2 rounded bg-brand text-white font-medium hover:bg-brand-hover transition-colors">
+        同意する
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+(function() {
+  var STORAGE_KEY = 'cookie-consent';
+  var GA_ID = 'G-RWSRG1LDR2';
+
+  function loadGA4() {
+    if (document.querySelector('script[src*="gtag"]')) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  }
+
+  var consent = localStorage.getItem(STORAGE_KEY);
+  if (consent === 'accepted') {
+    loadGA4();
+  }
+
+  if (!consent) {
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.classList.remove('hidden');
+  }
+
+  document.getElementById('cookie-accept')?.addEventListener('click', function() {
+    localStorage.setItem(STORAGE_KEY, 'accepted');
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.classList.add('hidden');
+    loadGA4();
+  });
+
+  document.getElementById('cookie-reject')?.addEventListener('click', function() {
+    localStorage.setItem(STORAGE_KEY, 'rejected');
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.classList.add('hidden');
+  });
+
+  document.getElementById('cookie-reset')?.addEventListener('click', function() {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+})();
+</script>

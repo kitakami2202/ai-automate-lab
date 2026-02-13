@@ -4,8 +4,10 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import FAQ from '../components/FAQ.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
+import ShareButtons from '../components/ShareButtons.astro';
 import { generateJsonLd } from '../utils/jsonld';
 import { generateTitle } from '../utils/seo';
+import { categoryLabels, categoryBadgeColors, difficultyLabels } from '../utils/categories';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -20,35 +22,16 @@ const { title, description, category, tags, publishedAt, updatedAt, layer, diffi
 const articleUrl = `https://ai-automate-lab.tech/articles/${article.slug}/`;
 const jsonLdArray = generateJsonLd(article, articleUrl, headings);
 
-const categoryLabels: Record<string, string> = {
-  gas: 'GAS自動化',
-  'discord-bot': 'Discord Bot',
-  'ai-api': 'AI API連携',
-  'no-code': 'ノーコード',
-  frameworks: '導入フレームワーク',
-  reviews: 'レビュー・比較',
-};
-
-const categoryColors: Record<string, string> = {
-  gas: 'bg-green-50 text-green-700',
-  'discord-bot': 'bg-purple-50 text-purple-700',
-  'ai-api': 'bg-orange-50 text-orange-700',
-  'no-code': 'bg-violet-50 text-violet-700',
-  frameworks: 'bg-blue-50 text-blue-700',
-  reviews: 'bg-red-50 text-red-700',
-};
-
-const difficultyLabels: Record<string, string> = {
-  beginner: '初級',
-  intermediate: '中級',
-  advanced: '上級',
-};
-
 // Get related articles
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const relatedArticles = allArticles
   .filter((a) => a.slug !== article.slug)
-  .filter((a) => article.data.relatedArticles?.includes(a.slug.split('/').pop() || ''))
+  .filter((a) => {
+    const slugTail = a.slug.split('/').pop() || '';
+    return article.data.relatedArticles?.some(
+      (rel) => rel === a.slug || rel === slugTail
+    );
+  })
   .slice(0, 3);
 
 // Fallback: if not enough related articles found by slug, fill with same category
@@ -82,7 +65,7 @@ const formatDate = (date: Date) =>
 
     <header class="mb-8">
       <div class="flex items-center gap-2 mb-3">
-        <span class:list={['inline-block text-sm font-medium px-3 py-1 rounded-full', categoryColors[category] || 'bg-blue-50 text-blue-700']}>
+        <span class:list={['inline-block text-sm font-medium px-3 py-1 rounded-full', categoryBadgeColors[category] || 'bg-blue-50 text-blue-700']}>
           {categoryLabels[category] || category}
         </span>
         <span class="inline-block text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded">
@@ -105,9 +88,9 @@ const formatDate = (date: Date) =>
       {tags && tags.length > 0 && (
         <div class="flex flex-wrap gap-2 mt-3">
           {tags.map((tag: string) => (
-            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+            <a href={`/tags/${tag}/`} class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded hover:bg-brand hover:text-white transition-colors no-underline">
               #{tag}
-            </span>
+            </a>
           ))}
         </div>
       )}
@@ -122,6 +105,8 @@ const formatDate = (date: Date) =>
     {faq && faq.length > 0 && (
       <FAQ items={faq} />
     )}
+
+    <ShareButtons url={articleUrl} title={title} />
 
     <RelatedArticles articles={relatedArticles} />
   </article>

@@ -19,7 +19,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Noto Sans JP"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Noto Sans JP"', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
       },
       typography: {

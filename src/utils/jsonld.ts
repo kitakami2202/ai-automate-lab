@@ -1,4 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
+import { categoryLabels } from './categories';
 
 const SITE_URL = 'https://ai-automate-lab.tech';
 const SITE_NAME = 'AI Automate Lab';
@@ -7,6 +8,18 @@ const authorSchema = {
   '@type': 'Person',
   name: 'れん',
   url: `${SITE_URL}/about`,
+  jobTitle: 'AI業務自動化コンサルタント',
+  description: 'ITコンサルティング出身。GAS業務自動化5年・40件以上の構築実績。AIデータ分析・解析調査を専門とし、中小企業のAI業務自動化を支援。',
+  knowsAbout: [
+    'Google Apps Script',
+    'AI API連携',
+    'Discord Bot開発',
+    '業務自動化',
+    'データ分析',
+  ],
+  sameAs: [
+    `${SITE_URL}/about`,
+  ],
 };
 
 const publisherSchema = {
@@ -45,7 +58,7 @@ export function generateJsonLd(
     schemas.push(generateFAQPage(article));
   }
 
-  schemas.push(generateBreadcrumb(article, url));
+  // BreadcrumbList は Breadcrumb.astro コンポーネント側で生成するため、ここでは省略
 
   return schemas.map(s => JSON.stringify(s));
 }
@@ -69,7 +82,7 @@ function generateHowTo(
     '@type': 'HowTo',
     name: article.data.title,
     description: article.data.description,
-    image: `${SITE_URL}${article.data.ogImage || `/og-images/${article.data.category}/${article.slug}.png`}`,
+    image: `${SITE_URL}${article.data.ogImage || `/og-images/${article.slug}.png`}`,
     totalTime: article.data.schema.totalTime,
     estimatedCost: article.data.schema.estimatedCost
       ? { '@type': 'MonetaryAmount', currency: 'JPY', value: article.data.schema.estimatedCost }
@@ -102,7 +115,7 @@ function generateArticle(article: CollectionEntry<'articles'>, url: string) {
     '@type': 'BlogPosting',
     headline: article.data.title,
     description: article.data.description,
-    image: `${SITE_URL}${article.data.ogImage || `/og-images/${article.data.category}/${article.slug}.png`}`,
+    image: `${SITE_URL}${article.data.ogImage || `/og-images/${article.slug}.png`}`,
     author: authorSchema,
     publisher: publisherSchema,
     datePublished: article.data.publishedAt.toISOString(),
@@ -137,15 +150,6 @@ function generateItemList(
 }
 
 function generateBreadcrumb(article: CollectionEntry<'articles'>, url: string) {
-  const categoryLabels: Record<string, string> = {
-    gas: 'GAS自動化',
-    'discord-bot': 'Discord Bot',
-    'ai-api': 'AI API連携',
-    'no-code': 'ノーコード',
-    frameworks: '導入フレームワーク',
-    reviews: 'レビュー・比較',
-  };
-
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -164,11 +168,6 @@ export function generateWebSiteJsonLd(): string {
     name: SITE_NAME,
     url: SITE_URL,
     description: '中小企業のAI業務自動化を、フレームワークで再現可能にするナレッジベース',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_URL}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   });
 }
 

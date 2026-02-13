@@ -41,10 +41,17 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 
       <section class="mb-8">
         <h2 class="text-2xl font-bold mb-4">Cookieについて</h2>
-        <p class="leading-relaxed">
-          当サイトでは、ユーザー体験の向上とアクセス解析のためにCookieを使用しています。
+        <p class="leading-relaxed mb-4">
+          当サイトでは、アクセス解析のためにCookieを使用しています。
+          初回訪問時にページ下部のバナーから同意・拒否を選択できます。
           ブラウザの設定でCookieを無効にすることも可能ですが、一部の機能が利用できなくなる場合があります。
         </p>
+        <p class="leading-relaxed mb-4">
+          Cookie設定を変更したい場合は、以下のボタンから再設定できます。
+        </p>
+        <button id="cookie-reset" class="inline-block bg-brand text-white px-4 py-2 rounded hover:bg-brand-hover transition-colors text-sm font-medium no-underline">
+          Cookie設定を変更する
+        </button>
       </section>
 
       <section class="mb-8">

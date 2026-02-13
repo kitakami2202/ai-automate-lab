@@ -1,0 +1,42 @@
+---
+export interface Props {
+  /** 初期表示件数 */
+  initialCount?: number;
+  /** コンテナのdata属性セレクタ */
+  containerId: string;
+}
+
+const { initialCount = 12, containerId } = Astro.props;
+---
+
+<script is:inline define:vars={{ initialCount, containerId }}>
+(function() {
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  var items = container.querySelectorAll('[data-loadmore-item]');
+  var btn = document.getElementById(containerId + '-btn');
+  if (items.length <= initialCount) {
+    if (btn) btn.style.display = 'none';
+    return;
+  }
+  for (var i = initialCount; i < items.length; i++) {
+    items[i].style.display = 'none';
+  }
+  var shown = initialCount;
+  if (btn) {
+    btn.textContent = 'もっと見る（残り' + (items.length - shown) + '件）';
+    btn.addEventListener('click', function() {
+      var next = Math.min(shown + initialCount, items.length);
+      for (var i = shown; i < next; i++) {
+        items[i].style.display = '';
+      }
+      shown = next;
+      if (shown >= items.length) {
+        btn.style.display = 'none';
+      } else {
+        btn.textContent = 'もっと見る（残り' + (items.length - shown) + '件）';
+      }
+    });
+  }
+})();
+</script>

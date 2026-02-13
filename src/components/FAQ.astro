@@ -1,12 +1,9 @@
 ---
-import { generateFAQJsonLd } from '../utils/jsonld';
-
 export interface Props {
   items: { question: string; answer: string }[];
 }
 
 const { items } = Astro.props;
-const jsonLd = generateFAQJsonLd(items);
 ---
 
 <section class="my-10">
@@ -27,5 +24,3 @@ const jsonLd = generateFAQJsonLd(items);
     ))}
   </div>
 </section>
-
-<script type="application/ld+json" set:html={jsonLd} />

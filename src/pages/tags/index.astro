@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+
+// タグごとの記事数を集計
+const tagCounts: Record<string, number> = {};
+for (const article of allArticles) {
+  for (const tag of article.data.tags) {
+    tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+  }
+}
+
+// 記事数の多い順にソート
+const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout
+  title="タグ一覧 | AI Automate Lab"
+  description="AI Automate Labの全タグ一覧です。タグから関連する記事を探せます。"
+>
+  <div class="container py-10">
+    <Breadcrumb items={[{ name: 'タグ一覧', url: '/tags/' }]} />
+
+    <h1 class="text-3xl font-bold mb-4">タグ一覧</h1>
+    <p class="text-gray-600 mb-8">{sortedTags.length}個のタグ</p>
+
+    <div class="flex flex-wrap gap-3">
+      {sortedTags.map(([tag, count]) => (
+        <a
+          href={`/tags/${tag}/`}
+          class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-brand hover:text-white transition-colors no-underline text-sm"
+        >
+          <span>#{tag}</span>
+          <span class="text-xs opacity-70">{count}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

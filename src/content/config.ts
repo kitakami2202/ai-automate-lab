@@ -24,7 +24,7 @@ const articles = defineCollection({
     faq: z.array(z.object({
       question: z.string(),
       answer: z.string(),
-    })).min(1).max(10),
+    })).min(3).max(5),
     relatedArticles: z.array(z.string()).min(1).max(5),
     ogImage: z.string().optional(),
     draft: z.boolean().default(false),

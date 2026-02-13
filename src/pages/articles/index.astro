@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LoadMore from '../../components/LoadMore.astro';
+import { categoryLabels, difficultyLabels, difficultyColors } from '../../utils/categories';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const sortedArticles = allArticles.sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  title="記事一覧 | AI Automate Lab"
+  description="AI Automate Labの全記事一覧です。GAS自動化、Discord Bot、AI API連携、ノーコードツールなど中小企業の業務自動化に関する記事をお探しいただけます。"
+>
+  <div class="container py-10">
+    <Breadcrumb items={[{ name: '記事一覧', url: '/articles/' }]} />
+
+    <h1 class="text-3xl font-bold mb-4">記事一覧</h1>
+    <p class="text-gray-600 mb-8">全{sortedArticles.length}件の記事</p>
+
+    <div id="articles-list" class="space-y-4">
+      {sortedArticles.map((article) => (
+        <a
+          data-loadmore-item
+          href={`/articles/${article.slug}/`}
+          class="block p-6 border border-gray-200 rounded-lg hover:shadow-sm transition-all no-underline"
+        >
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-medium text-brand bg-blue-50 px-2 py-0.5 rounded">
+              {categoryLabels[article.data.category] || article.data.category}
+            </span>
+            {article.data.difficulty && (
+              <span class={`text-xs px-2 py-0.5 rounded ${difficultyColors[article.data.difficulty] || ''}`}>
+                {difficultyLabels[article.data.difficulty] || article.data.difficulty}
+              </span>
+            )}
+            {article.data.articleType === 'pillar' && (
+              <span class="text-xs font-bold bg-brand text-white px-2 py-0.5 rounded">ピラー記事</span>
+            )}
+          </div>
+          <h2 class="text-lg font-bold text-gray-800 mb-2">{article.data.title}</h2>
+          <p class="text-sm text-gray-600 mb-3">{article.data.description}</p>
+          <div class="flex items-center gap-3">
+            <time class="text-xs text-gray-400" datetime={article.data.publishedAt.toISOString()}>
+              {formatDate(article.data.publishedAt)}
+            </time>
+            {article.data.timeToRead && (
+              <span class="text-xs text-gray-500">約{article.data.timeToRead}分</span>
+            )}
+            {article.data.tags && (
+              <div class="flex gap-1">
+                {article.data.tags.slice(0, 3).map((tag: string) => (
+                  <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <button id="articles-list-btn" class="px-6 py-3 bg-brand text-white rounded-lg hover:bg-brand-hover transition-colors font-medium">
+        もっと見る
+      </button>
+    </div>
+    <LoadMore containerId="articles-list" initialCount={12} />
+  </div>
+</BaseLayout>

@@ -1,6 +1,23 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import { globSync } from 'glob';
+import matter from 'gray-matter';
+import fs from 'fs';
+
+// ビルド時に記事メタデータを読み取り、sitemap用マップを構築
+const articleFiles = globSync('src/content/articles/**/*.md');
+const articleMeta = {};
+for (const file of articleFiles) {
+  const { data } = matter(fs.readFileSync(file, 'utf-8'));
+  if (data.draft) continue;
+  const slug = file.replace(/\\/g, '/').replace('src/content/articles/', '').replace('.md', '');
+  const url = `https://ai-automate-lab.tech/articles/${slug}/`;
+  articleMeta[url] = {
+    updatedAt: data.updatedAt ? new Date(data.updatedAt) : new Date(data.publishedAt),
+    articleType: data.articleType,
+  };
+}
 
 export default defineConfig({
   site: 'https://ai-automate-lab.tech',
@@ -11,15 +28,13 @@ export default defineConfig({
       serialize: (item) => {
         item.changefreq = 'weekly';
         item.priority = 0.7;
-        // ピラー記事は高優先度
-        if (item.url.includes('/gas/gas-basics') ||
-            item.url.includes('/discord-bot/discord-bot-overview') ||
-            item.url.includes('/frameworks/automation-roadmap') ||
-            item.url.includes('/no-code/no-code-overview') ||
-            item.url.includes('/ai-api/ai-api-overview') ||
-            item.url.includes('/ai-api/ai-coding-overview') ||
-            item.url.includes('/frameworks/ai-business-overview')) {
-          item.priority = 0.9;
+        // 記事ページ: frontmatterから lastmod と pillar 判定
+        const meta = articleMeta[item.url];
+        if (meta) {
+          item.lastmod = meta.updatedAt;
+          if (meta.articleType === 'pillar') {
+            item.priority = 0.9;
+          }
         }
         // カテゴリページ
         if (item.url.includes('/category/')) {

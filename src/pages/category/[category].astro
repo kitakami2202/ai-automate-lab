@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import { categoryLabels, categoryColors, difficultyLabels, difficultyColors } from '../../utils/categories';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -20,15 +21,6 @@ export async function getStaticPaths() {
 const { category } = Astro.params;
 const { articles } = Astro.props;
 
-const categoryLabels: Record<string, string> = {
-  gas: 'GAS自動化',
-  'discord-bot': 'Discord Bot',
-  'ai-api': 'AI API連携',
-  'no-code': 'ノーコード',
-  frameworks: '導入フレームワーク',
-  reviews: 'レビュー・比較',
-};
-
 const categoryDescriptions: Record<string, string> = {
   gas: 'Google Apps Scriptを使った業務自動化テクニックの記事一覧です。スプレッドシート連携からメール自動送信まで。',
   'discord-bot': 'Discord Botの構築と運用に関する記事一覧です。コミュニティ運営の自動化に。',
@@ -38,30 +30,17 @@ const categoryDescriptions: Record<string, string> = {
   reviews: 'ツール比較・レビュー記事の一覧です。最適なツール選びの参考に。',
 };
 
-const categoryColors: Record<string, string> = {
-  gas: 'border-category-gas',
-  'discord-bot': 'border-category-discord',
-  'ai-api': 'border-category-ai-api',
-  'no-code': 'border-category-no-code',
-  frameworks: 'border-category-frameworks',
-  reviews: 'border-category-reviews',
-};
-
-const difficultyLabels: Record<string, string> = {
-  beginner: '初級',
-  intermediate: '中級',
-  advanced: '上級',
-};
-
-const difficultyColors: Record<string, string> = {
-  beginner: 'bg-green-100 text-green-700',
-  intermediate: 'bg-yellow-100 text-yellow-700',
-  advanced: 'bg-red-100 text-red-700',
-};
+const borderColorMap: Record<string, string> = Object.fromEntries(
+  Object.entries(categoryColors).map(([k, v]) => [k, `border-l-[${v}]`])
+);
+const hoverBorderMap: Record<string, string> = Object.fromEntries(
+  Object.entries(categoryColors).map(([k, v]) => [k, `hover:border-l-[${v}]`])
+);
 
 const label = categoryLabels[category!] || category;
 const description = categoryDescriptions[category!] || `${label}に関する記事一覧`;
-const borderColor = categoryColors[category!] || 'border-brand';
+const borderColor = borderColorMap[category!] || 'border-l-[#2563EB]';
+const hoverBorder = hoverBorderMap[category!] || 'hover:border-l-[#2563EB]';
 
 const pillarArticles = articles.filter((a: any) => a.data.articleType === 'pillar');
 const otherArticles = articles.filter((a: any) => a.data.articleType !== 'pillar');
@@ -88,6 +67,7 @@ const formatDate = (date: Date) =>
             <a
               href={`/articles/${article.slug}/`}
               class={`block p-6 border-l-4 ${borderColor} bg-gray-50 rounded-lg hover:shadow-md transition-all no-underline`}
+
             >
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-xs font-bold bg-brand text-white px-2 py-0.5 rounded">ピラー記事</span>
@@ -112,7 +92,7 @@ const formatDate = (date: Date) =>
       {otherArticles.map((article: any) => (
         <a
           href={`/articles/${article.slug}/`}
-          class={`block p-6 border border-gray-200 rounded-lg hover:${borderColor} hover:shadow-sm transition-all no-underline`}
+          class:list={['block p-6 border-l-4 border-l-transparent border border-gray-200 rounded-lg hover:shadow-sm transition-all no-underline', hoverBorder]}
         >
           <div class="flex items-center gap-2 mb-2">
             {article.data.difficulty && (

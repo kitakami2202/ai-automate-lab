@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchBar from '../components/SearchBar.astro';
 import { getCollection } from 'astro:content';
 import { generateWebSiteJsonLd } from '../utils/jsonld';
+import { categoryLabels, categoryColors } from '../utils/categories';
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const sortedArticles = allArticles.sort(
@@ -11,14 +12,11 @@ const sortedArticles = allArticles.sort(
 
 const pillarArticles = allArticles.filter((a) => a.data.articleType === 'pillar');
 
-const categories = [
-  { slug: 'gas', label: 'GAS自動化', border: 'border-l-[#0F9D58]' },
-  { slug: 'discord-bot', label: 'Discord Bot', border: 'border-l-[#5865F2]' },
-  { slug: 'ai-api', label: 'AI API連携', border: 'border-l-[#FF6B35]' },
-  { slug: 'no-code', label: 'ノーコード', border: 'border-l-[#7C3AED]' },
-  { slug: 'frameworks', label: 'フレームワーク', border: 'border-l-[#2563EB]' },
-  { slug: 'reviews', label: 'レビュー・比較', border: 'border-l-[#DC2626]' },
-];
+const categories = Object.entries(categoryLabels).map(([slug, label]) => ({
+  slug,
+  label,
+  border: `border-l-[${categoryColors[slug]}]`,
+}));
 
 const articleCounts: Record<string, number> = {};
 for (const cat of categories) {
@@ -111,7 +109,7 @@ const formatDate = (date: Date) =>
             class="block bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all no-underline"
           >
             <span class="inline-block text-xs font-medium text-brand bg-blue-50 px-2 py-0.5 rounded mb-3">
-              {article.data.category}
+              {categoryLabels[article.data.category] || article.data.category}
             </span>
             <h3 class="text-base font-bold text-gray-800 mb-2 leading-snug">
               {article.data.title}
