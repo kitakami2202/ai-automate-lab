@@ -20,12 +20,12 @@ const currentPath = Astro.url.pathname;
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden md:flex items-center gap-6">
+    <nav class="hidden lg:flex items-center gap-4">
       {navItems.map((item) => (
         <a
           href={item.href}
           class:list={[
-            'text-sm font-medium no-underline hover:text-brand transition-colors',
+            'text-sm font-medium no-underline hover:text-brand transition-colors whitespace-nowrap',
             currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href.replace(/\/$/, ''))) ? 'text-brand' : 'text-gray-600',
           ]}
         >
@@ -46,7 +46,7 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <!-- Mobile Menu Button -->
-    <div class="flex items-center gap-2 md:hidden">
+    <div class="flex items-center gap-2 lg:hidden">
       <button
         id="search-btn-mobile"
         class="p-2 text-gray-500 hover:text-brand transition-colors"
@@ -69,7 +69,7 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Nav -->
-  <nav id="mobile-menu" class="md:hidden border-t border-gray-200 bg-white overflow-hidden transition-[max-height] duration-300 ease-out" style="max-height: 0;">
+  <nav id="mobile-menu" class="lg:hidden border-t border-gray-200 bg-white overflow-hidden transition-[max-height] duration-300 ease-out" style="max-height: 0;">
     <div class="container py-4 flex flex-col gap-3">
       {navItems.map((item) => (
         <a
