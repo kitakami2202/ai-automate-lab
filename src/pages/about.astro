@@ -1,94 +1,113 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const pillarArticles = allArticles.filter((a) => a.data.articleType === 'pillar');
+const articleCount = allArticles.length;
 ---
 
 <BaseLayout
-  title="サイト・著者について | AI Automate Lab"
-  description="AI Automate Labの運営者「れん」のプロフィール。ITコンサルタント出身、GAS業務自動化3年・40件以上の構築実績。ベンチャー外部顧問・大学LP制作経験。AIデータ分析を専門に中小企業の業務自動化を支援。"
+  title="サイトについて | AI Automate Lab"
+  description="AI Automate Labは中小企業のAI業務自動化を支援するナレッジベースです。GAS・AI API・ノーコードツールの実践的な活用法を、実務経験に基づく一次情報としてお届けします。"
 >
   <div class="container py-10">
     <Breadcrumb items={[{ name: 'サイトについて', url: '/about/' }]} />
 
     <h1 class="text-3xl font-bold mb-8">AI Automate Labについて</h1>
 
+    <!-- 著者プロフィールカード -->
+    <div class="flex flex-col md:flex-row items-start gap-6 mb-10 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+      <div class="w-20 h-20 bg-brand text-white rounded-full flex items-center justify-center font-bold text-3xl shrink-0">
+        R
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800 mb-2">れん</h2>
+        <p class="text-gray-600 mb-3">GAS・AI API・ノーコードツールを活用した中小企業の業務自動化を専門とするエンジニア。ベンチャー外部顧問・大学LP制作など幅広い実績あり。</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs font-medium bg-white text-gray-600 px-3 py-1 rounded-full border border-gray-200">GAS実務3年</span>
+          <span class="text-xs font-medium bg-white text-gray-600 px-3 py-1 rounded-full border border-gray-200">AI API連携</span>
+          <span class="text-xs font-medium bg-white text-gray-600 px-3 py-1 rounded-full border border-gray-200">ノーコード</span>
+          <span class="text-xs font-medium bg-white text-gray-600 px-3 py-1 rounded-full border border-gray-200">{articleCount}本の記事を執筆</span>
+        </div>
+      </div>
+    </div>
+
     <div class="prose max-w-none">
+      <!-- ミッション -->
       <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">サイトの目的</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          AI Automate Labは、中小企業のAI業務自動化を「フレームワークで再現可能にする」ナレッジベースです。
-          著者（れん）の実務経験に基づく一次情報を体系化し、非エンジニアの経営者・事務担当者から
-          エンジニア初学者まで、具体的なアクションが取れる情報を提供しています。
-        </p>
-      </section>
-
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">コンテンツの軸</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          <strong>「AI × 業務自動化 × 中小企業 × 実務一次情報」</strong>
-        </p>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          すべての記事は、以下の3つの基準を満たすものだけを公開しています。
-        </p>
-        <ul class="list-disc pl-6 space-y-2 text-gray-700">
-          <li>中小企業の業務に関係するか</li>
-          <li>著者の実務経験、または実際に動くコードが含まれるか</li>
-          <li>読んだ人が具体的なアクションを起こせるか</li>
-        </ul>
-      </section>
-
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">対象読者</h2>
-        <ul class="list-disc pl-6 space-y-2 text-gray-700">
-          <li><strong>Layer 1（入口）</strong>: 非エンジニアの経営者・事務担当者 - 「何ができるか」「費用対効果」を知りたい方</li>
-          <li><strong>Layer 2（実行）</strong>: エンジニア初学者・やる気のある事務担当 - 「具体的な作り方」「コード」が欲しい方</li>
-        </ul>
-      </section>
-
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">取り扱いトピック</h2>
-        <ul class="list-disc pl-6 space-y-2 text-gray-700">
-          <li><strong>GAS自動化</strong>: Google Apps Scriptでスプレッドシート自動化、LINE Bot、Slack連携</li>
-          <li><strong>Discord Bot</strong>: GAS連携によるBotの構築と業務活用</li>
-          <li><strong>AI API連携</strong>: Claude、OpenAI、Geminiを業務に組み込む方法</li>
-          <li><strong>ノーコード・ローコード</strong>: Zapier、Make、n8nの比較と導入ガイド</li>
-          <li><strong>導入フレームワーク</strong>: 自動化戦略、ROI計算テンプレート、AI導入ロードマップ</li>
-          <li><strong>レビュー・比較</strong>: ツールの客観的な比較と選定ガイド</li>
-        </ul>
-      </section>
-
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">著者について</h2>
-        <div class="bg-gray-50 rounded-xl p-6 mb-6">
-          <h3 class="text-xl font-bold text-gray-800 mb-1">れん</h3>
-          <p class="text-sm text-gray-500 mb-4">AI業務自動化コンサルタント</p>
-          <p class="text-gray-700 leading-relaxed mb-4">
-            ITコンサルタントとして、要件定義から設計・開発・運用まで一貫したシステム開発を経験。
-            ベンチャー企業の外部顧問や大学のLP制作など、幅広い業種・規模のプロジェクトに携わる。
-            現在はAIによるデータ分析・解析調査を専門とし、中小企業のAI業務自動化を実践・支援しています。
+        <h2 class="text-2xl font-bold mb-4">サイトのミッション</h2>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
+          <p class="text-lg font-semibold text-gray-800 mb-2">
+            中小企業の「ムダ作業」をAIと自動化で減らす。
           </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div class="bg-white rounded-lg p-4 border border-gray-200">
-              <p class="text-sm font-bold text-gray-800 mb-2">GAS業務自動化</p>
-              <p class="text-sm text-gray-600">3年以上の実務経験。スプレッドシート連携、メール自動化、Bot構築など<strong>40件以上</strong>の自動化スクリプトを構築。</p>
-            </div>
-            <div class="bg-white rounded-lg p-4 border border-gray-200">
-              <p class="text-sm font-bold text-gray-800 mb-2">AI API連携</p>
-              <p class="text-sm text-gray-600">Claude・OpenAI・Gemini APIを活用した業務ツールの設計・開発。コスト最適化やプロンプト設計の知見を蓄積。</p>
-            </div>
-            <div class="bg-white rounded-lg p-4 border border-gray-200">
-              <p class="text-sm font-bold text-gray-800 mb-2">フルスタック開発</p>
-              <p class="text-sm text-gray-600">Astro・Next.js・Tauri（Rust）など複数のフレームワークを用いたWebアプリ・デスクトップアプリの設計・開発。</p>
-            </div>
-            <div class="bg-white rounded-lg p-4 border border-gray-200">
-              <p class="text-sm font-bold text-gray-800 mb-2">ITコンサルティング</p>
-              <p class="text-sm text-gray-600">要件定義・基本設計から運用保守まで、システム開発のライフサイクル全般の実務経験。ベンチャー企業の外部顧問や大学のLP制作実績も。</p>
-            </div>
-          </div>
-          <p class="text-sm text-gray-500">
-            本サイトの記事はすべて、実務で検証済みのコード・手法のみを掲載しています。
+          <p class="text-gray-700 mb-0">
+            実務で検証したコード・手法だけを掲載し、読んだ方がすぐにアクションを起こせる情報を提供します。
           </p>
         </div>
+        <p class="text-gray-700 leading-relaxed">
+          AI Automate Labは、<strong>「AI × 業務自動化 × 中小企業 × 実務一次情報」</strong>をテーマにしたナレッジベースです。
+          現在{articleCount}本の記事を公開しています。すべての記事は以下の3つの基準を満たすものだけを掲載しています。
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700 mt-4">
+          <li>中小企業の業務に関係する内容であること</li>
+          <li>実務経験、または実際に動くコードが含まれること</li>
+          <li>読んだ方が具体的なアクションを起こせること</li>
+        </ul>
+      </section>
+
+      <!-- コンテンツ紹介 -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">掲載コンテンツ</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          以下のカテゴリで記事を公開しています。各カテゴリのピラー記事（入門ガイド）から読み始めるのがおすすめです。
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border border-gray-200 rounded-lg p-4">
+            <h3 class="text-base font-bold text-gray-800 mb-1">GAS自動化</h3>
+            <p class="text-sm text-gray-600 mb-0">Google Apps Scriptによるスプレッドシート・メール・Bot自動化</p>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-4">
+            <h3 class="text-base font-bold text-gray-800 mb-1">AI API連携</h3>
+            <p class="text-sm text-gray-600 mb-0">Claude・OpenAI・Gemini APIを業務に組み込む方法</p>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-4">
+            <h3 class="text-base font-bold text-gray-800 mb-1">ノーコード・ローコード</h3>
+            <p class="text-sm text-gray-600 mb-0">Zapier・Make・n8nの比較と導入ガイド</p>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-4">
+            <h3 class="text-base font-bold text-gray-800 mb-1">レビュー・比較</h3>
+            <p class="text-sm text-gray-600 mb-0">自動化ツールの客観的な比較と選定ガイド</p>
+          </div>
+        </div>
+
+        {pillarArticles.length > 0 && (
+          <div class="mt-6">
+            <h3 class="text-lg font-bold mb-3">おすすめのピラー記事</h3>
+            <div class="space-y-2">
+              {pillarArticles.slice(0, 5).map((article) => (
+                <a
+                  href={`/articles/${article.slug}/`}
+                  class="block p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors no-underline"
+                >
+                  <span class="text-sm font-medium text-gray-800">{article.data.title}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+
+      <!-- お問い合わせ -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">お問い合わせ</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          記事の内容に関するご質問、掲載内容の誤りのご報告、お仕事のご相談は以下のフォームからお気軽にどうぞ。
+        </p>
+        <p class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-500 font-semibold rounded-lg">
+          お問い合わせフォーム準備中
+        </p>
       </section>
     </div>
   </div>

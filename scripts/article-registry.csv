@@ -1,63 +1,63 @@
-slug,title,category,cluster,layer,article_type,priority,status,version,created_date,last_updated,primary_kw,word_count,faq_count,internal_links,notes
-ai-coding-prompt-patterns,AIにコードを書かせるプロンプトパターン集,ai-api,ai-api,execution,reference,A,reviewed,v1.1,2026-02-12,2026-02-12,AI コード生成 プロンプト,313,5,16,T5/T6完了 パイプライン通過
-api-key-management,APIキーの管理と安全な運用｜漏洩防止チェック,ai-api,ai-api,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,APIキー 管理,210,4,8,T5/T6完了 パイプライン通過
-claude-api-intro,Claude API入門｜業務自動化を60分で実装する方法,ai-api,ai-api,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-12,Claude API 入門,302,5,6,T5/T6完了 パイプライン通過
-gemini-api-intro,Gemini API入門|PythonとGASで始めるAI活用,ai-api,ai-api,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-13,Gemini API 入門,343,5,8,T5/T6完了 パイプライン通過
-openai-api-intro,OpenAI API入門 - 業務自動化を始める実践ガイド,ai-api,ai-api,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-12,OpenAI API 入門,405,5,6,T5/T6完了 パイプライン通過
-discord-ai-bot,Discord × AI Bot構築｜社内AI質問窓口の作り方,discord-bot,discord-bot,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,Discord AI Bot,388,4,9,T5/T6完了 パイプライン通過
-discord-scheduler-bot,Discord定時通知Botの作り方｜GAS×Webhook連携,discord-bot,discord-bot,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,Discord 定時通知 Bot,253,4,7,T5/T6完了 パイプライン通過
-discord-slash-commands,Discordスラッシュコマンド×GAS実装ガイド,discord-bot,discord-bot,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-12,Discord スラッシュコマンド,333,5,10,T5/T6完了 パイプライン通過
-discord-spreadsheet-db,DiscordスプレッドシートDB×GAS実装ガイド,discord-bot,discord-bot,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-12,Discord スプレッドシートDB,333,5,9,T5/T6完了 パイプライン通過
-discord-vs-line-bot,Discord Bot vs LINE Bot比較｜中小企業はどっち？,discord-bot,discord-bot,entry,comparison,A,reviewed,v1.1,2026-02-12,2026-02-12,Discord Bot vs LINE Bot,154,4,7,T5/T6完了 パイプライン通過
-ai-coding-cost-reduction,AIコーディングで自動化開発コストを下げる方法,frameworks,frameworks,entry,framework,A,reviewed,v1.1,2026-02-12,2026-02-12,AIコーディング 開発コスト削減,202,4,9,T5/T6完了 パイプライン通過
-gas-ai-coding,Claude Codeで書くGASスクリプト｜プロンプト実例集,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,Claude Code GAS スクリプト,277,4,8,T5/T6完了 パイプライン通過
-gas-chatgpt-api,GAS × ChatGPT API連携｜問い合わせ自動回答,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,GAS ChatGPT API 連携,289,4,15,T5/T6完了 パイプライン通過
-gas-claude-api,GAS × Claude API連携｜AIで入力データを自動分類,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-13,GAS Claude API 連携,228,4,9,T5/T6完了 パイプライン通過
-gas-form-automation,GAS × Googleフォーム連携｜回答を自動処理する方法,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,GAS Googleフォーム 連携,281,4,8,T5/T6完了 パイプライン通過
-gas-mail-automation,GASでメール自動化｜一斉送信・自動返信の実装手順【コピペで動くコード付き】,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,GAS メール 自動化,307,4,6,T5/T6完了 パイプライン通過
-gas-syntax-reference,GAS基礎文法まとめ｜コピペで使えるリファレンス,gas,gas,execution,reference,A,reviewed,v1.1,2026-02-12,2026-02-12,GAS 基礎文法,325,3,8,T5/T6完了 パイプライン通過
-zapier-vs-make,Zapier vs Make 比較｜中小企業向け料金・機能の選び方,no-code,no-code,entry,comparison,A,reviewed,v1.1,2026-02-09,2026-02-12,Zapier vs Make 比較,169,5,6,T5/T6完了 パイプライン通過
-ai-dev-tools-comparison,AI開発ツール比較｜Copilot・Cursor・Claude Code 選び方,reviews,reviews,entry,comparison,A,reviewed,v1.1,2026-02-09,2026-02-13,AI開発ツール 比較,236,5,5,T5/T6完了 パイプライン通過
-automation-tools-matrix,【2026年版】自動化ツール比較表｜スキル別の選び方,reviews,reviews,entry,comparison,A,reviewed,v1.1,2026-02-09,2026-02-13,自動化ツール 比較表,172,5,24,T5/T6完了 パイプライン通過
-ai-api-cost-management,AI API利用料金の管理方法｜中小企業の予算管理,ai-api,ai-api,entry,framework,B,reviewed,v1.1,2026-02-12,2026-02-12,AI API 料金管理,214,4,8,T5/T6完了 パイプライン通過
-codex-intro,OpenAI Codex入門｜クラウドでコード生成・実行,ai-api,ai-api,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,OpenAI Codex 入門,234,3,7,T5/T6完了 パイプライン通過
-cursor-business,Cursor × 業務自動化開発｜AIエディタ活用術,ai-api,ai-api,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,Cursor 業務自動化,256,3,7,T5/T6完了 パイプライン通過
-mcp-google-workspace,MCP × Google Workspace連携｜実践ガイド,ai-api,ai-api,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,MCP Google Workspace 連携,282,5,7,T5/T6完了 パイプライン通過
-discord-attendance,Discord × 勤怠管理Bot｜スプレッドシート記録,discord-bot,discord-bot,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,Discord 勤怠管理Bot,328,5,9,T5/T6完了 パイプライン通過
-automation-failure,自動化が失敗する5つのパターンと対策,frameworks,frameworks,entry,framework,B,reviewed,v1.1,2026-02-12,2026-02-12,自動化 失敗パターン,178,4,8,T5/T6完了 パイプライン通過
-tool-selection-guide,自動化ツール選定ガイド｜規模別おすすめ,frameworks,frameworks,entry,framework,B,reviewed,v1.1,2026-02-12,2026-02-12,自動化ツール 選定ガイド,152,5,10,T5/T6完了 パイプライン通過
-gas-calendar,GAS × Googleカレンダー連携｜予定の自動登録・通知,gas,gas,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,GAS Googleカレンダー 連携,321,3,9,T5/T6完了 パイプライン通過
-dify-intro,Dify入門｜ノーコードでAIチャットボットを作る,no-code,no-code,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,Dify 入門,235,5,7,T5/T6完了 パイプライン通過
-make-ai-scenarios,Make × AI連携シナリオ集｜実務で使えるテンプレート5選,no-code,no-code,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,Make AI連携 シナリオ集,352,3,5,T5/T6完了 パイプライン通過
-n8n-ai-workflow,n8n × AI連携｜LLMノードで業務フローを自動化,no-code,no-code,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,n8n AI連携,209,5,7,T5/T6完了 パイプライン通過
-n8n-self-hosting,n8nセルフホスティング完全ガイド - Docker Composeで構築,no-code,no-code,execution,howto,B,reviewed,v1.1,2026-02-09,2026-02-12,n8n セルフホスティング,367,5,6,T5/T6完了 パイプライン通過
-no-code-tool-matrix,ノーコードツール選定マトリクス｜用途×規模で選ぶ,no-code,no-code,entry,framework,B,reviewed,v1.1,2026-02-12,2026-02-12,ノーコードツール 選定マトリクス,168,5,12,T5/T6完了 パイプライン通過
-ai-code-review,AIコードレビューで品質と速度を両立する方法,ai-api,ai-api,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI コードレビュー,280,5,6,T5/T6完了 パイプライン通過
-ai-coding-overview,AIコーディングツールで業務自動化を内製する方法,ai-api,ai-api,entry,pillar,C,reviewed,v1.1,2026-02-12,2026-02-12,AIコーディング 業務自動化 内製,164,4,23,T5/T6完了 パイプライン通過
-windsurf-intro,Windsurf入門｜AI IDEで業務ツールを開発,ai-api,ai-api,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,Windsurf 入門,206,3,7,T5/T6完了 パイプライン通過
-ai-business-overview,AIで自動化できる業務一覧｜中小企業の実例集,frameworks,frameworks,entry,pillar,C,reviewed,v1.1,2026-02-12,2026-02-12,AI 自動化 業務一覧,150,4,10,T5/T6完了 パイプライン通過
-ai-customer-support,AIカスタマーサポート自動化の始め方｜FAQ Bot・メール応答の構築手順,frameworks,frameworks,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI カスタマーサポート 自動化,294,5,7,T5/T6完了 パイプライン通過
-ai-invoice,AI × 請求書処理の自動化｜OCR+仕分けの実装,frameworks,frameworks,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI 請求書 自動化,266,5,6,T5/T6完了 パイプライン通過
-ai-meeting-minutes,AI × 議事録自動化｜録音→要約→共有まで,frameworks,frameworks,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI 議事録 自動化,326,5,6,T5/T6完了 パイプライン通過
-ai-recruitment-screening,AI × 採用書類スクリーニング自動化,frameworks,frameworks,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI 採用書類 スクリーニング,256,3,7,T5/T6完了 パイプライン通過
-ai-data-report,AI × 定型レポート自動生成｜スプシ→PDF,gas,gas,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI レポート 自動生成,248,3,8,T5/T6完了 パイプライン通過
-ai-email-triage,AI × メール自動振り分け・下書き生成,gas,gas,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI メール 自動振り分け,291,3,10,T5/T6完了 パイプライン通過
-github-copilot-business,GitHub Copilot Business活用ガイド,reviews,reviews,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,GitHub Copilot Business 活用,223,5,6,T5/T6完了 パイプライン通過
-ai-api-overview,AI APIを業務に組み込む方法【中小企業向け入門】,ai-api,ai-api,entry,pillar,S,reviewed,v2.1,2026-02-11,2026-02-11,AI API 業務活用,161,5,9,TR1:SKIP（88点） リファインパイプライン通過
-ai-coding-non-engineer,非エンジニアのAI自動化入門｜コード知識ゼロから始める手順,ai-api,ai-api,execution,howto,S,reviewed,v1.1,2026-02-12,2026-02-12,非エンジニア AIコーディング,285,4,13,TR1:SKIP（88点） リファインパイプライン通過
-claude-code-automation,Claude Codeで業務自動化スクリプトを作る方法【初心者30分】,ai-api,ai-api,execution,howto,S,reviewed,v1.1,2026-02-12,2026-02-12,Claude Code 業務自動化,416,5,6,T5/T6完了 パイプライン通過
-mcp-intro,MCP入門｜AIと業務ツールをつなぐModel Context Protocol,ai-api,ai-api,entry,howto,S,reviewed,v1.1,2026-02-12,2026-02-12,MCP 入門,227,4,7,TR1:SKIP（88点） リファインパイプライン通過
-discord-bot-gas,Discord Bot×GAS連携｜Webhook通知を自動化,discord-bot,discord-bot,execution,howto,S,reviewed,v2.1,2026-02-09,2026-02-11,Discord Bot GAS 連携,313,5,9,TR1:SKIP（93点） relatedArticles修正 リファインパイプライン通過
-discord-bot-overview,Discord Bot業務活用ガイド｜中小企業向け,discord-bot,discord-bot,entry,pillar,S,reviewed,v2.1,2026-02-11,2026-02-11,Discord Bot 業務活用,151,5,11,TR1:SKIP（88点） リファインパイプライン通過
-ai-introduction-5steps,AI導入5ステップ｜中小企業が失敗しない実践手順,frameworks,frameworks,entry,framework,S,reviewed,v2.1,2026-02-09,2026-02-10,AI導入 5ステップ,155,5,6,TR1:SKIP（88点） リファインパイプライン通過
-automation-roadmap,中小企業のAI業務自動化ロードマップ【完全ガイド】,frameworks,frameworks,entry,pillar,S,reviewed,v2.1,2026-02-11,2026-02-11,中小企業 AI 業務自動化,188,5,21,TR1:SKIP（92点） リファインパイプライン通過
-automation-roi-template,自動化ROI計算テンプレート｜費用対効果を可視化,frameworks,frameworks,entry,framework,S,reviewed,v2.1,2026-02-09,2026-02-10,自動化 ROI 計算,171,5,5,TR1:SKIP（88点） リファインパイプライン通過
-prompt-engineering-business,業務自動化プロンプト設計入門｜AIへの指示の書き方,frameworks,frameworks,entry,framework,S,reviewed,v1.1,2026-02-12,2026-02-12,プロンプト設計 業務自動化,256,4,12,TR1:SKIP（88点） リファインパイプライン通過
-where-to-automate-first,業務自動化は何から？優先順位の決め方ガイド,frameworks,frameworks,entry,framework,S,reviewed,v2.1,2026-02-09,2026-02-10,業務自動化 何から,162,5,6,TR1:SKIP（88点） リファインパイプライン通過
-gas-basics,GASでできること完全ガイド｜業務自動化入門,gas,gas,entry,pillar,S,reviewed,v2.1,2026-02-09,2026-02-10,GAS できること,200,5,10,TR1:SKIP（92点） リファインパイプライン通過
-gas-line-bot,GASでLINE Botの作り方｜60分で無料構築,gas,gas,execution,howto,S,reviewed,v2.1,2026-02-09,2026-02-09,GAS LINE Bot 作り方,278,5,7,TR1:SKIP（88点） リファインパイプライン通過
-gas-pdf-generation,GAS × PDF自動生成｜請求書テンプレートから一括作成・送付,gas,gas,execution,howto,S,reviewed,v1.1,2026-02-12,2026-02-12,GAS PDF 自動生成,415,4,7,TR1:SKIP（86点） リファインパイプライン通過
-gas-slack-notification,GASでSlack通知を自動化｜Webhook連携ガイド,gas,gas,execution,howto,S,reviewed,v2.1,2026-02-09,2026-02-10,GAS Slack 通知,331,5,9,TR1:SKIP（88点） リファインパイプライン通過
-gas-spreadsheet-automation,GASでスプレッドシート自動化｜集計・日報・メール送信,gas,gas,execution,howto,S,reviewed,v2.1,2026-02-09,2026-02-11,GAS スプレッドシート 自動化,261,5,8,TR1:SKIP（88点） リファインパイプライン通過
-no-code-overview,ノーコード自動化ツール徹底比較【中小企業向け】,no-code,no-code,entry,pillar,S,reviewed,v2.1,2026-02-11,2026-02-11,ノーコード 自動化ツール 比較,155,5,12,TR1:SKIP（88点） リファインパイプライン通過
-ai-coding-tools-comparison,AIコーディングツール比較【Claude Code vs Codex vs Copilot】,reviews,reviews,entry,comparison,S,reviewed,v1.1,2026-02-12,2026-02-12,AIコーディングツール 比較,200,4,8,TR1:SKIP（88点） リファインパイプライン通過
+slug,title,category,cluster,layer,article_type,priority,status,version,created_date,last_updated,primary_kw,secondary_kw,score,next_update,word_count,faq_count,internal_links,notes
+ai-coding-prompt-patterns,AIにコードを書かせるプロンプトパターン集,ai-api,ai-api,execution,reference,A,reviewed,v1.1,2026-02-12,2026-02-12,AI コード生成 プロンプト,"プロンプトパターン 業務自動化,AI コーディング 指示",,2026-03-29,313,5,16,T5/T6完了 パイプライン通過
+api-key-management,APIキーの管理と安全な運用｜漏洩防止チェック,ai-api,ai-api,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,APIキー 管理,"APIキー 漏洩防止,APIキー セキュリティ",,2026-03-29,210,4,8,T5/T6完了 パイプライン通過
+claude-api-intro,Claude API入門｜業務自動化を60分で実装する方法,ai-api,ai-api,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-12,Claude API 入門,"Claude API 使い方,Anthropic API",,2026-03-29,302,5,6,T5/T6完了 パイプライン通過
+gemini-api-intro,Gemini API入門|PythonとGASで始めるAI活用,ai-api,ai-api,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-13,Gemini API 入門,"Gemini API 使い方,Google AI API",,2026-03-30,343,5,8,T5/T6完了 パイプライン通過
+openai-api-intro,OpenAI API入門 - 業務自動化を始める実践ガイド,ai-api,ai-api,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-12,OpenAI API 入門,"ChatGPT API,GPT API 使い方",,2026-03-29,405,5,6,T5/T6完了 パイプライン通過
+discord-ai-bot,Discord × AI Bot構築｜社内AI質問窓口の作り方,discord-bot,discord-bot,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,Discord AI Bot,"Discord ChatGPT Bot,社内AI 質問窓口",,2026-03-29,388,4,9,T5/T6完了 パイプライン通過
+discord-scheduler-bot,Discord定時通知Botの作り方｜GAS×Webhook連携,discord-bot,discord-bot,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,Discord 定時通知 Bot,"Discord Webhook GAS,Discord 自動通知",,2026-03-29,253,4,7,T5/T6完了 パイプライン通過
+discord-slash-commands,Discordスラッシュコマンド×GAS実装ガイド,discord-bot,discord-bot,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-12,Discord スラッシュコマンド,"Discord Bot コマンド,Discord インタラクション",,2026-03-29,333,5,10,T5/T6完了 パイプライン通過
+discord-spreadsheet-db,DiscordスプレッドシートDB×GAS実装ガイド,discord-bot,discord-bot,execution,howto,A,reviewed,v1.1,2026-02-09,2026-02-12,Discord スプレッドシートDB,"Discord データ管理,Discord Bot データベース",,2026-03-29,333,5,9,T5/T6完了 パイプライン通過
+discord-vs-line-bot,Discord Bot vs LINE Bot比較｜中小企業はどっち？,discord-bot,discord-bot,entry,comparison,A,reviewed,v1.1,2026-02-12,2026-02-12,Discord Bot vs LINE Bot,"Discord LINE 比較,チャットBot 中小企業",,2026-03-29,154,4,7,T5/T6完了 パイプライン通過
+ai-coding-cost-reduction,AIコーディングで自動化開発コストを下げる方法,frameworks,frameworks,entry,framework,A,reviewed,v1.1,2026-02-12,2026-02-12,AIコーディング 開発コスト削減,"外注 内製 比較,AI開発 ROI",,2026-03-29,202,4,9,T5/T6完了 パイプライン通過
+gas-ai-coding,Claude Codeで書くGASスクリプト｜プロンプト実例集,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,Claude Code GAS スクリプト,"AI GAS コード生成,Claude Code プロンプト実例",,2026-03-29,277,4,8,T5/T6完了 パイプライン通過
+gas-chatgpt-api,GAS × ChatGPT API連携｜問い合わせ自動回答,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,GAS ChatGPT API 連携,"GAS OpenAI API,GAS 問い合わせ 自動回答",,2026-03-29,289,4,15,T5/T6完了 パイプライン通過
+gas-claude-api,GAS × Claude API連携｜AIで入力データを自動分類,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-13,GAS Claude API 連携,"GAS AI 自動分類,GAS Anthropic API",,2026-03-30,228,4,9,T5/T6完了 パイプライン通過
+gas-form-automation,GAS × Googleフォーム連携｜回答を自動処理する方法,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,GAS Googleフォーム 連携,"GAS フォーム 自動処理,Googleフォーム 自動化",,2026-03-29,281,4,8,T5/T6完了 パイプライン通過
+gas-mail-automation,GASでメール自動化｜一斉送信・自動返信の実装手順【コピペで動くコード付き】,gas,gas,execution,howto,A,reviewed,v1.1,2026-02-12,2026-02-12,GAS メール 自動化,"GAS 一斉送信,GAS 自動返信,Gmail 自動化",,2026-03-29,307,4,6,T5/T6完了 パイプライン通過
+gas-syntax-reference,GAS基礎文法まとめ｜コピペで使えるリファレンス,gas,gas,execution,reference,A,reviewed,v1.1,2026-02-12,2026-02-12,GAS 基礎文法,"GAS リファレンス,Google Apps Script 文法",,2026-03-29,325,3,8,T5/T6完了 パイプライン通過
+zapier-vs-make,Zapier vs Make 比較｜中小企業向け料金・機能の選び方,no-code,no-code,entry,comparison,A,reviewed,v1.1,2026-02-09,2026-02-12,Zapier vs Make 比較,"Zapier Make 違い,自動化ツール 比較",,2026-03-29,169,5,6,T5/T6完了 パイプライン通過
+ai-dev-tools-comparison,AI開発ツール比較｜Copilot・Cursor・Claude Code 選び方,reviews,reviews,entry,comparison,A,reviewed,v1.1,2026-02-09,2026-02-13,AI開発ツール 比較,"AI コーディング,GitHub Copilot 比較",,2026-03-30,236,5,5,T5/T6完了 パイプライン通過
+automation-tools-matrix,【2026年版】自動化ツール比較表｜スキル別の選び方,reviews,reviews,entry,comparison,A,reviewed,v1.1,2026-02-09,2026-02-13,自動化ツール 比較表,"自動化 ツール選定,RPA 比較",,2026-03-30,172,5,24,T5/T6完了 パイプライン通過
+ai-api-cost-management,AI API利用料金の管理方法｜中小企業の予算管理,ai-api,ai-api,entry,framework,B,reviewed,v1.1,2026-02-12,2026-02-12,AI API 料金管理,"AI API コスト,API 予算管理 中小企業",,2026-04-13,214,4,8,T5/T6完了 パイプライン通過
+codex-intro,OpenAI Codex入門｜クラウドでコード生成・実行,ai-api,ai-api,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,OpenAI Codex 入門,"Codex 使い方,クラウド コード生成",,2026-04-13,234,3,7,T5/T6完了 パイプライン通過
+cursor-business,Cursor × 業務自動化開発｜AIエディタ活用術,ai-api,ai-api,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,Cursor 業務自動化,"Cursor AIエディタ,Cursor 活用術",,2026-04-13,256,3,7,T5/T6完了 パイプライン通過
+mcp-google-workspace,MCP × Google Workspace連携｜実践ガイド,ai-api,ai-api,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,MCP Google Workspace 連携,"MCP 実践ガイド,AI Google連携",,2026-04-13,282,5,7,T5/T6完了 パイプライン通過
+discord-attendance,Discord × 勤怠管理Bot｜スプレッドシート記録,discord-bot,discord-bot,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,Discord 勤怠管理Bot,"Discord 出退勤,勤怠 スプレッドシート",,2026-04-13,328,5,9,T5/T6完了 パイプライン通過
+automation-failure,自動化が失敗する5つのパターンと対策,frameworks,frameworks,entry,framework,B,reviewed,v1.1,2026-02-12,2026-02-12,自動化 失敗パターン,"自動化 失敗,業務自動化 注意点",,2026-04-13,178,4,8,T5/T6完了 パイプライン通過
+tool-selection-guide,自動化ツール選定ガイド｜規模別おすすめ,frameworks,frameworks,entry,framework,B,reviewed,v1.1,2026-02-12,2026-02-12,自動化ツール 選定ガイド,"自動化ツール おすすめ,規模別 ツール選定",,2026-04-13,152,5,10,T5/T6完了 パイプライン通過
+gas-calendar,GAS × Googleカレンダー連携｜予定の自動登録・通知,gas,gas,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,GAS Googleカレンダー 連携,"GAS カレンダー 自動登録,GAS 予定 通知",,2026-04-13,321,3,9,T5/T6完了 パイプライン通過
+dify-intro,Dify入門｜ノーコードでAIチャットボットを作る,no-code,no-code,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,Dify 入門,"Dify チャットボット,ノーコード AI Bot",,2026-04-13,235,5,7,T5/T6完了 パイプライン通過
+make-ai-scenarios,Make × AI連携シナリオ集｜実務で使えるテンプレート5選,no-code,no-code,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,Make AI連携 シナリオ集,"Make AI テンプレート,Make 自動化 実例",,2026-04-13,352,3,5,T5/T6完了 パイプライン通過
+n8n-ai-workflow,n8n × AI連携｜LLMノードで業務フローを自動化,no-code,no-code,execution,howto,B,reviewed,v1.1,2026-02-12,2026-02-12,n8n AI連携,"n8n LLMノード,n8n 業務フロー 自動化",,2026-04-13,209,5,7,T5/T6完了 パイプライン通過
+n8n-self-hosting,n8nセルフホスティング完全ガイド - Docker Composeで構築,no-code,no-code,execution,howto,B,reviewed,v1.1,2026-02-09,2026-02-12,n8n セルフホスティング,"n8n 自己ホスティング,n8n 構築",,2026-04-13,367,5,6,T5/T6完了 パイプライン通過
+no-code-tool-matrix,ノーコードツール選定マトリクス｜用途×規模で選ぶ,no-code,no-code,entry,framework,B,reviewed,v1.1,2026-02-12,2026-02-12,ノーコードツール 選定マトリクス,"ノーコード 選び方,用途別 ノーコード",,2026-04-13,168,5,12,T5/T6完了 パイプライン通過
+ai-code-review,AIコードレビューで品質と速度を両立する方法,ai-api,ai-api,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI コードレビュー,"AI レビュー 自動化,コード品質 AI",,2026-05-13,280,5,6,T5/T6完了 パイプライン通過
+ai-coding-overview,AIコーディングツールで業務自動化を内製する方法,ai-api,ai-api,entry,pillar,C,reviewed,v1.1,2026-02-12,2026-02-12,AIコーディング 業務自動化 内製,"AIコーディング ガイド,AI 内製化",,2026-05-13,164,4,23,T5/T6完了 パイプライン通過
+windsurf-intro,Windsurf入門｜AI IDEで業務ツールを開発,ai-api,ai-api,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,Windsurf 入門,"Windsurf AI IDE,Windsurf 業務ツール開発",,2026-05-13,206,3,7,T5/T6完了 パイプライン通過
+ai-business-overview,AIで自動化できる業務一覧｜中小企業の実例集,frameworks,frameworks,entry,pillar,C,reviewed,v1.1,2026-02-12,2026-02-12,AI 自動化 業務一覧,"AI 中小企業 実例,AI 業務効率化",,2026-05-13,150,4,10,T5/T6完了 パイプライン通過
+ai-customer-support,AIカスタマーサポート自動化の始め方｜FAQ Bot・メール応答の構築手順,frameworks,frameworks,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI カスタマーサポート 自動化,"AI チャットBot 構築,顧客対応 自動化",,2026-05-13,294,5,7,T5/T6完了 パイプライン通過
+ai-invoice,AI × 請求書処理の自動化｜OCR+仕分けの実装,frameworks,frameworks,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI 請求書 自動化,"AI OCR 請求書,請求書 仕分け 自動化",,2026-05-13,266,5,6,T5/T6完了 パイプライン通過
+ai-meeting-minutes,AI × 議事録自動化｜録音→要約→共有まで,frameworks,frameworks,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI 議事録 自動化,"AI 議事録 要約,録音 文字起こし 自動化",,2026-05-13,326,5,6,T5/T6完了 パイプライン通過
+ai-recruitment-screening,AI × 採用書類スクリーニング自動化,frameworks,frameworks,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI 採用書類 スクリーニング,"AI 採用 自動化,書類選考 効率化",,2026-05-13,256,3,7,T5/T6完了 パイプライン通過
+ai-data-report,AI × 定型レポート自動生成｜スプシ→PDF,gas,gas,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI レポート 自動生成,"AI スプレッドシート PDF,定型レポート 自動化",,2026-05-13,248,3,8,T5/T6完了 パイプライン通過
+ai-email-triage,AI × メール自動振り分け・下書き生成,gas,gas,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,AI メール 自動振り分け,"AI メール分類,メール 下書き 自動生成",,2026-05-13,291,3,10,T5/T6完了 パイプライン通過
+github-copilot-business,GitHub Copilot Business活用ガイド,reviews,reviews,execution,howto,C,reviewed,v1.1,2026-02-12,2026-02-12,GitHub Copilot Business 活用,"Copilot Business 使い方,Copilot チーム開発",,2026-05-13,223,5,6,T5/T6完了 パイプライン通過
+ai-api-overview,AI APIを業務に組み込む方法【中小企業向け入門】,ai-api,ai-api,entry,pillar,S,reviewed,v2.1,2026-02-11,2026-02-11,AI API 業務活用,"AI API 入門,AI API 組み込み,LLM API 比較",88,2026-03-13,161,5,9,TR1:SKIP（88点） リファインパイプライン通過
+ai-coding-non-engineer,非エンジニアのAI自動化入門｜コード知識ゼロから始める手順,ai-api,ai-api,execution,howto,S,reviewed,v1.1,2026-02-12,2026-02-12,非エンジニア AIコーディング,"AI コード生成 初心者,プログラミング不要 自動化",88,2026-03-14,285,4,13,TR1:SKIP（88点） リファインパイプライン通過
+claude-code-automation,Claude Codeで業務自動化スクリプトを作る方法【初心者30分】,ai-api,ai-api,execution,howto,S,reviewed,v1.1,2026-02-12,2026-02-12,Claude Code 業務自動化,"Claude Code 使い方,AI スクリプト 自動化",,2026-03-14,416,5,6,T5/T6完了 パイプライン通過
+mcp-intro,MCP入門｜AIと業務ツールをつなぐModel Context Protocol,ai-api,ai-api,entry,howto,S,reviewed,v1.1,2026-02-12,2026-02-12,MCP 入門,"Model Context Protocol,MCP AI連携,AI ツール連携",88,2026-03-14,227,4,7,TR1:SKIP（88点） リファインパイプライン通過
+discord-bot-gas,Discord Bot×GAS連携｜Webhook通知を自動化,discord-bot,discord-bot,execution,howto,S,reviewed,v2.1,2026-02-09,2026-02-13,Discord Bot GAS 連携,"Discord 通知 自動化,Discord スプレッドシート",93,2026-03-15,313,5,9,TR1:SKIP（93点） relatedArticles修正 リファインパイプライン通過
+discord-bot-overview,Discord Bot業務活用ガイド｜中小企業向け,discord-bot,discord-bot,entry,pillar,S,reviewed,v2.1,2026-02-11,2026-02-11,Discord Bot 業務活用,"Discord Bot 作り方,Discord 自動化,Discord 業務",88,2026-03-13,151,5,11,TR1:SKIP（88点） リファインパイプライン通過
+ai-introduction-5steps,AI導入5ステップ｜中小企業が失敗しない実践手順,frameworks,frameworks,entry,framework,S,reviewed,v2.1,2026-02-09,2026-02-10,AI導入 5ステップ,"AI導入 中小企業,AI 失敗しない",88,2026-03-12,155,5,6,TR1:SKIP（88点） リファインパイプライン通過
+automation-roadmap,中小企業のAI業務自動化ロードマップ【完全ガイド】,frameworks,frameworks,entry,pillar,S,reviewed,v2.1,2026-02-11,2026-02-11,中小企業 AI 業務自動化,"業務効率化 AI,自動化 ロードマップ,DX 中小企業",92,2026-03-13,188,5,21,TR1:SKIP（92点） リファインパイプライン通過
+automation-roi-template,自動化ROI計算テンプレート｜費用対効果を可視化,frameworks,frameworks,entry,framework,S,reviewed,v2.1,2026-02-09,2026-02-10,自動化 ROI 計算,"費用対効果 自動化,ROI テンプレート",88,2026-03-12,171,5,5,TR1:SKIP（88点） リファインパイプライン通過
+prompt-engineering-business,業務自動化プロンプト設計入門｜AIへの指示の書き方,frameworks,frameworks,entry,framework,S,reviewed,v1.1,2026-02-12,2026-02-12,プロンプト設計 業務自動化,"プロンプトエンジニアリング 入門,AI プロンプト 書き方",88,2026-03-14,256,4,12,TR1:SKIP（88点） リファインパイプライン通過
+where-to-automate-first,業務自動化は何から？優先順位の決め方ガイド,frameworks,frameworks,entry,framework,S,reviewed,v2.1,2026-02-09,2026-02-10,業務自動化 何から,"自動化 優先順位,どこから 自動化",88,2026-03-12,162,5,6,TR1:SKIP（88点） リファインパイプライン通過
+gas-basics,GASでできること完全ガイド｜業務自動化入門,gas,gas,entry,pillar,S,reviewed,v2.1,2026-02-09,2026-02-10,GAS できること,"Google Apps Script 入門,GAS 業務自動化",92,2026-03-12,200,5,10,TR1:SKIP（92点） リファインパイプライン通過
+gas-line-bot,GASでLINE Botの作り方｜60分で無料構築,gas,gas,execution,howto,S,reviewed,v2.1,2026-02-09,2026-02-09,GAS LINE Bot 作り方,"GAS LINE 通知,LINE Bot 自動化",88,2026-03-11,278,5,7,TR1:SKIP（88点） リファインパイプライン通過
+gas-pdf-generation,GAS × PDF自動生成｜請求書テンプレートから一括作成・送付,gas,gas,execution,howto,S,reviewed,v1.1,2026-02-12,2026-02-12,GAS PDF 自動生成,"GAS 請求書 自動化,GAS テンプレート PDF",86,2026-03-14,415,4,7,TR1:SKIP（86点） リファインパイプライン通過
+gas-slack-notification,GASでSlack通知を自動化｜Webhook連携ガイド,gas,gas,execution,howto,S,reviewed,v2.1,2026-02-09,2026-02-10,GAS Slack 通知,"Slack 自動通知,スプレッドシート Slack",88,2026-03-12,331,5,9,TR1:SKIP（88点） リファインパイプライン通過
+gas-spreadsheet-automation,GASでスプレッドシート自動化｜集計・日報・メール送信,gas,gas,execution,howto,S,reviewed,v2.1,2026-02-09,2026-02-11,GAS スプレッドシート 自動化,"GAS 日報 自動化,GAS 集計",88,2026-03-13,261,5,8,TR1:SKIP（88点） リファインパイプライン通過
+no-code-overview,ノーコード自動化ツール徹底比較【中小企業向け】,no-code,no-code,entry,pillar,S,reviewed,v2.1,2026-02-11,2026-02-11,ノーコード 自動化ツール 比較,"ノーコード おすすめ,ローコード 比較,iPaaS 比較",88,2026-03-13,155,5,12,TR1:SKIP（88点） リファインパイプライン通過
+ai-coding-tools-comparison,AIコーディングツール比較【Claude Code vs Codex vs Copilot】,reviews,reviews,entry,comparison,S,reviewed,v1.1,2026-02-12,2026-02-12,AIコーディングツール 比較,"Claude Code vs Copilot,Codex 比較,AI コード生成 比較",88,2026-03-14,200,4,8,TR1:SKIP（88点） リファインパイプライン通過

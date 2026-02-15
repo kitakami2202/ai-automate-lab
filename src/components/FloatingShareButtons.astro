@@ -1,0 +1,101 @@
+---
+export interface Props {
+  url: string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+---
+
+<!-- Desktop: left-side floating -->
+<div
+  id="floating-share"
+  class="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-2 z-40 opacity-0 transition-opacity duration-300"
+>
+  <a
+    href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center w-10 h-10 rounded-full bg-black text-white hover:bg-gray-800 transition-colors no-underline"
+    aria-label="Xでシェアする"
+  >
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+  <a
+    href={`https://b.hatena.ne.jp/entry/s/${url.replace('https://', '')}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center w-10 h-10 rounded-full bg-[#00A4DE] text-white hover:bg-[#0093C4] transition-colors no-underline"
+    aria-label="はてなブックマークに追加する"
+  >
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.47 21.2c-.7.7-1.57 1.05-2.6 1.05s-1.9-.35-2.6-1.05c-.7-.7-1.05-1.57-1.05-2.6s.35-1.9 1.05-2.6c.7-.7 1.57-1.05 2.6-1.05s1.9.35 2.6 1.05c.7.7 1.05 1.57 1.05 2.6s-.35 1.9-1.05 2.6zM15.22 1.75h5.26v11.52h-5.26zm-11.7 0h5.26v6.7h2.63l-3.95 4.74v6.56H2.2v-6.56L6.15 8.45H3.52z"/></svg>
+  </a>
+  <a
+    href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center w-10 h-10 rounded-full bg-[#06C755] text-white hover:bg-[#05B54C] transition-colors no-underline"
+    aria-label="LINEでシェアする"
+  >
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  </a>
+</div>
+
+<!-- Mobile: sticky bottom bar -->
+<div
+  id="floating-share-mobile"
+  class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 py-2 px-4 opacity-0 transition-opacity duration-300 pointer-events-none"
+>
+  <div class="flex items-center justify-center gap-4">
+    <a
+      href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black text-white text-xs font-medium hover:bg-gray-800 transition-colors no-underline"
+      aria-label="Xでシェアする"
+    >
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      X
+    </a>
+    <a
+      href={`https://b.hatena.ne.jp/entry/s/${url.replace('https://', '')}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#00A4DE] text-white text-xs font-medium hover:bg-[#0093C4] transition-colors no-underline"
+      aria-label="はてなブックマークに追加する"
+    >
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.47 21.2c-.7.7-1.57 1.05-2.6 1.05s-1.9-.35-2.6-1.05c-.7-.7-1.05-1.57-1.05-2.6s.35-1.9 1.05-2.6c.7-.7 1.57-1.05 2.6-1.05s1.9.35 2.6 1.05c.7.7 1.05 1.57 1.05 2.6s-.35 1.9-1.05 2.6zM15.22 1.75h5.26v11.52h-5.26zm-11.7 0h5.26v6.7h2.63l-3.95 4.74v6.56H2.2v-6.56L6.15 8.45H3.52z"/></svg>
+      はてブ
+    </a>
+    <a
+      href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#06C755] text-white text-xs font-medium hover:bg-[#05B54C] transition-colors no-underline"
+      aria-label="LINEでシェアする"
+    >
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINE
+    </a>
+  </div>
+</div>
+
+<script is:inline>
+(function() {
+  var desktop = document.getElementById('floating-share');
+  var mobile = document.getElementById('floating-share-mobile');
+  if (!desktop && !mobile) return;
+  function onScroll() {
+    var scrolled = window.scrollY > 300;
+    if (desktop) desktop.style.opacity = scrolled ? '1' : '0';
+    if (mobile) {
+      mobile.style.opacity = scrolled ? '1' : '0';
+      mobile.style.pointerEvents = scrolled ? 'auto' : 'none';
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>

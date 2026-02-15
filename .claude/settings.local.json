@@ -61,7 +61,24 @@
       "Bash(python3:*)",
       "Bash(python -c:*)",
       "Bash(node:*)",
-      "Bash(git status:*)"
+      "Bash(git status:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nrewrite: frameworks cluster + all clusters rewrite/outline updates\n\n- Rewrite frameworks cluster \\(ai-introduction-5steps, automation-roi-template, where-to-automate-first\\): T3-T5 complete, all PASS \\(94-96/100\\)\n- Update rewritten articles across all clusters \\(gas, discord-bot, ai-api, no-code, reviews\\)\n- Add outlines for 12 articles\n- Update keyword-map.csv statuses to reviewed\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Read(//c/**)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfix: サイトURLを ai-automate-lab.com → ai-automate-lab.tech に修正\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(npx astro check:*)",
+      "Bash(npx astro build)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: 4つのpillarオーバービュー記事を追加し品質監査・改善を実施\n\n- automation-roadmap, discord-bot-overview, no-code-overview, ai-api-overview の4記事を追加\n- 5軸×100点満点の品質監査を実施（88〜90点、全記事SKIP判定）\n- 監査で特定した改善点24件を修正:\n  - 80文字超過の長文を分割（全4記事）\n  - 専門用語の初出時定義を追加（ROI, GAS, Webhook, VPS, Docker, トークン等）\n  - 料金情報に時点表記と公式URLリンクを追加（全4記事）\n  - 副キーワードの自然な配置を改善（業務効率化, ローコード, iPaaS）\n  - 「選び方」系H2に定義文を追加（3記事）\n  - description文字数を120-160文字の範囲に調整\n- 子記事のrelatedArticlesをピラー記事へのリンクに更新\n- スコアレポートをscripts/refine-briefs/に出力\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "mcp__ide__executeCode",
+      "Bash(git commit:*)",
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(xargs -I {} git diff-tree --no-commit-id --name-only -r {})",
+      "Bash(awk:*)",
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "WebFetch(domain:www.ai-automate-lab.tech)",
+      "WebFetch(domain:ai-automate-lab.tech)",
+      "Bash(npm run build:*)"
     ],
     "additionalDirectories": [
       "c:\\Users\\kitak\\ai-automate-lab"

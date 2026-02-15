@@ -19,6 +19,7 @@ for (let i = 1; i < kwLines.length; i++) {
   if (fields[0]) {
     kwMap[fields[0]] = {
       primary_kw: fields[1],
+      secondary_kw: fields[2],
       layer: fields[3],
       article_type: fields[4],
       cluster: fields[5],
@@ -81,6 +82,21 @@ for (const cat of categories) {
       version = "v1.1";
     }
 
+    // スコア抽出（notes内の「XX点」パターン）
+    const notes = kw.notes || "";
+    const scoreMatch = notes.match(/(\d+)点/);
+    const score = scoreMatch ? scoreMatch[1] : "";
+
+    // 次回更新予定日（優先度別: S=30日, A=45日, B=60日, C=90日）
+    const priorityDays = { S: 30, A: 45, B: 60, C: 90 };
+    let nextUpdate = "";
+    if (updatedDate) {
+      const days = priorityDays[kw.priority] || 90;
+      const d = new Date(updatedDate);
+      d.setDate(d.getDate() + days);
+      nextUpdate = d.toISOString().slice(0, 10);
+    }
+
     articles.push({
       slug,
       title,
@@ -94,6 +110,9 @@ for (const cat of categories) {
       created_date: createdDate,
       last_updated: updatedDate,
       primary_kw: kw.primary_kw || "",
+      secondary_kw: kw.secondary_kw || "",
+      score,
+      next_update: nextUpdate,
       word_count: lineCount,
       faq_count: faqCount,
       internal_links: linkCount,
@@ -112,7 +131,7 @@ articles.sort((a, b) => {
 });
 
 // --- 3. Write article-registry.csv ---
-const header = "slug,title,category,cluster,layer,article_type,priority,status,version,created_date,last_updated,primary_kw,word_count,faq_count,internal_links,notes";
+const header = "slug,title,category,cluster,layer,article_type,priority,status,version,created_date,last_updated,primary_kw,secondary_kw,score,next_update,word_count,faq_count,internal_links,notes";
 const csvLines = [header];
 for (const a of articles) {
   const escape = (s) => {
@@ -134,6 +153,9 @@ for (const a of articles) {
     a.created_date,
     a.last_updated,
     escape(a.primary_kw),
+    escape(a.secondary_kw),
+    a.score,
+    a.next_update,
     a.word_count,
     a.faq_count,
     a.internal_links,

@@ -8,19 +8,70 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 ---
 
 {tocHeadings.length > 0 && (
-  <nav class="bg-gray-50 border border-gray-200 rounded-lg p-5 mb-8">
-    <h2 class="text-lg font-bold mb-3 text-gray-800">目次</h2>
-    <ul class="space-y-1.5">
-      {tocHeadings.map((heading) => (
-        <li class={heading.depth === 3 ? 'ml-4' : ''}>
-          <a
-            href={`#${heading.slug}`}
-            class="text-sm text-gray-600 hover:text-brand no-underline hover:underline"
+  <nav class="bg-gray-50 border border-gray-200 rounded-lg mb-8" aria-label="この記事の目次">
+    <details class="group" id="toc-details">
+      <summary class="flex items-center justify-between cursor-pointer p-5 select-none [&::-webkit-details-marker]:hidden list-none">
+        <span class="text-lg font-bold text-gray-800">目次</span>
+        <svg
+          class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <ul class="px-5 pb-5 space-y-1.5" id="toc-list">
+        {tocHeadings.map((heading) => (
+          <li
+            class:list={[
+              heading.depth === 3 ? 'ml-4 toc-h3' : 'toc-h2',
+            ]}
           >
-            {heading.text}
-          </a>
-        </li>
-      ))}
-    </ul>
+            <a
+              href={`#${heading.slug}`}
+              class="text-sm text-gray-600 hover:text-brand no-underline hover:underline"
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
   </nav>
 )}
+
+<script is:inline>
+(function() {
+  var details = document.getElementById('toc-details');
+  if (!details) return;
+
+  if (window.innerWidth >= 768) {
+    details.setAttribute('open', '');
+  } else {
+    details.removeAttribute('open');
+  }
+
+  var h3Items = document.querySelectorAll('#toc-list .toc-h3');
+  h3Items.forEach(function(item) { item.style.display = 'none'; });
+
+  var list = document.getElementById('toc-list');
+  if (h3Items.length > 0 && list) {
+    var toggle = document.createElement('li');
+    toggle.className = 'mt-2';
+    var toggleLink = document.createElement('button');
+    toggleLink.className = 'text-xs text-brand hover:underline cursor-pointer bg-transparent border-none p-0';
+    toggleLink.textContent = '▶ 詳細を表示';
+    var expanded = false;
+    toggleLink.addEventListener('click', function() {
+      expanded = !expanded;
+      h3Items.forEach(function(item) {
+        item.style.display = expanded ? '' : 'none';
+      });
+      toggleLink.textContent = expanded ? '▼ 詳細を隠す' : '▶ 詳細を表示';
+    });
+    toggle.appendChild(toggleLink);
+    list.appendChild(toggle);
+  }
+})();
+</script>

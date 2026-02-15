@@ -5,6 +5,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import FAQ from '../components/FAQ.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
 import ShareButtons from '../components/ShareButtons.astro';
+import FloatingShareButtons from '../components/FloatingShareButtons.astro';
 import { generateJsonLd } from '../utils/jsonld';
 import { generateTitle } from '../utils/seo';
 import { categoryLabels, categoryBadgeColors, difficultyLabels } from '../utils/categories';
@@ -55,59 +56,121 @@ const formatDate = (date: Date) =>
   modifiedTime={updatedAt.toISOString()}
   jsonLd={jsonLdArray}
 >
-  <article class="container py-10" data-pagefind-body>
-    <Breadcrumb
-      items={[
-        { name: categoryLabels[category] || category, url: `/category/${category}/` },
-        { name: title, url: `/articles/${article.slug}/` },
-      ]}
-    />
+  <!-- Reading Progress Bar -->
+  <div
+    id="reading-progress"
+    class="fixed top-0 left-0 h-1 z-[60] transition-[width] duration-75"
+    style="width: 0%;"
+  ></div>
 
-    <header class="mb-8">
-      <div class="flex items-center gap-2 mb-3">
-        <span class:list={['inline-block text-sm font-medium px-3 py-1 rounded-full', categoryBadgeColors[category] || 'bg-blue-50 text-blue-700']}>
-          {categoryLabels[category] || category}
-        </span>
-        <span class="inline-block text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded">
-          {difficultyLabels[difficulty] || difficulty}
-        </span>
-      </div>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">{title}</h1>
-      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-        <span>著者: れん</span>
-        <time datetime={publishedAt.toISOString()}>
-          {formatDate(publishedAt)}
-        </time>
-        {updatedAt && updatedAt.getTime() !== publishedAt.getTime() && (
-          <span>
-            (更新: <time datetime={updatedAt.toISOString()}>{formatDate(updatedAt)}</time>)
-          </span>
-        )}
-        <span>約{timeToRead}分で読了</span>
-      </div>
-      {tags && tags.length > 0 && (
-        <div class="flex flex-wrap gap-2 mt-3">
-          {tags.map((tag: string) => (
-            <a href={`/tags/${tag}/`} class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded hover:bg-brand hover:text-white transition-colors no-underline">
-              #{tag}
-            </a>
-          ))}
-        </div>
-      )}
-    </header>
-
-    <TableOfContents headings={headings} />
-
-    <div class="article-content">
-      <slot />
+  <article class="py-10" data-pagefind-body>
+    <div class="container">
+      <Breadcrumb
+        items={[
+          { name: categoryLabels[category] || category, url: `/category/${category}/` },
+          { name: title, url: `/articles/${article.slug}/` },
+        ]}
+      />
     </div>
 
-    {faq && faq.length > 0 && (
-      <FAQ items={faq} />
-    )}
+    <div class="max-w-3xl mx-auto px-4">
+      <header class="mb-8">
+        <div class="flex items-center gap-2 mb-3">
+          <span class:list={['inline-block text-sm font-medium px-3 py-1 rounded-full', categoryBadgeColors[category] || 'bg-blue-50 text-blue-700']}>
+            {categoryLabels[category] || category}
+          </span>
+          <span class="inline-block text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded">
+            {difficultyLabels[difficulty] || difficulty}
+          </span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">{title}</h1>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+          <span>著者: れん</span>
+          <time datetime={publishedAt.toISOString()}>
+            {formatDate(publishedAt)}
+          </time>
+          {updatedAt && updatedAt.getTime() !== publishedAt.getTime() && (
+            <span>
+              (更新: <time datetime={updatedAt.toISOString()}>{formatDate(updatedAt)}</time>)
+            </span>
+          )}
+          <span class="inline-flex items-center gap-1 bg-gray-100 px-2 py-0.5 rounded text-xs font-medium text-gray-600">
+            約{timeToRead}分で読了
+          </span>
+        </div>
+        {tags && tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-3">
+            {tags.map((tag: string) => (
+              <a href={`/tags/${tag}/`} class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded hover:bg-brand hover:text-white transition-colors no-underline">
+                #{tag}
+              </a>
+            ))}
+          </div>
+        )}
+      </header>
 
-    <ShareButtons url={articleUrl} title={title} />
+      <TableOfContents headings={headings} />
 
-    <RelatedArticles articles={relatedArticles} />
+      <div class="article-content">
+        <slot />
+      </div>
+
+      <!-- 次に読む（関連記事から1件） -->
+      {relatedArticles.length > 0 && (
+        <div class="my-10 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+          <p class="text-sm font-bold text-gray-600 mb-2">次に読む</p>
+          <a href={`/articles/${relatedArticles[0].slug}/`} class="text-lg font-bold text-gray-800 hover:text-brand transition-colors no-underline">
+            {relatedArticles[0].data.title} →
+          </a>
+        </div>
+      )}
+
+      {faq && faq.length > 0 && (
+        <FAQ items={faq} />
+      )}
+
+      <!-- 著者ミニプロフィール -->
+      <div class="my-8 flex items-start gap-4 p-6 bg-gray-50 rounded-xl">
+        <div class="w-12 h-12 bg-brand text-white rounded-full flex items-center justify-center font-bold text-lg shrink-0">
+          R
+        </div>
+        <div>
+          <p class="font-bold text-gray-800 mb-1">れん</p>
+          <p class="text-sm text-gray-600 mb-2">GAS・AI API・ノーコードツールを活用した中小企業の業務自動化を専門としています。</p>
+          <a href="/about/" class="text-sm text-brand no-underline hover:underline">プロフィール詳細 →</a>
+        </div>
+      </div>
+
+      <ShareButtons url={articleUrl} title={title} />
+
+      <RelatedArticles articles={relatedArticles} />
+
+      <FloatingShareButtons url={articleUrl} title={title} />
+    </div>
   </article>
+
+  <script is:inline>
+  (function() {
+    var bar = document.getElementById('reading-progress');
+    var article = document.querySelector('.article-content');
+    if (!bar || !article) return;
+    function updateProgress() {
+      var articleTop = article.getBoundingClientRect().top + window.scrollY;
+      var articleHeight = article.offsetHeight;
+      var windowHeight = window.innerHeight;
+      var scrollY = window.scrollY;
+      var start = articleTop;
+      var end = articleTop + articleHeight - windowHeight;
+      var progress = 0;
+      if (scrollY >= start && end > start) {
+        progress = Math.min(((scrollY - start) / (end - start)) * 100, 100);
+      } else if (scrollY > end) {
+        progress = 100;
+      }
+      bar.style.width = progress + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  })();
+  </script>
 </BaseLayout>

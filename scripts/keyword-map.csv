@@ -66,3 +66,22 @@ gas-github-management,GAS スクリプト 管理 方法,"GAS バックアップ 
 github-for-ai-coding,GitHub push やり方 初心者,"GitHub コード アップロード,VS Code GitHub 連携 初心者,.gitignore とは",execution,howto,ai-api,A,drafted,GitHub入門シリーズ AI連携
 github-glossary,GitHub 英語 わからない,"GitHub 用語 日本語,git push pull 違い,git コマンド 一覧 初心者",execution,reference,frameworks,B,drafted,GitHub入門シリーズ 用語集
 github-actions-auto-publish,サイト 更新 自動化 方法,"ホームページ 自動 公開,GitHub Actions とは わかりやすく,FTP アップロード 自動化",execution,howto,frameworks,A,drafted,GitHub入門シリーズ Actions
+ai-agent-intro,AIエージェント とは,"AIエージェント 中小企業,AIエージェント 2026,エージェンティックAI",entry,pillar,frameworks,S,outlined,Phase1-T1 2026最大トレンド。後続記事T7/C8/C12/A1をブロック
+llm-japanese-comparison,ChatGPT Claude 比較 2026,"生成AI 比較 日本語,AI ライティング 比較,LLM 日本語 ベンチマーク",entry,comparison,reviews,S,outlined,Phase1-T3 実検証型。Swallow/ArtificialAnalysis日本語ベンチマーク活用
+ai-subsidy-2026,AI導入補助金 2026,"デジタル化補助金 申請方法,IT導入補助金 2026,AI補助金 中小企業",entry,framework,frameworks,S,outlined,Phase1-T4 政策トレンド鮮度命。国際比較データ（SG/EU/UK/US）で差別化
+deepseek-review,DeepSeek 使い方 日本語,"DeepSeek 業務,DeepSeek 安全性,DeepSeek vs ChatGPT",execution,howto,reviews,S,outlined,Phase1-T6 セキュリティリスクデータで差別化
+ai-agent-diy,AIエージェント 作り方,"AIエージェント 自作,Dify n8n エージェント,ノーコード AIエージェント",execution,howto,ai-api,S,outlined,Phase1-T7 T1/T2/T5完了後に着手。日本語実践記事が空白
+free-ai-tools-2026,AIツール 無料 2026,"生成AI 無料 おすすめ,無料 AIツール まとめ,AI 無料 比較",entry,comparison,reviews,S,outlined,Phase1-T8 リスト型高流入。AIxploria5000+ツールデータ活用
+dify-n8n-make-comparison,Dify n8n Make 比較,"ワークフロー自動化 ツール比較,Dify n8n 違い,ノーコードAI 比較",entry,comparison,no-code,A,approved,Phase2-C1 T2/T5完了後。「Dify=AI-first n8n=automation-first」の軸
+ai-freelance-recipes,AI フリーランス 効率化,"個人事業主 AI活用,フリーランス AI 自動化,AI 時短 個人事業",entry,framework,frameworks,A,approved,Phase2-C3 職種特化コンテンツギャップ。Upwork統計活用
+ai-side-hustle,AI副業 月5万,"AI 副業 始め方 2026,AI 副業 稼げる,AI ライティング 副業",entry,framework,frameworks,A,approved,Phase2-C4 実データ型。HustleGPT/AI Money Hunter参照
+multi-agent-intro,マルチエージェント とは,"AIエージェント 連携,マルチエージェントシステム,AI協調",execution,howto,ai-api,A,approved,Phase2-C12 T1/T7完了後。Google/MS/Gartner公式アーキテクチャ参照
+ai-adoption-roadmap-2026,中小企業 AI導入 2026,"AI DX 中小企業 2026,AI導入 ロードマップ,AI導入 手順",entry,pillar,frameworks,B,approved,Phase3-A1 T1/T4完了後。McKinsey/Deloitte/OECD統計活用
+ai-for-professionals,税理士 AI 効率化,"士業 AI活用,専門家 AI 自動化,弁護士 AI",entry,framework,frameworks,B,approved,Phase3-A3 大手メディア未カバーのニッチ
+ai-for-ecommerce,EC AI 自動化,"ネットショップ AI活用,ECサイト AI 効率化,EC 業務自動化",entry,framework,frameworks,B,approved,Phase3-A4 EC特化。カート単価15%増等の実データあり
+ai-business-email,AI ビジネスメール 日本語,"AI 敬語 チェック,AI メール作成,ビジネスメール AI",execution,howto,ai-api,B,approved,Phase3-A5 日本語特化ギャップ。Polilingua敬語分析データ
+power-automate-intro,Power Automate 入門,"Microsoft 365 自動化,Power Automate 使い方,MS 業務自動化",execution,howto,no-code,B,approved,Phase3-A6 MS環境の中小企業向け
+rag-intro,RAG とは,"RAG 入門 わかりやすく,社内文書 AI 検索,RAG 仕組み",entry,howto,ai-api,B,approved,Phase3-A7 Milvus/Dify RAGチュートリアル活用
+ai-roi-visualization,AI 費用対効果,"AI導入 コスト 中小企業,AI ROI 計算,AI 投資対効果",entry,framework,frameworks,B,approved,Phase3-A8 OSSのROI計算ツール紹介
+agentic-automation-intro,エージェンティックオートメーション,"agentic automation とは,自律型AI自動化,RPA AI 違い",entry,framework,frameworks,B,approved,Phase3-A9 Gartner/UiPath/ML Mastery出典
+generative-ai-divide,生成AI 導入 効果,"AI 導入しない リスク,AI格差 2026,生成AI 市場 二極化",entry,framework,frameworks,B,approved,Phase3-A10 OECD/McKinsey/JBPressデータ。A1完了後

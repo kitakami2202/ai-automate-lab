@@ -19,7 +19,13 @@ const jsonLd = generateBreadcrumbJsonLd(breadcrumbItems);
   <ol class="flex flex-wrap items-center gap-1 text-sm text-gray-500">
     {breadcrumbItems.map((item, index) => (
       <>
-        {index > 0 && <li class="mx-1">/</li>}
+        {index > 0 && (
+          <li class="mx-1 text-gray-400" aria-hidden="true">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </li>
+        )}
         <li>
           {index < breadcrumbItems.length - 1 ? (
             <a href={item.url} class="hover:text-brand no-underline hover:underline">

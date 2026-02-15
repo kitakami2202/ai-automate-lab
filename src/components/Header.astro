@@ -1,11 +1,11 @@
 ---
 const navItems = [
   { label: 'ホーム', href: '/' },
+  { label: 'はじめての方へ', href: '/articles/frameworks/ai-introduction-5steps/' },
   { label: 'GAS', href: '/category/gas/' },
-  { label: 'Discord Bot', href: '/category/discord-bot/' },
   { label: 'AI API', href: '/category/ai-api/' },
   { label: 'ノーコード', href: '/category/no-code/' },
-  { label: 'フレームワーク', href: '/category/frameworks/' },
+  { label: 'レビュー・比較', href: '/category/reviews/' },
   { label: '用語集', href: '/glossary/' },
   { label: 'サイトについて', href: '/about/' },
 ];
@@ -34,12 +34,14 @@ const currentPath = Astro.url.pathname;
       ))}
       <button
         id="search-btn"
-        class="p-2 text-gray-500 hover:text-brand transition-colors"
+        class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
         aria-label="検索を開く"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
+        <span class="hidden lg:inline">検索</span>
+        <kbd class="hidden lg:inline-flex items-center px-1.5 py-0.5 text-xs bg-white border border-gray-300 rounded font-sans">Ctrl+K</kbd>
       </button>
     </nav>
 
@@ -67,7 +69,7 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Nav -->
-  <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+  <nav id="mobile-menu" class="md:hidden border-t border-gray-200 bg-white overflow-hidden transition-[max-height] duration-300 ease-out" style="max-height: 0;">
     <div class="container py-4 flex flex-col gap-3">
       {navItems.map((item) => (
         <a
@@ -85,7 +87,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <!-- Search Modal -->
-<div id="search-modal" class="hidden fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm">
+<div id="search-modal" class="hidden fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="記事を検索">
   <div class="container max-w-2xl mx-auto mt-20 bg-white rounded-xl shadow-2xl p-6">
     <div class="flex items-center justify-between mb-4">
       <p class="text-sm font-bold text-gray-700">記事を検索</p>
@@ -142,12 +144,15 @@ const currentPath = Astro.url.pathname;
 
   var menuBtn = document.getElementById('mobile-menu-btn');
   var menu = document.getElementById('mobile-menu');
+  var menuOpen = false;
   menuBtn?.addEventListener('click', function() {
-    menu?.classList.toggle('hidden');
+    menuOpen = !menuOpen;
+    if (menu) menu.style.maxHeight = menuOpen ? menu.scrollHeight + 'px' : '0';
   });
   menu?.querySelectorAll('a').forEach(function(link) {
     link.addEventListener('click', function() {
-      menu?.classList.add('hidden');
+      menuOpen = false;
+      if (menu) menu.style.maxHeight = '0';
     });
   });
 })();

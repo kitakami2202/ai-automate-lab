@@ -16,7 +16,7 @@ const SHEETS_CONFIG = [
     url: GITHUB_RAW_BASE + "article-registry.csv",
     sheetName: "記事レジストリ",
     headerColor: "#1a73e8",
-    colWidths: { 0: 180, 1: 360, 2: 100, 3: 100, 4: 80, 5: 80, 6: 50, 7: 80, 8: 50, 9: 100, 10: 100, 11: 200, 12: 60, 13: 50, 14: 50, 15: 200 }
+    colWidths: { 0: 180, 1: 360, 2: 100, 3: 100, 4: 80, 5: 80, 6: 50, 7: 80, 8: 50, 9: 100, 10: 100, 11: 200, 12: 280, 13: 50, 14: 100, 15: 60, 16: 50, 17: 50, 18: 200 }
   },
   {
     url: GITHUB_RAW_BASE + "changelog.csv",
