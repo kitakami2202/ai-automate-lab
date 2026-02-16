@@ -64,7 +64,7 @@ const formatDate = (date: Date) =>
   ></div>
 
   <article class="py-10" data-pagefind-body>
-    <div class="container">
+    <div class="max-w-4xl mx-auto px-4">
       <Breadcrumb
         items={[
           { name: categoryLabels[category] || category, url: `/category/${category}/` },
@@ -73,7 +73,7 @@ const formatDate = (date: Date) =>
       />
     </div>
 
-    <div class="max-w-3xl mx-auto px-4">
+    <div class="max-w-4xl mx-auto px-4">
       <header class="mb-8">
         <div class="flex items-center gap-2 mb-3">
           <span class:list={['inline-block text-sm font-medium px-3 py-1 rounded-full', categoryBadgeColors[category] || 'bg-blue-50 text-blue-700']}>
