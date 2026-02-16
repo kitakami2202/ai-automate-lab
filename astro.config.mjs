@@ -41,6 +41,11 @@ export default defineConfig({
           item.priority = 0.8;
           item.changefreq = 'weekly';
         }
+        // 用語集ページ
+        if (item.url.includes('/glossary/')) {
+          item.priority = item.url === 'https://ai-automate-lab.tech/glossary/' ? 0.6 : 0.5;
+          item.changefreq = 'monthly';
+        }
         // トップページ
         if (item.url === 'https://ai-automate-lab.tech/') {
           item.priority = 1.0;

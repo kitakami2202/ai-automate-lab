@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import {
+  glossaryTerms,
+  getGlossaryTerm,
+  glossaryCategoryLabels,
+  glossaryCategoryBadgeColors,
+  type GlossaryTerm,
+} from '../../data/glossary';
+import { generateDefinedTermJsonLd } from '../../utils/jsonld';
+import { getCollection } from 'astro:content';
+import { categoryLabels } from '../../utils/categories';
+
+export async function getStaticPaths() {
+  return glossaryTerms.map((term) => ({
+    params: { slug: term.slug },
+    props: { term },
+  }));
+}
+
+interface Props {
+  term: GlossaryTerm;
+}
+
+const { term } = Astro.props;
+const pageUrl = `https://ai-automate-lab.tech/glossary/${term.slug}/`;
+const jsonLd = generateDefinedTermJsonLd(term, pageUrl);
+
+const relatedTerms = term.relatedTerms
+  .map((slug) => getGlossaryTerm(slug))
+  .filter((t): t is GlossaryTerm => t !== undefined);
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const relatedArticles = allArticles.filter((a) =>
+  term.relatedArticles.some((rel) => rel === a.slug)
+);
+---
+
+<BaseLayout
+  title={`${term.term}とは | 用語集 | AI Automate Lab`}
+  description={term.description}
+  jsonLd={jsonLd}
+>
+  <div class="container py-10 max-w-3xl">
+    <Breadcrumb
+      items={[
+        { name: '用語集', url: '/glossary/' },
+        { name: term.term, url: `/glossary/${term.slug}/` },
+      ]}
+    />
+
+    <h1 class="text-3xl font-bold mb-4">{term.term}とは</h1>
+
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+        {term.reading}
+      </span>
+      <span
+        class={`text-sm px-3 py-1 rounded-full ${glossaryCategoryBadgeColors[term.category]}`}
+      >
+        {glossaryCategoryLabels[term.category]}
+      </span>
+    </div>
+
+    <div class="bg-blue-50 border-l-4 border-brand p-5 rounded-r-lg mb-8">
+      <p class="text-gray-800 font-medium leading-relaxed">{term.description}</p>
+    </div>
+
+    <div class="mb-10">
+      <h2 class="text-xl font-bold mb-4">詳しい解説</h2>
+      <p class="text-gray-700 leading-relaxed">{term.longDescription}</p>
+    </div>
+
+    {relatedTerms.length > 0 && (
+      <div class="mb-10">
+        <h2 class="text-xl font-bold mb-4">関連する用語</h2>
+        <div class="flex flex-wrap gap-3">
+          {relatedTerms.map((rt) => (
+            <a
+              href={`/glossary/${rt.slug}/`}
+              class="inline-flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-brand/30 hover:shadow-sm transition-all no-underline"
+            >
+              <span class="font-medium">{rt.term}</span>
+              <span class="text-gray-400">({rt.reading})</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {relatedArticles.length > 0 && (
+      <div class="mb-10">
+        <h2 class="text-xl font-bold mb-4">関連する記事</h2>
+        <div class="space-y-3">
+          {relatedArticles.map((article) => (
+            <a
+              href={`/articles/${article.slug}/`}
+              class="block p-4 border border-gray-200 rounded-lg hover:shadow-sm hover:border-brand/30 transition-all no-underline"
+            >
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs px-2 py-0.5 rounded bg-gray-100 text-gray-600">
+                  {categoryLabels[article.data.category] || article.data.category}
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-gray-800 mb-1">{article.data.title}</h3>
+              <p class="text-sm text-gray-600 line-clamp-2">{article.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="pt-6 border-t border-gray-200">
+      <a href="/glossary/" class="text-brand hover:underline text-sm">
+        &larr; 用語集に戻る
+      </a>
+    </div>
+  </div>
+</BaseLayout>

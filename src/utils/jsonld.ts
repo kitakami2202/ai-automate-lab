@@ -1,5 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import { categoryLabels } from './categories';
+import { glossaryTerms, type GlossaryTerm } from '../data/glossary';
 
 const SITE_URL = 'https://ai-automate-lab.tech';
 const SITE_NAME = 'AI Automate Lab';
@@ -196,6 +197,37 @@ export function generateFAQJsonLd(items: { question: string; answer: string }[])
         '@type': 'Answer',
         text: item.answer,
       },
+    })),
+  });
+}
+
+export function generateDefinedTermJsonLd(term: GlossaryTerm, url: string): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: term.term,
+    description: term.description,
+    url,
+    inDefinedTermSet: {
+      '@type': 'DefinedTermSet',
+      name: `${SITE_NAME} 用語集`,
+      url: `${SITE_URL}/glossary/`,
+    },
+  });
+}
+
+export function generateGlossaryIndexJsonLd(): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    name: `${SITE_NAME} 用語集`,
+    description: 'AI・業務自動化でよく使われる用語集',
+    url: `${SITE_URL}/glossary/`,
+    hasDefinedTerm: glossaryTerms.map((term) => ({
+      '@type': 'DefinedTerm',
+      name: term.term,
+      description: term.description,
+      url: `${SITE_URL}/glossary/${term.slug}/`,
     })),
   });
 }
